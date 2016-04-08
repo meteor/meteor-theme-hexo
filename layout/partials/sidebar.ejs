@@ -11,62 +11,14 @@
   </select>
 </div>
 
-<%
-  var CATEGORIES = [
-    'null',
-    'Data',
-    'View',
-    'Build',
-    'Production',
-    'Meta',
-  ];
-
-  var PAGES = {
-    'null': [
-      'index',
-      'structure',
-      'code-style',
-      '1.3-migration',
-    ],
-    'Data': [
-      'collections',
-      'data-loading',
-      'methods',
-      'accounts',
-      'testing',
-    ],
-    'View': [
-      'routing',
-      'ui-ux',
-      'blaze',
-      'react',
-      'angular',
-    ],
-    'Build': [
-      'using-packages',
-      'writing-packages',
-      'mobile',
-      'build-tool',
-    ],
-    'Production': [
-      'security',
-      'deployment',
-    ],
-    'Meta': [
-      'CONTRIBUTING',
-      'CHANGELOG',
-    ],
-  };
-%>
-
 <ul class="categories">
-  <% CATEGORIES.forEach(function(category) { %>
+  <% _.each(config.sidebar_categories, function(pages, category) { %>
     <li>
       <% if (category !== 'null') { %>
         <p><%- category %></p>
       <% } %>
       <ul class="menu-root">
-        <% PAGES[category].forEach(function(path) { %>
+        <% pages.forEach(function(path) { %>
           <% p = site.pages.findOne({path: path + '.html'}); %>
           <li>
             <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %>">
