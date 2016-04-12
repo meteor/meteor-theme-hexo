@@ -8,7 +8,7 @@
   <div id="content">
     <h1><%- page.title %></h1>
     <p class="edit-discuss-links">
-      <a href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit on GitHub</a>
+      <a href="https://github.com/<%- config.github_repo || 'meteor/guide' %>/tree/master/<%- config.content_root || 'content' %>/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit on GitHub</a>
       <% if (page.discourseTopicId) { %>
         |
         <a href="https://forums.meteor.com/t/<%- page.discourseTopicId %>">Discuss on the Meteor Forums</a>
