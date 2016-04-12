@@ -60,7 +60,7 @@
   <div id="mobile-header">
     <a class="menu-button"></a>
     <a class="logo" href="/">
-      <img src="<%- config.logo.mobile %>" />
+      <img src="<%- config.logo && config.logo.mobile || theme.logo.mobile %>" />
     </a>
   </div>
   <div id="mobile-shade"></div>

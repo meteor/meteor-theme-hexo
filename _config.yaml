@@ -1,1 +1,4 @@
 # Put site-wide variables here
+logo:
+  desktop: '../images/logo-coralspace.svg'
+  mobile: '../images/logo.svg'
