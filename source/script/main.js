@@ -38,7 +38,7 @@
     allLinks.push(h)
     var headerLink = document.createElement('li')
     headerLink.innerHTML =
-      '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '">' + h.textContent + '</a>'
+      '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '">' + (h.title || h.textContent) + '</a>'
     headerLink.firstChild.addEventListener('click', onLinkClick)
     return headerLink
   }
