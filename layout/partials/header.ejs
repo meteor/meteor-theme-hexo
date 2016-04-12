@@ -16,5 +16,7 @@
       <% }) %>
     </select>
   <% } %>
-  <input id="search-input" class="search-box st-default-search-input">
+  <% if (config.apis.swiftype) { %>
+    <input id="search-input" class="search-box st-default-search-input">
+  <% } %>
 </div>
