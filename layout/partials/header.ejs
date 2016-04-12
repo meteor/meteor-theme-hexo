@@ -1,20 +1,8 @@
 <div id="top-nav">
   <ul id="top-nav-links">
-    <li>
-      <a href="https://www.meteor.com">Meteor.com</a>
-    </li>
-    <li>
-      <a href="https://www.meteor.com/install">Install</a>
-    </li>
-    <li>
-      <a href="https://www.meteor.com/tutorials/blaze/creating-an-app">Tutorials</a>
-    </li>
-    <li>
-      <a href="http://docs.meteor.com">Docs</a>
-    </li>
-    <li>
-      <a href="https://forums.meteor.com/">Forums</a>
-    </li>
+    <% _.each(config.nav_links, function (href, name) { %>
+      <li><a href="<%- href %>"><%- name %></a></li>
+    <% }) %>
   </ul>
 </div>
 
