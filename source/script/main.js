@@ -8,8 +8,33 @@
 
   // create sub links for h2s
   var h2s = document.querySelectorAll('h2')
-  if (h2s.length) {
-    createSubMenu(activeLink.parentNode, h2s, 2)
+
+  // find all h3s and nest them under their h2s
+  var h3s = document.querySelectorAll('h3')
+
+  var isAfter = function(e1, e2) {
+    return e1.compareDocumentPosition(e2) & Node.DOCUMENT_POSITION_FOLLOWING;
+  }
+
+  var h2sWithH3s = [];
+  var j = 0;
+  for (var i = 0; i < h2s.length; i++) {
+    var h2 = h2s[i];
+    var nextH2 = h2s[i+1];
+    var ourH3s = [];
+    while (h3s[j] && isAfter(h2, h3s[j]) && (!nextH2 || !isAfter(nextH2, h3s[j]))) {
+      ourH3s.push({ header: h3s[j] });
+      j++;
+    }
+
+    h2sWithH3s.push({
+      header: h2,
+      subHeaders: ourH3s
+    });
+  }
+
+  if (h2sWithH3s.length) {
+    createSubMenu(activeLink.parentNode, h2sWithH3s)
     smoothScroll.init({
       speed: 400,
       offset: window.innerWidth > 560 ? 115 : 55,
@@ -19,18 +44,17 @@
     })
   }
 
-  function createSubMenu (container, headers, depth) {
+  function createSubMenu (container, headers) {
     var subMenu = document.createElement('ul')
     subMenu.className = 'sub-menu'
     container.appendChild(subMenu)
     Array.prototype.forEach.call(headers, function (h) {
-      var link = createSubMenuLink(h)
+      var link = createSubMenuLink(h.header)
       subMenu.appendChild(link)
-      if (depth < MAX_HEADER_DEPTH) {
-        var subHeaders = findSubHeaders(h, depth)
-        createSubMenu(link, subHeaders, depth + 1)
+      if (h.subHeaders) {
+        createSubMenu(link, h.subHeaders)
       }
-      makeHeaderLinkable(h)
+      makeHeaderLinkable(h.header)
     })
   }
 
@@ -41,17 +65,6 @@
       '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '">' + (h.title || h.textContent) + '</a>'
     headerLink.firstChild.addEventListener('click', onLinkClick)
     return headerLink
-  }
-
-  function findSubHeaders (node, depth) {
-    var res = []
-    while (node.nextSibling && node.nextSibling.tagName !== 'H' + depth) {
-      node = node.nextSibling
-      if (node.tagName === 'H' + (depth + 1)) {
-        res.push(node)
-      }
-    }
-    return res
   }
 
   function makeHeaderLinkable (h) {
