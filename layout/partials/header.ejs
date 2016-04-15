@@ -18,5 +18,10 @@
   <% } %>
   <% if (config.apis.swiftype) { %>
     <input id="search-input" class="search-box st-default-search-input">
+  <% } else if (config.apis.docsearch) { %>
+    <!-- This sort of works but is styled badly -->
+    <div class="search-box st-default-search-input">
+      <input id="search-input">
+    </div>
   <% } %>
 </div>
