@@ -1,1 +1,2 @@
-# Put site-wide variables here
+# This is here to workaround a bug with hexo-theme-less
+config:
