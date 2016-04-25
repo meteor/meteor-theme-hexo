@@ -8,8 +8,8 @@
         <ul class="list-toc">
           <% pages.forEach(function(path) { %>
             <% p = site.pages.findOne({path: path + '.html'}); %>
-            <li class="item-toc">
-              <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %>">
+            <li class="item-toc <%- page.title === p.title ? ' current' : '' %>">
+              <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link <%- page.title === p.title ? ' current' : '' %>">
                 <%- p.title %>
               </a>
             </li>
