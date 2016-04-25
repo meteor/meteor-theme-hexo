@@ -1,14 +1,14 @@
 <div class="sidebar">
-  <ul class="categories">
+  <ul class="toc">
     <% _.each(config.sidebar_categories, function(pages, category) { %>
       <li>
         <% if (category !== 'null') { %>
-          <p><%- category %></p>
+          <div class="heading-toc"><%- category %></div>
         <% } %>
-        <ul class="menu-root">
+        <ul class="list-toc">
           <% pages.forEach(function(path) { %>
             <% p = site.pages.findOne({path: path + '.html'}); %>
-            <li>
+            <li class="item-toc">
               <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %>">
                 <%- p.title %>
               </a>
@@ -19,7 +19,7 @@
     <% }); %>
   </ul>
 
-  <span class="select btm-cap">
+  <span class="select select-symbol btm-cap">
     <select class="version-select">
       <% config.versions.forEach(function (v) { %>
         <option value="v<%- v %>"><%- v %></option>

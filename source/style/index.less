@@ -1,0 +1,36 @@
+.nav {
+	background-color: @color-lighter;
+}
+
+.sidebar {
+	.std-xpadding;
+	.std-ypadding;
+
+	.font-s1;
+	line-height: 2em;
+
+	.heading-toc {
+		.subheading-caps;
+	}
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+
+		ul.sub-menu {
+			padding-left: 15px;
+		}
+	}
+
+
+	a {
+		&:extend(.link.tertiary all);
+		.type-normal;
+
+		&.current {
+			&:extend(.link.primary all);
+			.type-semibold;
+
+		}
+	}
+}
