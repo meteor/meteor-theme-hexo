@@ -19,12 +19,11 @@
     <% }); %>
   </ul>
 
-  <span class="select select-symbol btm-cap">
+  <span class="select btm-cap">
     <select class="version-select">
       <% config.versions.forEach(function (v) { %>
-        <option value="v<%- v %>"><%- v %></option>
+        <option value="Version <%- v %>">Version <%- v %></option>
       <% }) %>
     </select>
-    <span class="icon-commit"></span>
   </span>
 </div>

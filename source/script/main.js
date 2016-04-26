@@ -60,7 +60,7 @@
     anchor.href = '#' + h.id
     anchor.setAttribute('aria-hidden', true)
     anchor.setAttribute('data-scroll', '')
-    anchor.textContent = '🔗'
+    anchor.innerHTML = '<span class="icon-link"></span>'
     anchor.addEventListener('click', onLinkClick)
     h.insertBefore(anchor, h.firstChild)
   }

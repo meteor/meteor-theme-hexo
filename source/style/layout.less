@@ -1,49 +1,15 @@
-@transition-time: 300ms;
-
-.layout {
-  &.contact-open {
-    .overlay-screen-contact {
-      opacity: 1;
-      z-index: 9;
-    }
-
-    .page {
-      opacity: 1;
-      .transform( scale3d(0.85, 0.85, 1) );
-      .transition( all @transition-time * 2 ease-out);
-    }
-  }
-}
-
-.overlay-screen-contact {
-  .transition(all @transition-time - 50ms ease-in-out);
-  .transform(translate3d(0,0,0));
-  opacity: 0;
-  z-index: -1;
-  -webkit-overflow-scrolling: touch;
-  //do not add backface to this, scrolling will not register on the overlay
-}
-
-.page {
-  .position(absolute, 0, 0, 0, 0);
-  .transform( scale3d(1,1,1) );
-  .transition( all @transition-time ease-out);
-
+body {
   background: @color-lightest;
-  z-index: 1;
 
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
-body {
-  background: @color-lightest;
-  overflow: hidden;
-}
-
 .sidebar {
-  .position(fixed, 6em, auto, 0, 0, 260px);
+  .position(fixed, 1.5rem, auto, 0, 0, 260px);
+  border-right: 1px solid @color-light;
+  z-index: 1;
 
   .btm-cap {
     .position(absolute, auto, 0, 0, 0);
@@ -51,7 +17,7 @@ body {
 }
 
 .content {
-  .position(absolute, 0, 0, 0, 260px);
-  .std-xpadding;
-  .std-ypadding;
+  position: relative;
+  padding-left: 260px;
+
 }

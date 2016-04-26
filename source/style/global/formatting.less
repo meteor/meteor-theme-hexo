@@ -1,60 +1,66 @@
 @import "../util/index.import.less";
 
 .document-formatting {
-	.font-s2;
 	line-height: 1.375rem; //22px
 
   h1, h2, h3, h4, h5 {
-    .type-bold;
     line-height: 1em;
 
-		&:not(:first-child) { padding: 1em 0 0; }
-
-    & + *:not(hr) { //clears margin of element directly following a Heading
-      margin-top: 0 !important;
-    }
+		&:not(:first-child) { margin: 1em 0 0; }
   }
 
   hr + * { margin-top: 0 !important; }
 
   h1 {
+		.font-l1;
+		.type-light;
+		color: @color-primary;
     margin-bottom: 1rem;
-    border-bottom: 1px solid @color-mediumlight;
   }
 
   h2 {
+		.font-m2;
+		.type-light;
     margin-bottom: 1rem;
-    border-bottom: 1px solid @color-mediumlight;
   }
 
   h3 {
-		.font-s3;
+		.font-m1;
+		.type-light;
 		margin-bottom: .25rem;
 	}
 
-  h4 { margin-bottom: .125rem; }
+  h4 {
+		.font-s3;
+		margin-bottom: .125rem;
+	}
 
   p {
-    margin-bottom: .75rem;
-    margin-top: .75rem;
+    margin: 1.25em 0;
     position: relative;
 
     &:first-of-type:not(:only-of-type) { margin-top: 0; }
+		&:last-of-type:not(:only-of-type) { margin-bottom: 0; }
+		&:only-of-type { margin: 0; }
   }
 
-	a {
-		//same as .link.primary
-		//can't seem to :extend
-		&:link,
-		&:visited { color: @color-primary; }
-		&:hover { text-decoration: underline; }
-		&:active { color: darken(@color-primary, 5%); }
+	a code {
+		text-decoration: underline;
+	}
+
+	p a,
+	li a {
+		.link(@color-primary);
+		.type-normal;
+		text-decoration: underline;
 	}
 
   figure {
     clear: both;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+		margin-left: 0;
+		margin-right: 0;
+    margin-bottom: 1.25em;
+    margin-top: 1.25em;
 
     figcaption {
       .font-s1;
@@ -81,18 +87,17 @@
 
     &.aligncenter{
       display: block;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25em;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 1rem;
+      margin-top: 1.25rem;
     }
   }
 
   blockquote {
     border-left: 2px solid @color-primary;
-    color: @color-mediumdark;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    color: @color-darker;
+		margin: 1rem 0;
     padding: .75em 1.25em .75em 1.5em;
 
     p:only-of-type { margin: 0; }
@@ -101,17 +106,17 @@
   ol,
 	ul {
     list-style-position: outside;
-    margin-bottom: .75rem;
-    margin-top: .75rem;
-    padding-left: 2rem;
+    margin-bottom: .75em;
+    margin-top: .75em;
+    padding-left: 1.875rem;
   }
 
   ol { list-style-type: decimal; }
   ul { list-style-type: disc; }
 
-  pre {
-    margin-top: .75rem;
-    margin-bottom: .75rem;
+  *:not(figure.highlight) pre {
+    margin-top: .75em;
+    margin-bottom: .75em;
 
     code {
       .ellipsized;
@@ -123,58 +128,89 @@
       padding: 0;
     }
   }
-  .highlight pre {
-    overflow: auto;
-    padding: .5rem .75rem;
+
+
+	.highlight {
+		.font-s2;
+
+		table {
+			width: 100%;
+		}
+
+		.gutter pre {
+			color: @color-medium;
+			margin: 0;
+			padding: 1.25em 10px;
+			text-align: right;
+		}
+
+		.code {
+			pre {
+		    overflow: auto;
+		    padding: 1.25em 15px 1.25em 20px;
+				margin: 0;
+		  }
+		}
+	}
+
+	dl {
+    padding-left: 20px;
+		margin: 0;
+
+		&:not(:last-of-type) {
+			margin-bottom: 1.25em;
+	    margin-top: 1.25em;
+		}
+
+    dt {
+      .type-semibold;
+
+      &:not(:first-child) { margin-top: 1em; }
+
+      code { line-height: inherit; }
+    }
+
+		dd {
+			margin: 0;
+		}
   }
 
   // Tables based on GH markdown format
-  table {
-    .font-s2;
-    padding: 0;
-  }
-  table tr {
-    border-top: 1px solid @color-mediumlight;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-  }
-  table tr:nth-child(2n) {
-    background-color: @color-light;
-  }
-  table tr th {
-    font-weight: bold;
-    border: 1px solid @color-medium;
-    border-radius: 3px 3px 0 0;
-    text-align: left;
-    margin: 0;
-    padding: .5rem .75rem;
-  }
-  table tr td {
-    border: 1px solid #ddd;
-    text-align: left;
-    margin: 0;
-    padding: .5rem 1rem;
-  }
+  // table {
+  //   .font-s2;
+  //   padding: 0;
+  // }
+  // table tr {
+  //   border-top: 1px solid @color-mediumlight;
+  //   background-color: white;
+  //   margin: 0;
+  //   padding: 0;
+  // }
+  // table tr:nth-child(2n) {
+  //   background-color: @color-light;
+  // }
+  // table tr th {
+  //   font-weight: bold;
+  //   border: 1px solid @color-medium;
+  //   border-radius: 3px 3px 0 0;
+  //   text-align: left;
+  //   margin: 0;
+  //   padding: .5rem .75rem;
+  // }
+  // table tr td {
+  //   border: 1px solid #ddd;
+  //   text-align: left;
+  //   margin: 0;
+  //   padding: .5rem 1rem;
+  // }
+	//
+  // table tr th :first-child, table tr td:first-child {
+  //   margin-top: 0;
+  // }
+	//
+  // table tr th :last-child, table tr td:last-child {
+  //   margin-bottom: 0;
+  // }
+	//
 
-  table tr th :first-child, table tr td:first-child {
-    margin-top: 0;
-  }
-
-  table tr th :last-child, table tr td:last-child {
-    margin-bottom: 0;
-  }
-
-  dl {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    padding-left: 2rem;
-
-    dt {
-      .type-bold;
-
-      &:not(:first-child) { margin-top: .75rem; }
-      code { line-height: inherit; }
-    }
-  }
 }

@@ -1,19 +1,28 @@
-<div class="layout">
-  <div class="page">
-    <%- partial('partials/header') %>
-    <%- partial('partials/sidebar') %>
+<%- partial('partials/header') %>
+<%- partial('partials/sidebar') %>
 
-    <div class="content">
-      <h1><%- page.title %></h1>
-      <p class="edit-discuss-links">
-        <a href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit on GitHub</a>
-        <% if (page.discourseTopicId) { %>
-          |
-          <a href="https://forums.meteor.com/t/<%- page.discourseTopicId %>">Discuss on the Meteor Forums</a>
-        <% } %>
-      </p>
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page"><%- page.title %></h1>
+      <div class="subtitle-page"><%- page.description %></div>
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn primary small round" href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit on GitHub</a>
+          <% if (page.discourseTopicId) { %>
+            |
+            <a class="btn tertiary small round" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>"><span class="icon-comment"></span>Discuss</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
       <%- page.content %>
-      <div class="bottom-nav">
+    </div>
+
+    <div class="footer-content">
+      <div class="pagination">
         <%
           function findAdjacent (direction) {
             var pages = site.pages.find({}).sort({order: 1}).map(function (page) { return page })
@@ -29,15 +38,21 @@
           }
         %>
         <% var prev = findAdjacent(-1); if (prev) { %>
-          <span>← <a href="<%- relative_url(page.path, prev.path) %>"><%- prev.title %></a></span>
+          <a class="link" href="<%- relative_url(page.path, prev.path) %>">
+            <span class="icon-arrow-left-alt"></span>
+            <%- prev.title %>
+          </a>
         <% } %>
         <% var next = findAdjacent(1); if (next) { %>
-          <span style="float:right"><a href="<%- relative_url(page.path, next.path) %>"><%- next.title %></a> →</span>
+          <a href="<%- relative_url(page.path, next.path) %>">
+            <%- next.title %>
+            <span class="icon-arrow-right-alt"></span>
+          </a>
         <% } %>
       </div>
-      <p class="edit-link">
-        <a href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit this page on GitHub</a>
-      </p>
+      <div class="edit-link">
+        <a class="btn primary" href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit this page on GitHub</a>
+      </div>
       <% if (page.discourseTopicId) { %>
         <div id='discourse-comments'></div>
 

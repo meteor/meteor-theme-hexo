@@ -26,9 +26,9 @@
 	//down arrow
   &:after {}
 	// background of arrow
-  &:before { background-color: @color-lightest; }
+  &:before { background-color: @color-light; }
 	// background
-	select { background-color: @color-lightest; }
+	select { background-color: @color-light; }
 
 	&.inverse {
 		//down arrow
@@ -62,7 +62,7 @@
 }
 
 // Select layout
-.select{
+.select {
   display: inline-block;
   height: 40px;
   line-height: normal;
@@ -133,7 +133,6 @@
 		&.inverse [class*="icon-"] { color: @color-mediumlight; }
 
 		select:focus + [class*="icon-"] {
-	    .animation(jump 225ms linear);
 	    color: @color-darker;
 	  }
 	}
