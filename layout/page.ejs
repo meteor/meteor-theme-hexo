@@ -38,20 +38,22 @@
           }
         %>
         <% var prev = findAdjacent(-1); if (prev) { %>
-          <a class="link" href="<%- relative_url(page.path, prev.path) %>">
+          <a class="link primary prev"
+            href="<%- relative_url(page.path, prev.path) %>">
             <span class="icon-arrow-left-alt"></span>
             <%- prev.title %>
           </a>
         <% } %>
         <% var next = findAdjacent(1); if (next) { %>
-          <a href="<%- relative_url(page.path, next.path) %>">
+          <a class="link primary next"
+            href="<%- relative_url(page.path, next.path) %>">
             <%- next.title %>
             <span class="icon-arrow-right-alt"></span>
           </a>
         <% } %>
       </div>
-      <div class="edit-link">
-        <a class="btn primary" href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit this page on GitHub</a>
+      <div class="github">
+        <a class="btn tertiary small round " href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit on GitHub</a>
       </div>
       <% if (page.discourseTopicId) { %>
         <div id='discourse-comments'></div>

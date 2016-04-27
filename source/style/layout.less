@@ -7,13 +7,16 @@ body {
 }
 
 .sidebar {
-  .position(fixed, 1.5rem, auto, 0, 0, 260px);
+  .position(fixed, 4rem, auto, 0, 0, 260px);
   border-right: 1px solid @color-light;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   z-index: 1;
 
-  .btm-cap {
-    .position(absolute, auto, 0, 0, 0);
-  }
+  // .btm-cap {
+  //   .position(absolute, auto, 0, 0, 0);
+  // }
 }
 
 .content {

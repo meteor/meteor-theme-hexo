@@ -1,5 +1,5 @@
-@import "../util/index.import.less";
-@import "Textarea.less";
+//@import "../util/index.import.less";
+//@import "Textarea.less";
 
 input {
   &.hidden { display: none; }
@@ -9,6 +9,7 @@ input {
 input:not([type="checkbox"]):not([type="number"]):not([type="radio"]):not([type=submit]):not([type=file]),
 input[type="number"] {
   &:extend(textarea all);
+  overflow: inherit;
 }
 
 // Remove default browser controls from number inputs for .cardinal

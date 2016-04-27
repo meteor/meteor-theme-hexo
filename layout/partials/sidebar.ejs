@@ -1,4 +1,12 @@
 <div class="sidebar">
+  <span class="select">
+    <select class="version-select">
+      <% config.versions.forEach(function (v) { %>
+        <option value="Version <%- v %>">Version <%- v %></option>
+      <% }) %>
+    </select>
+  </span>
+  
   <ul class="toc">
     <% _.each(config.sidebar_categories, function(pages, category) { %>
       <li>
@@ -19,11 +27,5 @@
     <% }); %>
   </ul>
 
-  <span class="select btm-cap">
-    <select class="version-select">
-      <% config.versions.forEach(function (v) { %>
-        <option value="Version <%- v %>">Version <%- v %></option>
-      <% }) %>
-    </select>
-  </span>
+
 </div>

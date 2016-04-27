@@ -9,10 +9,10 @@
 }
 
 .sidebar {
-	@indent: 15px;
-
 	.font-s2;
-	line-height: 2em;
+	@indent: 15px;
+	padding-bottom: 3rem;
+
 
 	.heading-toc {
 		.subheading-caps;
@@ -21,19 +21,47 @@
 
 	}
 
+	.select {
+
+	}
+
 	ul {
 		//reset
 		list-style: none;
 		padding-left: 0;
+
+		li {
+			vertical-align: top;
+		}
 	}
+
+
 
 	ul.list-toc {
 
+		a {
+			display: block;
+			line-height: 1rem;
+		}
+
 		> li { padding-left: @indent * 2; }
-		ul.sub-menu li { padding-left: @indent; }
+
+		.sub-menu {
+			margin-top: .375rem;
+
+			&:empty {
+				max-height: 0;
+				overflow: hidden;
+				margin: 0;
+			}
+
+			li { padding-left: @indent; }
+		}
 
 		li {
 			position: relative;
+			padding-top: .375rem;
+			padding-bottom: .375rem;
 
 			&.current,
 			&.active {
@@ -48,10 +76,7 @@
 				}
 			}
 		}
-
-
 	}
-
 
 	a {
 		.link(@color-darkest);
@@ -161,6 +186,12 @@
 			margin:.5rem 0 .5rem;
 		}
 
+		.desc {
+			&:not(:only-child) {
+				margin-bottom: 1.25em;
+			}
+		}
+
 		p {
 			&:only-child {
 				margin: 0;
@@ -202,12 +233,29 @@
 
 	.anchor { opacity: 0; }
 	&:hover .anchor { opacity: 1; }
-	
+
 	.anchor {
 		.font-s3;
 		.transform(translateY(-50%));
 		.position(absolute, 50%, auto, auto, -20px);
 		color: @color-dark;
 	}
+}
 
+
+.pagination {
+	//border-top: 1px solid @color-mediumlight;
+	border-bottom: 1px solid @color-mediumlight;
+	padding-bottom: 1.5rem;
+	padding-top: 1.5rem;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+
+	.next {
+		float: right;
+	}
+}
+
+.github {
+	text-align: center;
 }
