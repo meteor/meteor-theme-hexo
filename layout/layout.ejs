@@ -69,9 +69,9 @@
 
       <% if (config.redirects) { %>
         var REDIRECTS = <%- JSON.stringify(config.redirects, 0, 2) %>;
-        var hash = window.location.hash.replace(/^#/g, '').replace(/^\//g, '');
-        if (REDIRECTS[hash]) {
-          location.replace(REDIRECTS[hash]);
+        var locationKey = location.pathname + location.hash;
+        if (REDIRECTS[locationKey]) {
+          location.replace(REDIRECTS[locationKey]);
         }
       <% } %>
     </script>
