@@ -6,7 +6,13 @@
       <% }) %>
     </select>
   </span>
-  
+
+  <div class="input-symbol">
+    <input type="text" placeholder="Search Meteor <%- config.subtitle %>" />
+    <span class="icon-search"></span>
+  </div>
+
+
   <ul class="toc">
     <% _.each(config.sidebar_categories, function(pages, category) { %>
       <li>

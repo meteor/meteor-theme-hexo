@@ -6,21 +6,31 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.panel {
+	.position(fixed, 0, auto, 0, 0, 80px);
+	background: green;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+}
+
 .sidebar {
-  .position(fixed, 4rem, auto, 0, 0, 260px);
+  .position(fixed, 0, auto, 0, 80px, 260px);
+  background: purple;
   border-right: 1px solid @color-light;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 1;
+}
 
-  // .btm-cap {
-  //   .position(absolute, auto, 0, 0, 0);
-  // }
+.nav {
+  // appears on mobile only
 }
 
 .content {
-  position: relative;
-  padding-left: 260px;
-
+  //position: relative;
+  //padding-left: 260px;
+  .position(absolute, 0, auto, 0, 260px + 80px);
 }
