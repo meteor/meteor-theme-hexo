@@ -14,7 +14,36 @@
 	}
 
 	.panel-item {
+
+		&:nth-child(odd) { background: green; }
+
+		&:before {
+			content: '';
+			
+		}
+
+		&.active {
+
+		}
+
+		.font-s2;
+		.type-semibold;
 		display: block;
+		position: relative;
+		text-align: center;
+		height: 80px;
+		padding-top: .75rem;
+
+		img {
+			height: 36px;
+			width: auto;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		img + span {
+			display: block;
+		}
 	}
 
 	.logo {
