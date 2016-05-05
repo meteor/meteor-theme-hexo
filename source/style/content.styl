@@ -110,7 +110,7 @@ code-font()
       user-select none
       width 1.5em
       padding-right 30px
-    &.html, &.js, &.bash, &.css, &.jsx, &.less, &.sass
+    &.html, &.js, &.bash, &.css, &.jsx, &.less, &.sass, &.sh, &.xml
       .code:after
         font-family 'ProximaNova-Semibold'
         position absolute
@@ -138,6 +138,10 @@ code-font()
         content 'LESS'
       &.sass .code:after
         content 'SASS'
+      &.sh .code:after
+        content 'Shell'
+      &.xml .code:after
+        content 'XML'
 
   > table
     width 100%
