@@ -71,6 +71,25 @@ input.secondary {
     &:before { right: 2.5rem; }
   }
 
+  &.round {
+    input:not([type="checkbox"]):not([type="number"]):not([type="radio"]):not([type=submit]):not([type=file]),
+    input[type="number"] {
+      border-radius: 3rem;
+      padding-left: 2.75em  !important;
+    }
+
+    > [class*="icon-"] {
+      left: 1.25em;
+      font-size: 95%;
+    }
+  }
+
+  &.small {
+    font-size: 13px;
+    input:not([type="checkbox"]):not([type="number"]):not([type="radio"]):not([type=submit]):not([type=file]),
+    input[type="number"] { &:extend(textarea.small); }
+  }
+
   > input,
   > button {
     position: relative;

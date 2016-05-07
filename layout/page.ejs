@@ -8,10 +8,10 @@
       <div class="subtitle-page"><%- page.description %></div>
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn primary small round" href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit on GitHub</a>
+          <a class="btn primary small round lowercase" href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           <% if (page.discourseTopicId) { %>
             |
-            <a class="btn tertiary small round" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>"><span class="icon-comment"></span>Discuss</a>
+            <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>"><span class="icon-comment"></span>Discuss</a>
           <% } %>
         </div>
       </div>

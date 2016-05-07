@@ -25,10 +25,20 @@
 	&.small {
 		.transition( all 250ms ease-out );
 		padding: .25rem 1.25rem;
+		[class*="icon-"] {
+			font-size: 100%;
+		}
 	}
 
 	// Disabled
 	&[disabled] { cursor: not-allowed; }
+
+	// Lowercase
+	&.lowercase {
+		letter-spacing: 0;
+		text-indent: 0;
+		text-transform: none;
+	}
 
 	// Button colors
 	&.primary {

@@ -1,15 +1,20 @@
 <div class="sidebar">
-  <span class="select">
-    <select class="version-select">
-      <% config.versions.forEach(function (v) { %>
-        <option value="Version <%- v %>">Version <%- v %></option>
-      <% }) %>
-    </select>
-  </span>
+  <div class="topcap">
+    <span class="title-sidebar">Meteor <%- config.subtitle %></span>
+    <span class="select version-sidebar">
+      <select class="version-select">
+        <% config.versions.forEach(function (v) { %>
+          <option value="<%- v %>"><%- v %></option>
+        <% }) %>
+      </select>
+    </span>
+  </div>
 
-  <div class="input-symbol">
-    <input type="text" placeholder="Search Meteor <%- config.subtitle %>" />
-    <span class="icon-search"></span>
+  <div class="wrapper-search">
+    <div class="input-symbol small round">
+      <input type="text" placeholder="Search" />
+      <span class="icon-search"></span>
+    </div>
   </div>
 
 
