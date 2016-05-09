@@ -16,9 +16,9 @@
       <% }) %>
     </select>
   <% } %>
-  <% if (config.apis.swiftype) { %>
+  <% if (config.apis && config.apis.swiftype) { %>
     <input id="search-input" class="search-box st-default-search-input">
-  <% } else if (config.apis.docsearch) { %>
+  <% } else if (config.apis && config.apis.docsearch) { %>
     <!-- This sort of works but is styled badly -->
     <div class="search-box st-default-search-input">
       <input id="search-input">
