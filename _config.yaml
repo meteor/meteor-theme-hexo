@@ -11,3 +11,7 @@ nav_links:
   'Tutorials': 'https://www.meteor.com/tutorials/blaze/creating-an-app'
   'Docs': 'http://docs.meteor.com'
   'Forums': 'https://forums.meteor.com/'
+
+social_links:
+  github: 'https://github.com/meteor'
+  twitter: '@meteor'

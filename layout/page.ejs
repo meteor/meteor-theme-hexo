@@ -27,7 +27,10 @@
   <div class="content-wrapper">
     <div class="header-content">
       <h1 class="title-page"><%- page.title %></h1>
-      <div class="subtitle-page"><%- page.description %></div>
+      <% if (page.description) { %>
+        <div class="subtitle-page"><%- page.description %></div>
+      <% } %>
+
       <div class="page-actions">
         <div class="actions-group">
           <a class="btn primary small round lowercase" href="https://github.com/<%- config.github_repo || 'meteor/guide' %>/tree/master/<%- config.content_root || 'content' %>/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>

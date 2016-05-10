@@ -2,10 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+
+    <!-- Basic -->
+    <title><%- page.title %> | <%- config.title %></title>
     <meta name="description" content="<%- page.description %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title><%- page.title %> | <%- config.title %></title>
-    <link rel="icon" href="<%- config.favicon || 'https://www.meteor.com/favicon.png' %>" type="image/png">
+    <link rel="shortcut icon" type="image/png" href="<%- config.favicon || 'https://www.meteor.com/favicon.png' %>" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<%- config.url %>">
+    <meta property="og:title" content="<%- page.title %> | <%- config.title %>">
+    <meta property="og:description" content="<%- page.description %>">
+    <meta property="og:image" content="<%- config.logo && config.logo.desktop || theme.logo.desktop %>">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="<%- theme.social_links.twitter %>">
+    <meta name="twitter:title" content="<%- page.title %> | <%- config.title %>">
+    <meta name="twitter:description" content="<%- page.description %>">
+    <meta name="twitter:image" content="<%- config.logo && config.logo.desktop || theme.logo.desktop %>">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/style/style.css">
     <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
