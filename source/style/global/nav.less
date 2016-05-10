@@ -17,13 +17,24 @@
     svg { fill: @color-lightest; }
   }
 
-	svg {
+	.center-wrapper {
 		position: relative;
 		top: .75rem;
 		@media screen and (min-width: @breakpoint) { top: 1.25rem; }
-		height: 10px;
 
-		.subheading-caps(center);
+		img {
+			height: 28px;
+			display: inline-block;
+			vertical-align: top;
+			margin-top: -.5rem;
+		}
+
+		div {
+			.font-s1;
+			.type-semibold;
+			color: @color-dark;
+			margin-top: -.75rem;
+		}
   }
 
   .nav-group {

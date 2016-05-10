@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="topcap">
     <span class="title-sidebar">Meteor <%- config.subtitle %></span>
-    <span class="select version-sidebar">
+    <span class="select version-sidebar nochrome">
       <select class="version-select">
         <% config.versions.forEach(function (v) { %>
           <option value="<%- v %>"><%- v %></option>
@@ -16,7 +16,6 @@
       <span class="icon-search"></span>
     </div>
   </div>
-
 
   <ul class="toc">
     <% _.each(config.sidebar_categories, function(pages, category) { %>
@@ -37,6 +36,4 @@
       </li>
     <% }); %>
   </ul>
-
-
 </div>

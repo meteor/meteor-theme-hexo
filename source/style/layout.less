@@ -1,3 +1,6 @@
+@sidebar-width: 260px;
+@panel-width: 80px;
+
 body {
   background: @color-lightest;
 
@@ -6,9 +9,21 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.panel {
+	.position(fixed, 0, auto, 0, 0, @panel-width);
+	background: @color-mediumlight;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+}
+
 .sidebar {
-  .position(fixed, 0, auto, 0, 80px, 260px);
-  background: @color-light;
+  @media screen and (min-width: @breakpoint) {
+
+  }
+  .position(fixed, 0, auto, 0, @panel-width, @sidebar-width);
+  background: @color-lighter;
   box-shadow: rgba(0,0,0,.1) 0 0 5px 0;
 
   overflow-y: auto;
@@ -17,20 +32,40 @@ body {
   z-index: 1;
 }
 
-.panel {
-	.position(fixed, 0, auto, 0, 0, 80px);
-	background: @color-mediumlight;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  z-index: 0;
-}
+
+
 
 .nav {
-  // appears on mobile only
+  // appears on mobile/tablet only
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: 3;
+
+  @media screen and (min-width: @breakpoint) {
+    left: @panel-width;
+  }
+
+  @media screen and (min-width: (@breakpoint * 1.5)) {
+    height: 0;
+  }
 }
 
 .content {
+  position: relative;
+  background: @color-lightest;
+  padding-top: 3rem;
+  z-index: 2;
 
-  .position(absolute, 0, auto, 0, 260px + 80px);
+  @media screen and (min-width: @breakpoint) {
+    margin-left: @panel-width;
+    padding-top: 4rem;
+  }
+
+  @media screen and (min-width: (@breakpoint * 1.5)) {
+    margin-left: @sidebar-width + @panel-width;
+    padding-top: 1rem;
+  }
 }
