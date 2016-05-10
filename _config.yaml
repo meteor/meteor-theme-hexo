@@ -1,2 +1,13 @@
-# This is here to workaround a bug with hexo-theme-less
 config:
+
+logo:
+  desktop: '../images/logo-coralspace.svg'
+  mobile: '../images/logo.svg'
+
+nav_links:
+  'Meteor.com': 'https://www.meteor.com'
+  'Install': 'https://www.meteor.com/install'
+  'Guide': 'http://guide.meteor.com'
+  'Tutorials': 'https://www.meteor.com/tutorials/blaze/creating-an-app'
+  'Docs': 'http://docs.meteor.com'
+  'Forums': 'https://forums.meteor.com/'

@@ -40,7 +40,6 @@
     position: relative;
 
     &:first-of-type:not(:only-of-type) { margin-top: 0; }
-		&:last-of-type:not(:only-of-type) { margin-bottom: 0; }
 		&:only-of-type { margin: 0; }
   }
 
@@ -132,6 +131,7 @@
 
 	.highlight {
 		.font-s2;
+		overflow-x: auto;
 
 		table {
 			width: 100%;
@@ -152,7 +152,7 @@
 				overflow-x: auto;
 		    padding: 1.25em 15px 1.25em 20px;
 				margin: 0;
-				white-space: nowrap;
+				white-space: pre;
 		  }
 		}
 	}

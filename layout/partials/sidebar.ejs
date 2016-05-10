@@ -1,18 +1,20 @@
 <div class="sidebar">
   <div class="topcap">
-    <span class="title-sidebar">Meteor <%- config.subtitle %></span>
-    <span class="select version-sidebar nochrome">
-      <select class="version-select">
-        <% config.versions.forEach(function (v) { %>
-          <option value="<%- v %>"><%- v %></option>
-        <% }) %>
-      </select>
-    </span>
+    <span class="title-sidebar"><%- config.title %></span>
+    <% if (config.versions.length > 1) { %>
+      <span class="select version-sidebar nochrome">
+        <select class="version-select">
+          <% config.versions.forEach(function (v) { %>
+            <option value="<%- v %>"><%- v %></option>
+          <% }) %>
+        </select>
+      </span>
+    <% } %>
   </div>
 
   <div class="wrapper-search">
     <div class="input-symbol small round">
-      <input type="text" placeholder="Search" />
+      <input type="text" placeholder="Search" id="search-input" />
       <span class="icon-search"></span>
     </div>
   </div>
@@ -28,7 +30,7 @@
             <% p = site.pages.findOne({path: path + '.html'}); %>
             <li class="item-toc <%- page.title === p.title ? ' current' : '' %>">
               <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link <%- page.title === p.title ? ' current' : '' %>">
-                <%- p.title %>
+                <span><%- p.title %></span>
               </a>
             </li>
           <% }); %>

@@ -1,5 +1,6 @@
 @sidebar-width: 260px;
 @panel-width: 80px;
+@panel-width-mobile: 64px;
 
 body {
   background: @color-lightest;
@@ -10,7 +11,8 @@ body {
 }
 
 .panel {
-	.position(fixed, 0, auto, 0, 0, @panel-width);
+	.position(fixed, 0, auto, 0, 0, @panel-width-mobile);
+  @media screen and (min-width: (@breakpoint * 1.5)) { width: @panel-width; }
 	background: @color-mediumlight;
   overflow-y: auto;
   overflow-x: hidden;
@@ -19,10 +21,8 @@ body {
 }
 
 .sidebar {
-  @media screen and (min-width: @breakpoint) {
-
-  }
-  .position(fixed, 0, auto, 0, @panel-width, @sidebar-width);
+  .position(fixed, 0, auto, 0, @panel-width-mobile, @sidebar-width);
+  @media screen and (min-width: (@breakpoint * 1.5)) { left: @panel-width; }
   background: @color-lighter;
   box-shadow: rgba(0,0,0,.1) 0 0 5px 0;
 
@@ -45,11 +45,12 @@ body {
   z-index: 3;
 
   @media screen and (min-width: @breakpoint) {
-    left: @panel-width;
+    left: @panel-width-mobile;
   }
 
   @media screen and (min-width: (@breakpoint * 1.5)) {
     height: 0;
+    left: @panel-width;
   }
 }
 
@@ -60,7 +61,7 @@ body {
   z-index: 2;
 
   @media screen and (min-width: @breakpoint) {
-    margin-left: @panel-width;
+    margin-left: @panel-width-mobile;
     padding-top: 4rem;
   }
 

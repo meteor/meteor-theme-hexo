@@ -12,8 +12,8 @@
     </div>
 
     <div class="center-wrapper">
-      <img src="/images/logo-coralspace.svg" title="Meteor" alt="Meteor"/>
-      <div>Guide</div>
+      <img src="<%- config.logo && config.logo.mobile || theme.logo.mobile %>" title="Meteor" alt="Meteor"/>
+      <div><%- config.subtitle %></div>
     </div>
 
     <div class="nav-group right">
@@ -30,9 +30,8 @@
       <div class="subtitle-page"><%- page.description %></div>
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn primary small round lowercase" href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn primary small round lowercase" href="https://github.com/<%- config.github_repo || 'meteor/guide' %>/tree/master/<%- config.content_root || 'content' %>/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           <% if (page.discourseTopicId) { %>
-            |
             <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>"><span class="icon-comment"></span>Discuss</a>
           <% } %>
         </div>
@@ -42,55 +41,62 @@
     <div class="document-formatting">
       <%- page.content %>
     </div>
+  </div>
 
-    <div class="footer-content">
-      <div class="pagination">
-        <%
-          function findAdjacent (direction) {
-            var pages = site.pages.find({}).sort({order: 1}).map(function (page) { return page })
-            var i = pages.length
-            while (i--) {
-              if (pages[i].title === page.title) {
-                break
-              }
+  <div class="pagination">
+    <div class="content-wrapper">
+      <%
+        function findAdjacent (direction) {
+          var pages = site.pages.find({}).sort({order: 1}).map(function (page) { return page })
+          var i = pages.length
+          while (i--) {
+            if (pages[i].title === page.title) {
+              break
             }
-            return direction > 0
-              ? pages[i + 1]
-              : pages[i - 1]
           }
-        %>
-        <% var prev = findAdjacent(-1); if (prev) { %>
-          <a class="link primary prev"
-            href="<%- relative_url(page.path, prev.path) %>">
-            <span class="icon-arrow-left-alt"></span>
-            <%- prev.title %>
-          </a>
-        <% } %>
-        <% var next = findAdjacent(1); if (next) { %>
-          <a class="link primary next"
-            href="<%- relative_url(page.path, next.path) %>">
-            <%- next.title %>
-            <span class="icon-arrow-right-alt"></span>
-          </a>
-        <% } %>
-      </div>
-      <div class="github">
-        <a class="btn tertiary small round " href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit on GitHub</a>
-      </div>
-      <% if (page.discourseTopicId) { %>
-        <div id='discourse-comments'></div>
-
-        <script type="text/javascript">
-          DiscourseEmbed = { discourseUrl: 'http://forums.meteor.com/',
-                             topicId: <%- page.discourseTopicId %> };
-
-          (function() {
-            var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-            d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-          })();
-        </script>
+          return direction > 0
+            ? pages[i + 1]
+            : pages[i - 1]
+        }
+      %>
+      <% var prev = findAdjacent(-1); if (prev) { %>
+        <a class="link primary prev"
+          href="<%- relative_url(page.path, prev.path) %>">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          <%- prev.title %>
+        </a>
+      <% } %>
+      <% var next = findAdjacent(1); if (next) { %>
+        <a class="link primary next"
+          href="<%- relative_url(page.path, next.path) %>">
+          <span class="subtitle-pagination">Next</span>
+          <%- next.title %>
+          <span class="icon-arrow-right-alt"></span>
+        </a>
       <% } %>
     </div>
   </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  <% if (page.discourseTopicId) { %>
+    <div class="discourse-comments-wrapper content-wrapper">
+      <div id='discourse-comments'></div>
+    </div>
+
+    <script type="text/javascript">
+      DiscourseEmbed = { discourseUrl: 'http://forums.meteor.com/',
+                         topicId: <%- page.discourseTopicId %> };
+
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
+  <% } %>
 </div>

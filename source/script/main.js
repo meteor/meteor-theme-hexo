@@ -8,8 +8,33 @@
 
   // create sub links for h2s
   var h2s = document.querySelectorAll('h2')
-  if (h2s.length) {
-    createSubMenu(activeLink.parentNode, h2s, 2)
+
+  // find all h3s and nest them under their h2s
+  var h3s = document.querySelectorAll('h3')
+
+  var isAfter = function(e1, e2) {
+    return e1.compareDocumentPosition(e2) & Node.DOCUMENT_POSITION_FOLLOWING;
+  }
+
+  var h2sWithH3s = [];
+  var j = 0;
+  for (var i = 0; i < h2s.length; i++) {
+    var h2 = h2s[i];
+    var nextH2 = h2s[i+1];
+    var ourH3s = [];
+    while (h3s[j] && isAfter(h2, h3s[j]) && (!nextH2 || !isAfter(nextH2, h3s[j]))) {
+      ourH3s.push({ header: h3s[j] });
+      j++;
+    }
+
+    h2sWithH3s.push({
+      header: h2,
+      subHeaders: ourH3s
+    });
+  }
+
+  if (h2sWithH3s.length) {
+    createSubMenu(activeLink.parentNode, h2sWithH3s)
     smoothScroll.init({
       speed: 400,
       offset: window.innerWidth > 560 ? 115 : 55,
@@ -19,18 +44,17 @@
     })
   }
 
-  function createSubMenu (container, headers, depth) {
+  function createSubMenu (container, headers) {
     var subMenu = document.createElement('ul')
     subMenu.className = 'sub-menu'
     container.appendChild(subMenu)
     Array.prototype.forEach.call(headers, function (h) {
-      var link = createSubMenuLink(h)
+      var link = createSubMenuLink(h.header)
       subMenu.appendChild(link)
-      if (depth < MAX_HEADER_DEPTH) {
-        var subHeaders = findSubHeaders(h, depth)
-        createSubMenu(link, subHeaders, depth + 1)
+      if (h.subHeaders) {
+        createSubMenu(link, h.subHeaders)
       }
-      makeHeaderLinkable(h)
+      makeHeaderLinkable(h.header)
     })
   }
 
@@ -38,20 +62,9 @@
     allLinks.push(h)
     var headerLink = document.createElement('li')
     headerLink.innerHTML =
-      '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '">' + h.textContent + '</a>'
+      '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '"><span>' + (h.title || h.textContent) + '</span></a>'
     headerLink.firstChild.addEventListener('click', onLinkClick)
     return headerLink
-  }
-
-  function findSubHeaders (node, depth) {
-    var res = []
-    while (node.nextSibling && node.nextSibling.tagName !== 'H' + depth) {
-      node = node.nextSibling
-      if (node.tagName === 'H' + (depth + 1)) {
-        res.push(node)
-      }
-    }
-    return res
   }
 
   function makeHeaderLinkable (h) {
@@ -125,37 +138,4 @@
       location.assign(targetPath)
     })
   })
-
-  // search box
-  ;(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-  _st('install','h1KW95Mz3fNyf4cnqVtr','2.0.0');
-
-  // mobile
-  document.querySelector('#mobile-header .menu-button')
-    .addEventListener('click', function () {
-      document.body.classList.toggle('sidebar-open')
-    })
-  document.getElementById('mobile-shade').addEventListener('click', function () {
-    document.body.classList.remove('sidebar-open')
-  })
-
-  // Google analytics
-  ;(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-30093278-6', 'auto');
-  ga('send', 'pageview');
-
-  // Hubspot
-  ;(function(d,s,i,r) {
-    if (d.getElementById(i)){return;}
-    var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
-    n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/520701.js';
-    e.parentNode.insertBefore(n, e);
-  })(document,"script","hs-analytics",300000);
 })()

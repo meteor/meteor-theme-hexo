@@ -16,23 +16,36 @@
 	.logo {
 		background: @color-primary;
 		display: block;
-		padding: .25rem 0 .5rem;
+
 		margin-bottom: .75rem;
 		text-align: center;
 
-		&:hover {
-			background: darken(@color-primary, 5%);
+
+		height: 3rem;
+		svg { width: 2rem; }
+
+		@media screen and (min-width: @breakpoint) {
+			height: 4rem;
+			padding-top: .375rem;
+
+			svg { width: 3rem; }
 		}
+		@media screen and (min-width: (@breakpoint * 1.5)) {
+			height: 5rem;
+			padding-top: .5rem;
+
+			svg { width: 3.75rem; }
+		}
+
+
+		&:hover { background: darken(@color-primary, 5%); }
 
 		svg {
 			display: inline-block;
 			height: auto;
 			vertical-align: top;
-			width: 3.75rem;
 
-			> * {
-				fill: @color-lightest;
-			}
+			> * { fill: @color-lightest; }
 		}
 	}
 
@@ -71,8 +84,6 @@
 			}
 		}
 
-
-
 		a {
 			.link(@color-dark);
 			display: block;
@@ -82,7 +93,8 @@
 		svg {
 			.transition( all 200ms ease-out );
 			display: inline-block;
-			height: 36px;
+			height: 2rem;
+			@media screen and (min-width: (@breakpoint * 1.5)) { height: 2.25rem; }
 			margin-bottom: .25rem;
 			vertical-align: top;
 			width: auto;
@@ -128,9 +140,12 @@
 
 		.input-symbol {
 			width: 100%;
+
+			input {
+				box-shadow: @color-light 0 0 0 1px inset;
+			}
 		}
 	}
-
 
 	.heading-toc {
 		.subheading-caps;
@@ -161,11 +176,18 @@
 
 
 	ul.list-toc {
-
 		a {
 			display: block;
 			line-height: 1rem;
 			position: relative;
+
+			.link(@color-darkest);
+			.type-normal;
+
+			&.current {
+				&:extend(.link.primary all);
+				.type-semibold;
+			}
 
 			&:before {
 				&:extend(.icon-arrow-right-alt:before);
@@ -189,12 +211,20 @@
 				opacity: 0;
 			}
 
-			&.active {
-				color: @color-primary;
+			&.active:before { opacity: 1; }
+			&.active { color: @color-primary !important; }
+			&.h3 { .link(@color-dark); }
 
-				&:before {
-					opacity: 1;
-				}
+			> span {
+				.ellipsized;
+				display: block;
+			}
+
+			em {
+				// For code styling in tandem with .api-box
+				// Used on Meteor Docs
+				.type-italic;
+				.type-normal;
 			}
 		}
 
@@ -219,33 +249,18 @@
 			padding-bottom: .375rem;
 		}
 	}
-
-	a {
-		.link(@color-darkest);
-		.type-normal;
-
-		&.current {
-			&:extend(.link.primary all);
-			.type-semibold;
-		}
-	}
-
-	.sub-menu .sub-menu a {
-		.link(@color-dark);
-	}
 }
 
 .content-wrapper {
 	.std-xpadding;
   .std-ypadding;
 	.page-margins;
+	overflow: auto;
 }
 
 .header-content {
-	border-bottom: 1px solid @color-mediumlight;
 	margin-top: .5rem;
-	margin-bottom: 1.5rem;
-	padding-bottom: 1.5rem;
+	margin-bottom: 2rem;
 
 	.title-page {
 		.font-l1;
@@ -393,18 +408,61 @@
 
 
 .pagination {
-	//border-top: 1px solid @color-mediumlight;
+	border-top: 1px solid @color-mediumlight;
 	border-bottom: 1px solid @color-mediumlight;
-	padding-bottom: 1.5rem;
-	padding-top: 1.5rem;
-	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
+
+	.link {
+		.font-s2;
+		@media screen and (min-width: @breakpoint) { .font-s3; }
+
+		position: relative;
+		float: left;
+
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.prev {
+		[class^="icon-"] {
+			left: -2em;
+		}
+	}
 
 	.next {
 		float: right;
+		text-align: right;
+
+		.subtitle-pagination {
+			margin-right: -.35em;
+		}
+
+		[class^="icon-"] {
+			right: -2em;
+		}
+	}
+
+	.subtitle-pagination {
+		.subheading-caps;
+		.font-s1;
+		color: @color-medium;
+		display: block;
+		line-height: 1;
+	}
+
+	[class^="icon-"] {
+		.position(absolute, 25%);
+		display: none;
+
+		@media screen and (min-width: @breakpoint) {
+			display: block;
+		}
 	}
 }
 
 .github {
+	margin-bottom: 1.5rem;
 	text-align: center;
 }
