@@ -1,7 +1,5 @@
 .nav {
-	.background-image(
-    linear-gradient(top, rgba(255, 255, 255, 0.93) 0%,rgba(255, 255, 255, 0.97) 100%)
-  );
+	background: @color-lightest;
 	box-shadow: rgba(0,0,0,.1) 0 -1px 0 0 inset;
 
 	.logo {
@@ -12,51 +10,74 @@
 }
 
 .panel {
-	.scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
-	.logo {
-		background: @color-primary;
-		display: block;
-
-		margin-bottom: .75rem;
+	@media screen and (min-width: @breakpoint) {
 		text-align: center;
-
-
-		height: 3rem;
-		svg { width: 2rem; }
-
-		@media screen and (min-width: @breakpoint) {
-			height: 4rem;
-			padding-top: .375rem;
-
-			svg { width: 3rem; }
-		}
-		@media screen and (min-width: (@breakpoint * 1.5)) {
-			height: 5rem;
-			padding-top: .5rem;
-
-			svg { width: 3.75rem; }
-		}
-
-
-		&:hover { background: darken(@color-primary, 5%); }
-
-		svg {
-			display: inline-block;
-			height: auto;
-			vertical-align: top;
-
-			> * { fill: @color-lightest; }
-		}
 	}
 
+	// .logo {
+	// 	.std-xpadding;
+	// 	display: block;
+	//
+	// 	a {
+	// 		.link(@color-dark);
+	// 	}
+	//
+	// 	svg {
+	// 		height: auto;
+	// 		vertical-align: top;
+	//
+	// 		> * { fill: @color-lightest; }
+	// 	}
+	//
+	// 	//responsive styling
+	// 	height: 3rem;
+	// 	svg { display: none; }
+	// 	span { display: block; }
+	//
+	// 	@media screen and (min-width: @breakpoint) {
+	// 		text-align: center;
+	// 		background: @color-primary;
+	// 		margin-bottom: .75rem;
+	// 		height: 4rem;
+	// 		padding-top: .375rem;
+	//
+	// 		&:hover { background: darken(@color-primary, 5%); }
+	//
+	// 		svg {
+	// 			display: inline-block;
+	// 			width: 3rem;
+	// 		}
+	//
+	// 		span { display: none; }
+	// 	}
+	// 	@media screen and (min-width: (@breakpoint * 1.5)) {
+	// 		height: 5rem;
+	// 		padding-top: .5rem;
+	//
+	// 		svg { width: 3.75rem; }
+	// 	}
+	// }
+
 	.panel-item {
-		.font-s1;
+		.std-xpadding;
+		.font-s2;
 		.type-semibold;
 		display: block;
+		padding-top: .5rem;
+		padding-bottom: .5rem;
 		position: relative;
-		text-align: center;
+
+
+		@media screen and (min-width: @breakpoint) {
+			.font-s1;
+			padding: 0;
+		}
 
 		&:before {
+			@media screen and (min-width: @breakpoint) {
+				content: '';
+			}
+
 			@dot-dimension: .5rem;
 			.transform(scale3d(0,0,1));
 			.transition( all 200ms ease-out );
@@ -64,40 +85,62 @@
 
 			background: transparent;
 			border-radius: 1em;
-			content: '';
 			display: block;
 			margin-top: @dot-dimension / -2;
 		}
 
 		&.active,
 		&:hover {
+			background: @color-primary;
+			@media screen and (min-width: @breakpoint) { background: transparent; }
+
+			a {
+				.link(@color-lightest);
+				@media screen and (min-width: @breakpoint) { .link(@color-primary); }
+			}
+
+
+
 			&:before {
 				.transform(scale3d(1,1,1));
 				background: @color-primary;
 			}
-			a {
-				.link(@color-primary);
-			}
+
 			svg > * {
 				fill: @color-primary;
 				stroke: @color-primary;
 			}
 		}
 
+		&.logo {
+			// .subheading-caps;
+			// .font-s2;
+		}
+
 		a {
 			.link(@color-dark);
+			.type-semibold;
 			display: block;
-			padding: .75rem 0;
+
+			@media screen and (min-width: @breakpoint) {
+				padding: .75rem 0;
+			}
 		}
 
 		svg {
 			.transition( all 200ms ease-out );
-			display: inline-block;
-			height: 2rem;
-			@media screen and (min-width: (@breakpoint * 1.5)) { height: 2.25rem; }
-			margin-bottom: .25rem;
-			vertical-align: top;
-			width: auto;
+			display: none;
+
+			@media screen and (min-width: @breakpoint) {
+				display: inline-block;
+				height: 2rem;
+				width: auto;
+				margin-bottom: .25rem;
+				vertical-align: top;
+			}
+			@media screen and (min-width: (@breakpoint * 1.5)) {
+				height: 2.25rem;
+			}
 
 			> * {
 				fill: @color-dark;
@@ -106,14 +149,18 @@
 			}
 		}
 
-		svg + span { display: block; }
+
+		svg + span {
+			@media screen and (min-width: @breakpoint) {
+				display: block;
+			}
+		}
 	}
 }
 
 
 
 .sidebar {
-	.scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
 	.font-s2;
 	padding-bottom: 3rem;
 
@@ -136,7 +183,11 @@
 	}
 
 	.wrapper-search {
+		display: none;
+		@media screen and (min-width: @breakpoint) { display: block; }
+
 		.std-xpadding;
+		margin-bottom: 1.25rem;
 
 		.input-symbol {
 			width: 100%;
@@ -149,7 +200,7 @@
 
 	.heading-toc {
 		.subheading-caps;
-		color: @color-dark;
+		color: @color-mediumdark;
 		padding: 1.5em 0 .25em;
 
 	}
@@ -159,9 +210,9 @@
 		//reset
 		list-style: none;
 		padding-left: 0;
+		margin: 0;
 
 		.std-xpadding;
-		margin-top: 1.25rem;
 
 		ul {
 			list-style: none;
@@ -285,7 +336,12 @@
 
 	.page-actions {
 		a {
-			.type-semibold;
+			margin-right: .5rem;
+		}
+
+		.twitter {
+			background: @color-twitter;
+			color: @color-lightest;
 		}
 	}
 }

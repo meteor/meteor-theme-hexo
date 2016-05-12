@@ -1,29 +1,30 @@
 <%- partial('partials/panel') %>
 <%- partial('partials/sidebar') %>
 
-<div class="content">
-  <div class="nav dark">
-    <div class="nav-group">
-      <div class="nav-item">
-        <span class="">
-          <span class="icon-menu"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="center-wrapper">
-      <img src="<%- config.logo && config.logo.mobile || theme.logo.mobile %>" title="Meteor" alt="Meteor"/>
-      <div><%- config.subtitle %></div>
-    </div>
-
-    <div class="nav-group right">
-      <div class="nav-item">
-        <span class="">
-          <span class="icon-search"></span>
-        </span>
-      </div>
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item">
+      <span class="js-sidebar-toggle">
+        <span class="icon-menu"></span>
+      </span>
     </div>
   </div>
+
+  <div class="center-wrapper">
+    <img src="<%- config.logo && config.logo.mobile || theme.logo.mobile %>" title="Meteor" alt="Meteor"/>
+    <div><%- config.subtitle %></div>
+  </div>
+
+  <div class="nav-group right">
+    <div class="nav-item">
+      <span class="">
+        <span class="icon-search"></span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
   <div class="content-wrapper">
     <div class="header-content">
       <h1 class="title-page"><%- page.title %></h1>
@@ -37,6 +38,7 @@
           <% if (page.discourseTopicId) { %>
             <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>"><span class="icon-comment"></span>Discuss</a>
           <% } %>
+          <a class="btn small round circle twitter"><span class="icon-twitter"></span></a>
         </div>
       </div>
     </div>

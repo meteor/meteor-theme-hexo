@@ -1,41 +1,94 @@
 <div class="sidebar">
-  <div class="topcap">
-    <span class="title-sidebar"><%- config.title %></span>
-    <% if (config.versions.length > 1) { %>
-      <span class="select version-sidebar nochrome">
-        <select class="version-select">
-          <% config.versions.forEach(function (v) { %>
-            <option value="<%- v %>"><%- v %></option>
-          <% }) %>
-        </select>
-      </span>
-    <% } %>
-  </div>
+  <div class="panel">
+    <div class="panel-item logo">
+      <a href="https://developers.meteor.com" title="Meteor Developers">
+        <%- partial('partials/icon-coral') %>
+        <span>Meteor Developers</span>
+      </a>
+    </div>
+    <div class="panel-item">
+      <a class="" href="http://tutorials.meteor.com">
+        <%- partial('partials/illustration-guide') %>
+        <span>Tutorials</span>
+      </a>
+    </div>
 
-  <div class="wrapper-search">
-    <div class="input-symbol small round">
-      <input type="text" placeholder="Search" id="search-input" />
-      <span class="icon-search"></span>
+    <div class="panel-item">
+      <a class="" href="http://guide.meteor.com">
+        <%- partial('partials/illustration-compass') %>
+        <span>Guide</span>
+      </a>
+    </div>
+
+    <div class="panel-item active">
+      <a class="" href="http://docs.meteor.com">
+        <%- partial('partials/illustration-logs') %>
+        <span>API Docs</span>
+      </a>
+    </div>
+
+    <div class="panel-item">
+      <a class="" href="http://forums.meteor.com/">
+        <%- partial('partials/illustration-support') %>
+        <span>Forums</span>
+      </a>
     </div>
   </div>
 
-  <ul class="toc">
-    <% _.each(config.sidebar_categories, function(pages, category) { %>
-      <li>
-        <% if (category !== 'null') { %>
-          <div class="heading-toc"><%- category %></div>
-        <% } %>
-        <ul class="list-toc">
-          <% pages.forEach(function(path) { %>
-            <% p = site.pages.findOne({path: path + '.html'}); %>
-            <li class="item-toc <%- page.title === p.title ? ' current' : '' %>">
-              <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link <%- page.title === p.title ? ' current' : '' %>">
-                <span><%- p.title %></span>
-              </a>
-            </li>
-          <% }); %>
-        </ul>
-      </li>
-    <% }); %>
-  </ul>
+  <!--
+  <div id="top-nav">
+    <ul id="top-nav-links">
+      <% _.each(config.nav_links || theme.nav_links, function (href, name, img) { %>
+        <li><a href="<%- href %>"><%- name %></a></li>
+      <% }) %>
+    </ul>
+  </div> -->
+  <!--
+  <div id="site-nav">
+    <a class="logo" href="/"><img src="<%- config.logo && config.logo.desktop || theme.logo.desktop %>" /></a>
+    <span class="sub-title"><%- config.subtitle %></span>
+
+  </div> -->
+
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar"><%- config.title %></span>
+      <% if (config.versions.length > 1) { %>
+        <span class="select version-sidebar nochrome">
+          <select class="version-select">
+            <% config.versions.forEach(function (v) { %>
+              <option value="<%- v %>"><%- v %></option>
+            <% }) %>
+          </select>
+        </span>
+      <% } %>
+    </div>
+
+    <div class="wrapper-search">
+      <div class="input-symbol small round">
+        <input type="text" placeholder="Search" id="search-input" />
+        <span class="icon-search"></span>
+      </div>
+    </div>
+
+    <ul class="toc">
+      <% _.each(config.sidebar_categories, function(pages, category) { %>
+        <li>
+          <% if (category !== 'null') { %>
+            <div class="heading-toc"><%- category %></div>
+          <% } %>
+          <ul class="list-toc">
+            <% pages.forEach(function(path) { %>
+              <% p = site.pages.findOne({path: path + '.html'}); %>
+              <li class="item-toc <%- page.title === p.title ? ' current' : '' %>">
+                <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link <%- page.title === p.title ? ' current' : '' %>">
+                  <span><%- p.title %></span>
+                </a>
+              </li>
+            <% }); %>
+          </ul>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
 </div>
