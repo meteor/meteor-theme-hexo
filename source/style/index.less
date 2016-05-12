@@ -2,10 +2,77 @@
 	background: @color-lightest;
 	box-shadow: rgba(0,0,0,.1) 0 -1px 0 0 inset;
 
+	&.search-visible {
+
+	}
+
 	.logo {
 		height: 40px;
     margin-top: 4px;
     width: auto;
+	}
+
+	.nav-search {
+		.position(absolute, 0,0,0,0);
+		.transition(all 300ms ease-out);
+		opacity: 0;
+		z-index: 0;
+
+		.input-symbol {
+			.position(absolute, 0,0,1px,0);
+			background: @color-lightest;
+		}
+
+		input {
+			.transition(all 250ms @easing 00ms);
+			.transform(translate3d(25%,0,0));
+
+			width: 100%;
+			height: 100%;
+
+			@media screen and (min-width: @breakpoint) {
+				font-size: 1rem !important;
+				padding-left: 4em !important;
+			}
+		}
+
+		.icon-search {
+			@media screen and (min-width: @breakpoint) {
+				padding-left: 1.875rem;
+				font-size: 1rem;
+				left: 0;
+			}
+
+			.transition(all 300ms @easing );
+			.transform(translate3d(50%,0,0));
+		}
+
+
+		.nav-item {
+			.transition(all 300ms @easing 200ms);
+			.transform(scale3d(0,0,0));
+
+			.icon-close {
+				.link(@color-medium);
+
+				&:hover { color: @color-dark; }
+			}
+		}
+
+	}
+
+	&.search-visible {
+		.nav-search {
+			opacity: 1;
+			z-index: 1;
+		}
+
+		input,
+		.icon-search {
+			.transform(translate3d(0,0,0));
+		}
+
+		.nav-item { .transform(scale3d(1,1,1));}
 	}
 }
 
@@ -13,50 +80,6 @@
 	@media screen and (min-width: @breakpoint) {
 		text-align: center;
 	}
-
-	// .logo {
-	// 	.std-xpadding;
-	// 	display: block;
-	//
-	// 	a {
-	// 		.link(@color-dark);
-	// 	}
-	//
-	// 	svg {
-	// 		height: auto;
-	// 		vertical-align: top;
-	//
-	// 		> * { fill: @color-lightest; }
-	// 	}
-	//
-	// 	//responsive styling
-	// 	height: 3rem;
-	// 	svg { display: none; }
-	// 	span { display: block; }
-	//
-	// 	@media screen and (min-width: @breakpoint) {
-	// 		text-align: center;
-	// 		background: @color-primary;
-	// 		margin-bottom: .75rem;
-	// 		height: 4rem;
-	// 		padding-top: .375rem;
-	//
-	// 		&:hover { background: darken(@color-primary, 5%); }
-	//
-	// 		svg {
-	// 			display: inline-block;
-	// 			width: 3rem;
-	// 		}
-	//
-	// 		span { display: none; }
-	// 	}
-	// 	@media screen and (min-width: (@breakpoint * 1.5)) {
-	// 		height: 5rem;
-	// 		padding-top: .5rem;
-	//
-	// 		svg { width: 3.75rem; }
-	// 	}
-	// }
 
 	.panel-item {
 		.std-xpadding;
@@ -113,8 +136,28 @@
 		}
 
 		&.logo {
-			// .subheading-caps;
-			// .font-s2;
+			display: block;
+
+			svg > * { fill: @color-lightest; }
+
+			@media screen and (min-width: @breakpoint) {
+				background: @color-primary;
+				height: 4rem;
+				margin-bottom: .75rem;
+
+				&:hover { background: darken(@color-primary, 5%); }
+
+				a { padding-top: .375rem; }
+				svg { height: 3rem; }
+				span { display: none; }
+			}
+
+			@media screen and (min-width: (@breakpoint * 1.5)) {
+				height: 5rem;
+
+				svg { height: 3.75rem; }
+				a { padding-top: .5rem; }
+			}
 		}
 
 		a {
@@ -122,9 +165,7 @@
 			.type-semibold;
 			display: block;
 
-			@media screen and (min-width: @breakpoint) {
-				padding: .75rem 0;
-			}
+			@media screen and (min-width: @breakpoint) { padding: .75rem 0; }
 		}
 
 		svg {
@@ -134,10 +175,11 @@
 			@media screen and (min-width: @breakpoint) {
 				display: inline-block;
 				height: 2rem;
-				width: auto;
 				margin-bottom: .25rem;
 				vertical-align: top;
+				width: auto;
 			}
+
 			@media screen and (min-width: (@breakpoint * 1.5)) {
 				height: 2.25rem;
 			}
@@ -187,14 +229,12 @@
 		@media screen and (min-width: @breakpoint) { display: block; }
 
 		.std-xpadding;
-		margin-bottom: 1.25rem;
+		margin-bottom: .75rem;
 
 		.input-symbol {
 			width: 100%;
 
-			input {
-				box-shadow: @color-light 0 0 0 1px inset;
-			}
+			input { box-shadow: @color-light 0 0 0 1px inset; }
 		}
 	}
 
@@ -219,9 +259,7 @@
 			padding-left: 0;
 		}
 
-		li {
-			vertical-align: top;
-		}
+		li { vertical-align: top; }
 	}
 
 
@@ -338,22 +376,18 @@
 		a {
 			margin-right: .5rem;
 		}
-
-		.twitter {
-			background: @color-twitter;
-			color: @color-lightest;
-		}
 	}
 }
 
 
 .api {
 	.font-s3;
-	background: @color-lighter;
+	background: @color-lightest;
+	border: 1px solid @color-mediumlight;
 	margin: 1em 0;
 
 	.api-heading {
-		background: @color-mediumlight;
+		background: @color-lighter;
 		padding: 1rem 1.25rem 1.25rem;
 
 		.locus {

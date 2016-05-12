@@ -102,10 +102,15 @@ body {
     .transform(translate3d(0,0,0));
     .transition(all 300ms @easing);
   }
+
   &.sidebar-visible {
     .nav,
     .content {
       .transform(translate3d(@sidebar-width, 0, 0));
+      
+      @media screen and (min-width: (@breakpoint * 1.5)) {
+        .transform(translate3d(0,0,0));
+      }
     }
   }
 
