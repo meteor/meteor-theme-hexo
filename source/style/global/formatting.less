@@ -1,7 +1,9 @@
 @import "../util/index.import.less";
 
 .document-formatting {
+	@spacing: 1.5em;
 	line-height: 1.375rem; //22px
+
 
   h1, h2, h3, h4, h5 {
     line-height: 1em;
@@ -36,7 +38,7 @@
 	}
 
   p {
-    margin: 1.25em 0;
+    margin: @spacing 0;
     position: relative;
 
     &:first-of-type:not(:only-of-type) { margin-top: 0; }
@@ -56,10 +58,7 @@
 
   figure {
     clear: both;
-		margin-left: 0;
-		margin-right: 0;
-    margin-bottom: 1.25em;
-    margin-top: 1.25em;
+		margin: @spacing 0;
 
     figcaption {
       .font-s1;
@@ -69,7 +68,7 @@
 
   img {
     display: inline-block;
-    padding: 0 1.25em;
+    padding: 0 20px;
     max-width: 100%;
     position: relative;
     vertical-align: top;
@@ -86,18 +85,18 @@
 
     &.aligncenter{
       display: block;
-      margin-bottom: 1.25em;
+      margin-bottom: @spacing;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 1.25rem;
+      margin-top: @spacing;
     }
   }
 
   blockquote {
     border-left: 2px solid @color-primary;
-    color: @color-darker;
-		margin: 1rem 0;
-    padding: .75em 1.25em .75em 1.5em;
+    color: @color-dark;
+		margin: @spacing 0;
+    padding: .75em 20px .75em 30px;
 
     p:only-of-type { margin: 0; }
   }
@@ -105,17 +104,17 @@
   ol,
 	ul {
     list-style-position: outside;
-    margin-bottom: .75em;
-    margin-top: .75em;
-    padding-left: 1.875rem;
+    margin-bottom: @spacing/2;
+    margin-top: @spacing/2;
+    padding-left: 30px;
   }
 
   ol { list-style-type: decimal; }
   ul { list-style-type: disc; }
 
   *:not(figure.highlight) pre {
-    margin-top: .75em;
-    margin-bottom: .75em;
+    margin-top: @spacing/2;
+    margin-bottom: @spacing/2;
 
     code {
       .ellipsized;
@@ -133,9 +132,7 @@
 		.font-s2;
 		overflow-x: auto;
 
-		table {
-			width: 100%;
-		}
+		table { width: 100%; }
 
 		.gutter { width: 40px; }
 
@@ -150,7 +147,7 @@
 			pre {
 		    overflow-y: auto;
 				overflow-x: auto;
-		    padding: 1.25em 15px 1.25em 20px;
+		    padding: @spacing 15px @spacing 20px;
 				margin: 0;
 				white-space: pre;
 		  }
@@ -158,12 +155,12 @@
 	}
 
 	dl {
-    padding-left: 20px;
+    padding-left: 30px;
 		margin: 0;
 
 		&:not(:last-of-type) {
-			margin-bottom: 1.25em;
-	    margin-top: 1.25em;
+			margin-bottom: @spacing;
+	    margin-top: @spacing;
 		}
 
     dt {
@@ -216,5 +213,4 @@
   //   margin-bottom: 0;
   // }
 	//
-
 }
