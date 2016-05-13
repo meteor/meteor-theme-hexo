@@ -13,29 +13,24 @@
 		.title-page {
 			.font-l1;
 			@media screen and (min-width: @breakpoint) { .font-l2; }
+
 			.type-light;
 			color: @color-primary;
 			margin-bottom: .75rem;
 		}
 
 		.subtitle-page {
-			//.font-s3;
-			//.type-semibold;
 			.type-light;
+			line-height: 1.2;
+			margin-bottom: 1rem;
+
 			@media screen and (min-width: @breakpoint) {
 				.font-m1;
 				.type-light;
 			}
-
-			line-height: 1.2;
-			margin-bottom: 1rem;
 		}
 
-		.page-actions {
-			a {
-				margin-right: .5rem;
-			}
-		}
+		.page-actions a { margin-right: .5rem; }
 	}
 
 
@@ -53,23 +48,19 @@
 				.font-s2;
 				.type-italic;
 				color: @color-dark;
-				line-height: 24px;
 				float: right;
+				line-height: 24px;
 			}
 
 			.title-api {
 				.type-code;
 				.font-code;
-				padding: 0;
 				margin: 0;
+				padding: 0;
 
-				.anchor {
-					display: none;
-				}
+				.anchor { display: none; }
 
-				em {
-					.type-italic;
-				}
+				em { .type-italic; }
 			}
 
 			.subtext-api {
@@ -78,8 +69,8 @@
 				.code {
 					.font-code;
 					.type-code;
-					margin-right: 20px;
 					display: inline-block;;
+					margin-right: 20px;
 				}
 
 				.src-code {
@@ -99,20 +90,12 @@
 				margin:.5rem 0 .5rem;
 			}
 
-			.desc {
-				&:not(:only-child) {
-					margin-bottom: 1.25em;
-				}
-			}
+			.desc:not(:only-child) { margin-bottom: 1.25em;	}
 
 			p {
-				&:only-child {
-					margin: 0;
-				}
+				&:only-child { margin: 0; }
 
-				&:first-child {
-					margin-top: 0;
-				}
+				&:first-child { margin-top: 0; }
 			}
 
 			dl {
@@ -133,10 +116,8 @@
 
 					a { &:extend(.link.primary); }
 				}
-				dd {
-					margin-left: 0;
-				}
 
+				dd { margin-left: 0; }
 			}
 		}
 	}
@@ -144,7 +125,6 @@
 	.document-formatting h2 {
 		position: relative;
 
-		.anchor { opacity: 0; }
 		&:hover .anchor { opacity: 1; }
 
 		.anchor {
@@ -152,9 +132,9 @@
 			.transform(translateY(-50%));
 			.position(absolute, 50%, auto, auto, -20px);
 			color: @color-dark;
+			opacity: 0;
 		}
 	}
-
 
 	.pagination {
 		border-top: 1px solid @color-mediumlight;
@@ -165,32 +145,23 @@
 			.font-s2;
 			@media screen and (min-width: @breakpoint) { .font-s3; }
 
-			position: relative;
 			float: left;
+			position: relative;
 
-
-			&:hover {
-				text-decoration: none;
-			}
+			&:hover { text-decoration: none; }
 		}
 
 		.prev {
-			[class^="icon-"] {
-				left: -2em;
-			}
+			[class^="icon-"] { left: -2em; }
 		}
 
 		.next {
 			float: right;
 			text-align: right;
 
-			.subtitle-pagination {
-				margin-right: -.35em;
-			}
+			.subtitle-pagination { margin-right: -.35em; }
 
-			[class^="icon-"] {
-				right: -2em;
-			}
+			[class^="icon-"] { right: -2em; }
 		}
 
 		.subtitle-pagination {
@@ -205,9 +176,7 @@
 			.position(absolute, 25%);
 			display: none;
 
-			@media screen and (min-width: @breakpoint) {
-				display: block;
-			}
+			@media screen and (min-width: @breakpoint) { display: block; }
 		}
 	}
 

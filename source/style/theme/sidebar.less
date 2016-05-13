@@ -1,6 +1,5 @@
 .sidebar {
 	.font-s2;
-	padding-bottom: 3rem;
 
 	.topcap {
 		.std-xpadding;
@@ -38,9 +37,7 @@
 		.subheading-caps;
 		color: @color-mediumdark;
 		padding: 1.5em 0 .25em;
-
 	}
-
 
 	ul.toc {
 		//reset
@@ -49,6 +46,7 @@
 		margin: 0;
 
 		.std-xpadding;
+		margin-bottom: 1.5rem;
 
 		ul {
 			list-style: none;
@@ -60,12 +58,11 @@
 
 	ul.list-toc {
 		a {
+			.link(@color-darkest);
+			.type-normal;
 			display: block;
 			line-height: 1rem;
 			position: relative;
-
-			.link(@color-darkest);
-			.type-normal;
 
 			&.current {
 				&:extend(.link.primary all);
@@ -73,7 +70,11 @@
 			}
 
 			&:before {
-				&:extend(.icon-arrow-right-alt:before);
+				.font-s1;
+				.position(absolute, auto, auto, auto, -1rem);
+				.transition( all 250ms ease-out );
+				color: @color-primary;
+				opacity: 0;
 
 				// Taken from package percolate:icons/edited-style.less
 				font-family: 'percolate';
@@ -86,16 +87,15 @@
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
 
-				.font-s1;
-				.position(absolute, auto, auto, auto, -1rem);
-				.transition( all 250ms ease-out );
-
-				color: @color-primary;
-				opacity: 0;
+				// Show right arrow icon
+				&:extend(.icon-arrow-right-alt:before);
 			}
 
-			&.active:before { opacity: 1; }
-			&.active { color: @color-primary !important; }
+			&.active {
+				color: @color-primary !important;
+				&:before { opacity: 1; }
+			}
+
 			&.h3 { .link(@color-dark); }
 
 			> span {
@@ -115,9 +115,9 @@
 			margin-top: .375rem;
 
 			&:empty {
+				margin: 0;
 				max-height: 0;
 				overflow: hidden;
-				margin: 0;
 			}
 
 			li {

@@ -33,14 +33,14 @@
 		}
 
 		.icon-search {
-			@media screen and (min-width: @breakpoint) {
-				padding-left: 1.875rem;
-				font-size: 1rem;
-				left: 0;
-			}
-
 			.transition(all 300ms @easing );
 			.transform(translate3d(50%,0,0));
+
+			@media screen and (min-width: @breakpoint) {
+				font-size: 1rem;
+				left: 0;
+				padding-left: 1.875rem;
+			}
 		}
 
 

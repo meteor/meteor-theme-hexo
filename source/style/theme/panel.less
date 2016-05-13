@@ -1,7 +1,5 @@
 .panel {
-	@media screen and (min-width: @breakpoint) {
-		text-align: center;
-	}
+	@media screen and (min-width: @breakpoint) { text-align: center; }
 
 	.panel-item {
 		.std-xpadding;
@@ -19,9 +17,7 @@
 		}
 
 		&:before {
-			@media screen and (min-width: @breakpoint) {
-				content: '';
-			}
+			@media screen and (min-width: @breakpoint) { content: ''; }
 
 			@dot-dimension: .5rem;
 			.transform(scale3d(0,0,1));
@@ -110,7 +106,6 @@
 				stroke: @color-dark;
 			}
 		}
-
 
 		svg + span {
 			@media screen and (min-width: @breakpoint) {
