@@ -1,0 +1,135 @@
+.sidebar {
+	.font-s2;
+	padding-bottom: 3rem;
+
+	.topcap {
+		.std-xpadding;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+
+		.title-sidebar {
+			.font-s3;
+			.type-semibold;
+		}
+
+		.version-sidebar {
+			.type-semibold;
+			float: right;
+			margin-right: -.75rem;
+			margin-top: -.5rem;
+		}
+	}
+
+	.wrapper-search {
+		display: none;
+		@media screen and (min-width: @breakpoint) { display: block; }
+
+		.std-xpadding;
+		margin-bottom: .75rem;
+
+		.input-symbol {
+			width: 100%;
+
+			input { box-shadow: @color-light 0 0 0 1px inset; }
+		}
+	}
+
+	.heading-toc {
+		.subheading-caps;
+		color: @color-mediumdark;
+		padding: 1.5em 0 .25em;
+
+	}
+
+
+	ul.toc {
+		//reset
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+
+		.std-xpadding;
+
+		ul {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		li { vertical-align: top; }
+	}
+
+	ul.list-toc {
+		a {
+			display: block;
+			line-height: 1rem;
+			position: relative;
+
+			.link(@color-darkest);
+			.type-normal;
+
+			&.current {
+				&:extend(.link.primary all);
+				.type-semibold;
+			}
+
+			&:before {
+				&:extend(.icon-arrow-right-alt:before);
+
+				// Taken from package percolate:icons/edited-style.less
+				font-family: 'percolate';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+				.font-s1;
+				.position(absolute, auto, auto, auto, -1rem);
+				.transition( all 250ms ease-out );
+
+				color: @color-primary;
+				opacity: 0;
+			}
+
+			&.active:before { opacity: 1; }
+			&.active { color: @color-primary !important; }
+			&.h3 { .link(@color-dark); }
+
+			> span {
+				.ellipsized;
+				display: block;
+			}
+
+			em {
+				// For code styling in tandem with .api-box
+				// Used on Meteor Docs
+				.type-italic;
+				.type-normal;
+			}
+		}
+
+		.sub-menu {
+			margin-top: .375rem;
+
+			&:empty {
+				max-height: 0;
+				overflow: hidden;
+				margin: 0;
+			}
+
+			li {
+				@indent: 15px;
+				padding-left: @indent;
+			}
+		}
+
+		li {
+			position: relative;
+			padding-top: .375rem;
+			padding-bottom: .375rem;
+		}
+	}
+}
