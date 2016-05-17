@@ -6,36 +6,14 @@
         <span>Meteor Developers</span>
       </a>
     </div>
-    <% _.each(config.nav_links || theme.nav_links, function (href, name, img) { %>
-      <li><a href="<%- href %>"><%- name %><%- img %></a></li>
+    <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
+      <div class="panel-item">
+        <a class="" href="<%- link.url || link %>">
+          <%- link.partial ?  partial('partials/' + link.partial) : '<img src="' + link.src + '">' %>
+          <span><%- title %></span>
+        </a>
+      </div>
     <% }) %>
-    <div class="panel-item">
-      <a class="" href="http://tutorials.meteor.com">
-        <%- partial('partials/illustration-guide') %>
-        <span>Tutorials</span>
-      </a>
-    </div>
-
-    <div class="panel-item">
-      <a class="" href="http://guide.meteor.com">
-        <%- partial('partials/illustration-compass') %>
-        <span>Guide</span>
-      </a>
-    </div>
-
-    <div class="panel-item active">
-      <a class="" href="http://docs.meteor.com">
-        <%- partial('partials/illustration-logs') %>
-        <span>API Docs</span>
-      </a>
-    </div>
-
-    <div class="panel-item">
-      <a class="" href="http://forums.meteor.com/">
-        <%- partial('partials/illustration-support') %>
-        <span>Forums</span>
-      </a>
-    </div>
   </div>
 
   <div class="sidebar-content">

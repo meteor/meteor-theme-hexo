@@ -5,12 +5,18 @@ logo:
   sidebar: '../images/icon-white.svg'
 
 nav_links:
-  'Meteor.com': 'https://www.meteor.com'
-  'Install': 'https://www.meteor.com/install'
-  'Guide': 'http://guide.meteor.com'
-  'Tutorials': 'https://www.meteor.com/tutorials/blaze/creating-an-app'
-  'Docs': 'http://docs.meteor.com'
-  'Forums': 'https://forums.meteor.com/'
+  'Tutorials':
+    url: http://tutorials.meteor.com
+    partial: illustration-guide
+  'Guide':
+    url: http://guide.meteor.com
+    partial: illustration-compass
+  'Docs':
+    url: http://docs.meteor.com
+    partial: illustration-logs
+  'Forums':
+    url: https://forums.meteor.com/
+    partial: illustration-support
 
 social_links:
   github: 'https://github.com/meteor'
