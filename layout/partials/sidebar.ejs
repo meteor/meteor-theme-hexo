@@ -7,7 +7,7 @@
       </a>
     </div>
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
-      <div class="panel-item">
+      <div class="panel-item <%- link.active && 'active' %>"">
         <a class="" href="<%- link.url || link %>">
           <%- link.partial ?  partial('partials/' + link.partial) : '<img src="' + link.src + '">' %>
           <span><%- title %></span>
