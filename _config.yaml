@@ -1,5 +1,7 @@
 config:
 
+favicon: '../images/favicon.png'
+
 logo:
   nav_mobile: '../images/logo-coralspace.svg'
   sidebar: '../images/icon-white.svg'
