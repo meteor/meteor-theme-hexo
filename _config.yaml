@@ -1,8 +1,8 @@
 config:
 
 logo:
-  desktop: '../images/logo-coralspace.svg'
-  mobile: '../images/logo-coralspace.svg'
+  nav_mobile: '../images/logo-coralspace.svg'
+  sidebar: '../images/icon-white.svg'
 
 nav_links:
   'Meteor.com': 'https://www.meteor.com'

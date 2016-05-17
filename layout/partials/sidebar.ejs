@@ -2,7 +2,7 @@
   <div class="panel">
     <div class="panel-item logo">
       <a href="https://developers.meteor.com" title="Meteor Developers">
-        <%- partial('partials/icon-coral') %>
+        <img src="<%- config.logo && config.logo.desktop || theme.logo.sidebar %>" alt="Meteor Developers">
         <span>Meteor Developers</span>
       </a>
     </div>
@@ -67,7 +67,7 @@
     <% if (config.apis && config.apis.docsearch) { %>
     <div class="wrapper-search">
       <div class="input-symbol small round">
-        <input type="text" placeholder="Search <%- config.subtitle %>" id="search-input" />
+        <input type="text" placeholder="Search" id="search-input" />
         <span class="icon-search"></span>
       </div>
     </div>

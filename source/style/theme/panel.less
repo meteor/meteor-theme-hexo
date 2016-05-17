@@ -54,8 +54,6 @@
 		&.logo {
 			display: block;
 
-			svg > * { fill: @color-lightest; }
-
 			@media screen and (min-width: @breakpoint) {
 				background: @color-primary;
 				height: 4rem;
@@ -64,14 +62,14 @@
 				&:hover { background: darken(@color-primary, 5%); }
 
 				a { padding-top: .375rem; }
-				svg { height: 3rem; }
+				img { height: 3rem; }
 				span { display: none; }
 			}
 
 			@media screen and (min-width: (@breakpoint * 1.5)) {
 				height: 5rem;
 
-				svg { height: 3.75rem; }
+				img { height: 3.75rem; }
 				a { padding-top: .5rem; }
 			}
 		}
@@ -102,7 +100,6 @@
 
 			> * {
 				fill: @color-dark;
-				stroke-width: .5;
 				stroke: @color-dark;
 			}
 		}
