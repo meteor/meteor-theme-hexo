@@ -6,6 +6,9 @@
         <span>Meteor Developers</span>
       </a>
     </div>
+    <% _.each(config.nav_links || theme.nav_links, function (href, name, img) { %>
+      <li><a href="<%- href %>"><%- name %><%- img %></a></li>
+    <% }) %>
     <div class="panel-item">
       <a class="" href="http://tutorials.meteor.com">
         <%- partial('partials/illustration-guide') %>
@@ -34,21 +37,6 @@
       </a>
     </div>
   </div>
-
-  <!--
-  <div id="top-nav">
-    <ul id="top-nav-links">
-      <% _.each(config.nav_links || theme.nav_links, function (href, name, img) { %>
-        <li><a href="<%- href %>"><%- name %></a></li>
-      <% }) %>
-    </ul>
-  </div> -->
-  <!--
-  <div id="site-nav">
-    <a class="logo" href="/"><img src="<%- config.logo && config.logo.desktop || theme.logo.desktop %>" /></a>
-    <span class="sub-title"><%- config.subtitle %></span>
-
-  </div> -->
 
   <div class="sidebar-content">
     <div class="topcap">
