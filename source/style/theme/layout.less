@@ -6,7 +6,10 @@
 
 body {
   background: @color-lightest;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
 }
 
 .panel {
@@ -56,7 +59,7 @@ body {
 
 .nav {
   // appears on mobile/tablet only
-  .position(absolute, 0,0,auto, 0, auto, @panel-width-mobile);
+  .position(fixed, 0,0,auto, 0, auto, @panel-width-mobile);
   overflow: hidden;
   z-index: 3;
 
@@ -72,22 +75,17 @@ body {
 }
 
 .content {
-  .position(absolute, @panel-width-mobile,0,0,0);
+  .position(relative, 0,0,0,0);
   background: @color-lightest;
+  padding-top: @panel-width-mobile;
   z-index: 2;
 
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-
-
   @media screen and (min-width: @breakpoint) {
-    top: @panel-width-tablet;
     left: @panel-width-tablet;
+    padding-top: @panel-width-tablet;
   }
 
   @media screen and (min-width: (@breakpoint * 1.5)) {
-    top: 0;
     left: @sidebar-width + @panel-width;
     padding-top: 1rem;
   }
@@ -97,17 +95,25 @@ body {
 body {
   .nav,
   .content {
-    .transform(translate3d(0,0,0));
     .transition(all 300ms @easing);
   }
 
   &.sidebar-visible {
-    .nav,
-    .content {
-      .transform(translate3d(@sidebar-width, 0, 0));
+    .nav {
+      left: @sidebar-width + @panel-width-mobile;
+      right: -1 * (@sidebar-width + @panel-width-mobile);
 
       @media screen and (min-width: (@breakpoint * 1.5)) {
-        .transform(translate3d(0,0,0));
+        left: @panel-width;
+        right: 0;
+      }
+    }
+
+    .content {
+      left: @sidebar-width + @panel-width-mobile;
+
+      @media screen and (min-width: (@breakpoint * 1.5)) {
+        left: @sidebar-width + @panel-width;
       }
     }
   }
