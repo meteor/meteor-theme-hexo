@@ -3,6 +3,8 @@ config:
 logo:
   nav_mobile: '../images/logo-coralspace.svg'
   sidebar: '../images/icon-white.svg'
+  url: 'http://developers.meteor.com'
+  title: 'Meteor Developers'
 
 nav_links:
   'Tutorials':

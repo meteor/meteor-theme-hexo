@@ -1,9 +1,9 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item logo">
-      <a href="https://developers.meteor.com" title="Meteor Developers">
-        <img src="<%- config.logo && config.logo.desktop || theme.logo.sidebar %>" alt="Meteor Developers">
-        <span>Meteor Developers</span>
+      <a href="<%- theme.logo.url %>" title="<%- theme.logo.title %>">
+        <img src="<%- config.logo && config.logo.desktop || theme.logo.sidebar %>" alt="<%- theme.logo.title %>">
+        <span><%- theme.logo.title %></span>
       </a>
     </div>
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
