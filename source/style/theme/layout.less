@@ -3,13 +3,11 @@
 @panel-width-tablet: 64px;
 @panel-width-mobile: 48px;
 
-
 body {
   background: @color-lightest;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-
 }
 
 .panel {
@@ -24,7 +22,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  z-index: 0;
+  z-index: 1;
 }
 
 .sidebar {
@@ -35,10 +33,9 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    z-index: 1;
+    z-index: 0;
   }
 
-  @media screen and (min-width: @breakpoint) { left: @panel-width-tablet; }
   @media screen and (min-width: (@breakpoint * 1.5)) { left: @panel-width; }
 
   background: @color-lighter;
@@ -53,7 +50,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    z-index: 1;
+    z-index: 0;
   }
 }
 
@@ -77,16 +74,17 @@ body {
 .content {
   .position(relative, 0,0,0,0);
   background: @color-lightest;
+  background: purple;
   padding-top: @panel-width-mobile;
   z-index: 2;
 
   @media screen and (min-width: @breakpoint) {
-    left: @panel-width-tablet;
+    margin-left: @panel-width-tablet;
     padding-top: @panel-width-tablet;
   }
 
   @media screen and (min-width: (@breakpoint * 1.5)) {
-    left: @sidebar-width + @panel-width;
+    margin-left: @sidebar-width + @panel-width;
     padding-top: 1rem;
   }
 }
@@ -97,11 +95,26 @@ body {
   .content {
     .transition(all 300ms @easing);
   }
+  .sidebar {
+    .transition(all 300ms @easing 50ms);
+  }
 
   &.sidebar-visible {
+    .sidebar {
+      @media screen and (min-width: @breakpoint) { left: @panel-width-tablet; }
+
+      //copied from above to override
+      @media screen and (min-width: (@breakpoint * 1.5)) { left: @panel-width; }
+    }
+
     .nav {
-      left: @sidebar-width + @panel-width-mobile;
-      right: -1 * (@sidebar-width + @panel-width-mobile);
+      left: @sidebar-width;
+      right: -1 * (@sidebar-width);
+
+      @media screen and (min-width: (@breakpoint * 1)) {
+        left: @sidebar-width + @panel-width-tablet;
+        right: -1 * (@sidebar-width + @panel-width-tablet);
+      }
 
       @media screen and (min-width: (@breakpoint * 1.5)) {
         left: @panel-width;
@@ -110,10 +123,10 @@ body {
     }
 
     .content {
-      left: @sidebar-width + @panel-width-mobile;
+      left: @sidebar-width;
 
       @media screen and (min-width: (@breakpoint * 1.5)) {
-        left: @sidebar-width + @panel-width;
+        left: 0;
       }
     }
   }
