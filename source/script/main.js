@@ -138,4 +138,24 @@
       location.assign(targetPath)
     })
   })
+
+  // search toggle
+  var nav = document.querySelector('.nav');
+  [].forEach.call(document.querySelectorAll('.js-search-toggle'), function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.toggle('search-visible');
+    });
+  });
+
+  document.querySelector('.mobile-search-input').addEventListener('keydown', function(event) {
+    if (event.which === 27) {
+      nav.classList.toggle('search-visible', false);
+    }
+  });
+
+  // mobile
+  document.querySelector('.js-sidebar-toggle')
+    .addEventListener('click', function () {
+      document.body.classList.toggle('sidebar-visible')
+    });
 })()
