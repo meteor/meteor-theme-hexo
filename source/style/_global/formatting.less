@@ -5,10 +5,16 @@
 	line-height: 1.375rem; //22px
 
 
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4 {
     line-height: 1em;
 
-		&:not(:first-child) { margin: 1em 0 0; }
+		&:not(:first-child) {
+			margin-top: 3rem;
+		}
+
+		& + * {
+			margin-top: @spacing / 2 !important;
+		}
   }
 
   hr + * { margin-top: 0 !important; }
@@ -21,20 +27,35 @@
   }
 
   h2 {
-		.font-m2;
+		.font-m3;
 		.type-light;
     margin-bottom: 1rem;
   }
 
   h3 {
-		.font-m1;
+		.font-m2;
 		.type-light;
 		margin-bottom: .25rem;
 	}
 
   h4 {
-		.font-s3;
+		.font-m1;
 		margin-bottom: .125rem;
+	}
+
+	// for theme's anchor links
+	h2,
+	h3 {
+		position: relative;
+
+		.anchor {
+			.font-s3;
+			.transform(translateY(-50%));
+			.position(absolute, 50%, auto, auto, -30px);
+			.link(@color-mediumlight);
+
+			&:hover { color: @color-primary !important; }
+		}
 	}
 
   p {
