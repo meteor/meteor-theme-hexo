@@ -71,9 +71,10 @@
 
 			&:before {
 				.font-s1;
-				.position(absolute, auto, auto, auto, -1rem);
+				.position(absolute, 50%, auto, auto, -1rem);
 				.transition( all 250ms ease-out );
 				color: @color-primary;
+				margin-top: -.5em;
 				opacity: 0;
 
 				// Taken from package percolate:icons/edited-style.less
@@ -91,7 +92,8 @@
 				&:extend(.icon-arrow-right-alt:before);
 			}
 
-			&.active {
+			&.active,
+			&:hover {
 				color: @color-primary !important;
 				&:before { opacity: 1; }
 			}
