@@ -1,3 +1,7 @@
+<% var githubUrl = 'https://github.com/' + config.github_repo +
+    '/tree/master/' + (config.content_root || 'content') + '/' +
+    page.path.replace(/\.html$/, '.md'); %>
+
 <%- partial('partials/sidebar') %>
 
 <div class="nav dark">
@@ -51,7 +55,7 @@
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn primary small round lowercase" href="https://github.com/<%- config.github_repo || 'meteor/guide' %>/tree/master/<%- config.content_root || 'content' %>/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn primary small round lowercase" href="<%- githubUrl %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           <% if (page.discourseTopicId) { %>
             <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>"><span class="icon-comment"></span> <span>Discuss</span></a>
           <% } %>
@@ -100,7 +104,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">
+    <a class="link tertiary " href="<%- githubUrl %>" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
