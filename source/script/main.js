@@ -76,6 +76,13 @@
     anchor.innerHTML = '<span class="icon-link"></span>'
     anchor.addEventListener('click', onLinkClick)
     h.insertBefore(anchor, h.firstChild)
+
+    var anchorOffset = document.createElement('div')
+    anchorOffset.id = h.id
+    anchorOffset.className = 'anchor-offset'
+    h.insertBefore(anchorOffset, h.firstChild)
+
+    h.removeAttribute("id");
   }
 
   function onLinkClick (e) {
