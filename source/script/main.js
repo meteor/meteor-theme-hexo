@@ -163,4 +163,9 @@
     .addEventListener('click', function () {
       document.body.classList.toggle('sidebar-visible')
     });
+
+  document.querySelector('.content')
+    .addEventListener('click', function() {
+      document.body.classList.remove('sidebar-visible')
+    })
 })()
