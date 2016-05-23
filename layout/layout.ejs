@@ -78,10 +78,26 @@
 
       <% if (config.redirects) { %>
         var REDIRECTS = <%- JSON.stringify(config.redirects, 0, 2) %>;
-        var locationKey = location.pathname + location.hash;
-        if (REDIRECTS[locationKey]) {
-          location.replace(REDIRECTS[locationKey]);
+
+        function redirect() {
+          // Support redirects of the form /path#hash
+          var locationKey = location.pathname + location.hash;
+          if (REDIRECTS[locationKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[locationKey]);
+          }
+
+          // Support redirects of the form #hash (works for any path)
+          var hashKey = location.hash;
+          if (REDIRECTS[hashKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[hashKey]);
+          }
         }
+
+        // Redirect now
+        redirect();
+
+        // Redirect on hash change
+        window.onhashchange = redirect;
       <% } %>
     </script>
   </body>
