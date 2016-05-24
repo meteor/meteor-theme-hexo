@@ -72,8 +72,18 @@
         docsearch({
           apiKey: '<%- config.apis.docsearch.apiKey %>',
           indexName: '<%- config.apis.docsearch.indexName %>',
-          inputSelector: '#search-input',
+          inputSelector: '#search-input'
         });
+
+        var sidebar = document.querySelector('.sidebar');
+        document.querySelector('#search-input')
+          .addEventListener('autocomplete:opened', function() {
+            sidebar.classList.add('searching');
+          });
+        document.querySelector('#search-input')
+          .addEventListener('autocomplete:closed', function() {
+            sidebar.classList.remove('searching');
+          });
       <% } %>
 
       <% if (config.redirects) { %>
