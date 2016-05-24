@@ -43,8 +43,12 @@
 		.anchor {
 			.font-s3;
 			.transform(translateY(-50%));
-			.position(absolute, 50%, auto, auto, -30px);
-			.link(@color-mediumlight);
+			.link(@color-medium);
+			margin-right: 6px;
+
+			@media screen and (min-width: @breakpoint) {
+				.position(absolute, 50%, auto, auto, -30px);
+			}
 
 			&:hover { color: @color-primary !important; }
 		}
