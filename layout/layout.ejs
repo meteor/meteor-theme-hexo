@@ -68,7 +68,7 @@
         })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
         _st('install','<%- config.apis.swiftype %>','2.0.0');
       <% } else if (config.apis && config.apis.docsearch) { %>
-        docsearch({
+        var search = docsearch({
           apiKey: '<%- config.apis.docsearch.apiKey %>',
           indexName: '<%- config.apis.docsearch.indexName %>',
           inputSelector: '#search-input',
@@ -76,17 +76,21 @@
             dropdownMenuContainer: '.wrapper-search-results',
             debug: true
           }
-        });
+        }).autocomplete;
 
         var sidebar = document.querySelector('.sidebar-content');
-        document.querySelector('#search-input')
-          .addEventListener('autocomplete:opened', function() {
-            sidebar.classList.add('searching');
-          });
-        document.querySelector('#search-input')
-          .addEventListener('autocomplete:closed', function() {
-            sidebar.classList.remove('searching');
-          });
+        var input = document.querySelector('#search-input');
+        search.on('autocomplete:opened', function() {
+          sidebar.classList.add('searching');
+        });
+        search.on('autocomplete:closed', function() {
+          sidebar.classList.remove('searching');
+        });
+        search.on('autocomplete:updated', function() {
+          if (search.val() === '') {
+            search.autocomplete.close();
+          }
+        });
       <% } %>
 
       <% if (config.redirects) { %>
