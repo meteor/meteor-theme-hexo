@@ -7,22 +7,47 @@
 // - Same list, but with text snippetting added if size is large enough
 // - Adding a second colum to let the content breath if enough room available
 
-.algolia-autocomplete {
+.sidebar .algolia-autocomplete {
 	width: 100%;
 	vertical-align: top;
 }
 
-// Main autocomplete wrapper
-.aa-dropdown-menu {
-  //font-size: 16px;
-	background: @color-lighter;
+.nav-search .algolia-autocomplete {
+	display: block !important;
+	height: 100%;
+}
 
+// Main autocomplete wrapper
+.wrapper-desktop-search-results .aa-dropdown-menu {
 	//reset algolia js styling
-	//position: relative !important;
 	top: .75rem !important;
 	bottom: auto !important;
 	left: 0 !important;
 	right: 0 !important;
+
+	background: @color-lighter;
+}
+
+.wrapper-mobile-search-results .aa-dropdown-menu {
+	//reset algolia js styling
+	bottom: auto !important;
+	left: 0 !important;
+	right: 0 !important;
+
+	top: @panel-width-mobile !important;
+	@media screen and (min-width: @breakpoint) {
+		top: @panel-width-tablet !important;
+	}
+
+	background: fade(@color-lightest, 97);
+	box-shadow: rgba(0,0,0,.03) 0 0 1px 5px;
+	text-align: left;
+
+	> * {
+		.std-ypadding;
+		.page-margins;
+		.std-xpadding;
+	}
 }
 
 // Each suggestion

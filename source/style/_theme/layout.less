@@ -69,7 +69,7 @@ body {
 .nav {
   // appears on mobile/tablet only
   .position(fixed, 0,0,auto, 0, auto, @panel-width-mobile);
-  overflow: hidden;
+  opacity: 1;
   z-index: 3;
 
   @media screen and (min-width: @breakpoint) {
@@ -79,7 +79,9 @@ body {
 
   @media screen and (min-width: (@breakpoint * 1.5)) {
     height: 0;
+    opacity: 0;
     left: @panel-width;
+    z-index: -1;
   }
 }
 
