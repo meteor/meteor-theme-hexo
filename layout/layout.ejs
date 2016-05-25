@@ -25,7 +25,6 @@
     <meta name="google-site-verification" content="" />
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/style/style.css">
-    <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
   </head>
   <body class="">
     <%- body %>
@@ -72,10 +71,14 @@
         docsearch({
           apiKey: '<%- config.apis.docsearch.apiKey %>',
           indexName: '<%- config.apis.docsearch.indexName %>',
-          inputSelector: '#search-input'
+          inputSelector: '#search-input',
+          autocompleteOptions: {
+            dropdownMenuContainer: '.wrapper-search-results',
+            debug: true
+          }
         });
 
-        var sidebar = document.querySelector('.sidebar');
+        var sidebar = document.querySelector('.sidebar-content');
         document.querySelector('#search-input')
           .addEventListener('autocomplete:opened', function() {
             sidebar.classList.add('searching');
