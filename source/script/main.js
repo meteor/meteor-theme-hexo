@@ -161,13 +161,16 @@
 
   // search toggle
   var nav = document.querySelector('.nav');
+  var mobileSearch = document.querySelector('#mobile-search-input');
   [].forEach.call(document.querySelectorAll('.js-search-toggle'), function(link) {
     link.addEventListener('click', function() {
       nav.classList.toggle('search-visible');
+      if (nav.classList.contains('search-visible')) {
+        mobileSearch.focus();
+      }
     });
   });
 
-  var mobileSearch = document.querySelector('#mobile-search-input');
   mobileSearch && mobileSearch.addEventListener('keydown', function(event) {
     if (event.which === 27) {
       nav.classList.toggle('search-visible', false);
