@@ -167,7 +167,7 @@
     });
   });
 
-  var mobileSearch = document.querySelector('.mobile-search-input');
+  var mobileSearch = document.querySelector('#mobile-search-input');
   mobileSearch && mobileSearch.addEventListener('keydown', function(event) {
     if (event.which === 27) {
       nav.classList.toggle('search-visible', false);
