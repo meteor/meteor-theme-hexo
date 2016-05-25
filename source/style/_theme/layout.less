@@ -150,3 +150,33 @@ body {
     }
   }
 }
+
+// Sidebar search desktop
+.sidebar-content {
+  .wrapper-search-results {
+    .transition(all 300ms @easing);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .toc {
+    .transition(all 300ms @easing);
+    max-height: 300rem;
+    opacity: 1;
+  }
+
+  &.searching {
+    .wrapper-search-results {
+      max-height: 100vh;
+      overflow: visible;
+      opacity: 1;
+    }
+
+    .toc {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+  }
+}

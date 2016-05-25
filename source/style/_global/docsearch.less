@@ -2,7 +2,7 @@
 @color-border-light: lighten(@color-border, 15%);
 @color-category-header-background: #3C4658;
 @color-highlight-header-background: @color-mediumlight;
-@color-highlight-text: #0064E1;
+@color-highlight-text: @color-primary;
 @color-selected-background: #E7EDF3;
 @color-selected-text: #0064E1;
 @color-left-column-bg: #F1F3F5;
@@ -19,27 +19,31 @@
 // - Same list, but with text snippetting added if size is large enough
 // - Adding a second colum to let the content breath if enough room available
 
+.algolia-autocomplete {
+	width: 100%;
+}
+
 // Main autocomplete wrapper
 .aa-dropdown-menu {
   //font-size: 16px;
 	background: @color-lighter;
 
 	//reset algolia js styling
-	position: relative !important;
-	top: auto !important;
+	//position: relative !important;
+	top: .75rem !important;
 	bottom: auto !important;
-	left: auto !important;
-	right: auto !important;
+	left: 0 !important;
+	right: 0 !important;
 }
 
 // Each suggestion
 .algolia-docsearch-suggestion {
-  // color: #333;
-  // cursor: pointer;
-  // overflow: hidden;
 
+}
+
+.algolia-docsearch-suggestion--content {
 	&:extend(.sidebar ul.list-toc li);
-
+	&:extend(.sidebar ul.list-toc a all);
 }
 
   // Each sub-suggestion
@@ -58,12 +62,20 @@
   }
 }
 
+.aa-suggestions .aa-suggestion:first-child {
+	.algolia-docsearch-suggestion--category-header {
+		padding-top: 0;
+	}
+}
+
+
 // Highlight
 .algolia-docsearch-suggestion--highlight {
-  padding: 0;
+	.type-semibold;
+	.type-italic;
   color: @color-highlight-text;
   background: none;
-  font-weight: 600;
+
   // Highlight the background in header
   .algolia-docsearch-suggestion--category-header & {
     color: inherit;
@@ -73,10 +85,17 @@
 
 // Selected suggestion
 .aa-cursor .algolia-docsearch-suggestion--content {
-  color: @color-selected-text;
+  //color: @color-selected-text;
+	&:extend(.sidebar ul.list-toc a all);
 }
-.aa-cursor .algolia-docsearch-suggestion .algolia-docsearch-suggestion--wrapper {
-  background: @color-selected-background;
+.aa-cursor .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content {
+  //background: @color-selected-background;
+	&:extend(.sidebar ul.list-toc a:hover);
+
+	&:before {
+		&:extend(.sidebar ul.list-toc a:before);
+		opacity: 1 !important;
+	}
 }
 
 // The secondary column is hidden on small screens
@@ -99,10 +118,11 @@
   }
 
 .algolia-docsearch-suggestion--subcategory-inline {
+	.type-semibold;
   display: inline-block;
-  font-weight: bold;
+
   &:after {
-    content: " › ";
+    content: " » ";
   }
 }
 .algolia-docsearch-suggestion--title {
@@ -112,10 +132,9 @@
 // Footer
 
 .algolia-docsearch-footer {
-  border-top: 1px solid @color-border-light;
-  text-align: right;
-  font-size: 12px;
-  color: #333;
+	.font-s1;
+  color: @color-medium;
+	padding-top: 1rem;
 
   .algolia-docsearch-footer--logo {
     display: inline-block !important;

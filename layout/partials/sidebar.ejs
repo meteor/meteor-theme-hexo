@@ -33,11 +33,12 @@
     <% if (config.apis && config.apis.docsearch) { %>
     <div class="wrapper-search">
       <div class="input-symbol small round">
-        <input type="text" placeholder="Search" id="search-input" />
+        <input type="text" placeholder="Search <%- config.title %>" id="search-input" />
         <span class="icon-search"></span>
       </div>
+      <div class="wrapper-search-results"></div>
     </div>
-    <div class="wrapper-search-results"></div>
+
     <% } %>
 
     <ul class="toc">
