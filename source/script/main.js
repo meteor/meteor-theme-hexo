@@ -135,9 +135,13 @@
     }
   }
 
-  // scroll sidebar page link into view on page load
-  // hexo rewrites the URLs to be relative, so the current page has href="".
-  document.querySelector('.item-toc a[href=""]').scrollIntoView();
+
+  // scroll sidebar page link into view on page load (except for the top link)
+  var atRoot = location.pathname === '/' || location.pathname === '/index.html';
+  if (!atRoot || location.hash !== '') {
+    // hexo rewrites the URLs to be relative, so the current page has href="".
+    document.querySelector('.item-toc a[href=""]').scrollIntoView();
+  }
 
   // version select
   var currentVersion = location.pathname.match(/^\/(v\d[^\/]+)/)
