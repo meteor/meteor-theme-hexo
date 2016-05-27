@@ -163,6 +163,13 @@
     })
   })
 
+  // fastclick to remove click delay in mobile browsers
+  if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body);
+    }, false);
+  }
+
   // search toggle
   var nav = document.querySelector('.nav');
   var mobileSearch = document.querySelector('#mobile-search-input');
