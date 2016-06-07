@@ -38,7 +38,7 @@
       <% } %>
     </div>
     <p class="edit-link">
-      <a href="https://github.com/meteor/guide/tree/master/content/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit this page on GitHub</a>
+      <a href="https://github.com/<%- config.github_repo || 'meteor/guide' %>/tree/master/<%- config.content_root || 'content' %>/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">Edit this page on GitHub</a>
     </p>
     <% if (page.discourseTopicId) { %>
       <div id='discourse-comments'></div>
