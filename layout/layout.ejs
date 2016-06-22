@@ -79,6 +79,9 @@
             autocompleteOptions: {
               dropdownMenuContainer: '.wrapper-' + type + '-search-results',
               debug: true
+            },
+            algoliaOptions: {
+              hitsPerPage: 20
             }
           }).autocomplete;
 
