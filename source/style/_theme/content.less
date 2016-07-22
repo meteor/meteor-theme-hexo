@@ -113,21 +113,7 @@
 			dl {
 				padding-left: 0;
 
-				dt {
-					.type-code;
-					.font-code;
-					color: @color-complementary;
-
-					.type {
-						.font-s1;
-						.type-primary;
-						.type-italic;
-						color: @color-dark;
-						margin-left: 10px;
-					}
-
-					a { &:extend(.link.primary); }
-				}
+				dt { .term-code; }
 
 				dd { margin-left: 0; }
 			}
@@ -182,4 +168,8 @@
 		margin-bottom: 1.5rem;
 		text-align: center;
 	}
+
+	.objdesc > dt {
+        	.term-code;
+        }
 }

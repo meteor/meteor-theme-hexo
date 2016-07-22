@@ -36,3 +36,19 @@
   font-size: 0;
   > * { .font-s3; }
 }
+
+.term-code() {
+  .type-code;
+  .font-code;
+  color: @color-complementary;
+
+  .type {
+    .font-s1;
+    .type-primary;
+    .type-italic;
+    color: @color-dark;
+    margin-left: 10px;
+  }
+
+  a { &:extend(.link.primary); }
+}
