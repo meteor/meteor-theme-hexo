@@ -1,5 +1,5 @@
 .panel {
-	@media screen and (min-width: @breakpoint) { text-align: center; }
+	@media screen and (min-width: @breakpoint) { display: none; }
 
 	.panel-item {
 		.std-xpadding;
@@ -10,67 +10,15 @@
 		padding-bottom: .5rem;
 		position: relative;
 
-
-		@media screen and (min-width: @breakpoint) {
-			.font-s1;
-			padding: 0;
-		}
-
-		&:before {
-			@media screen and (min-width: @breakpoint) { content: ''; }
-
-			@dot-dimension: .5rem;
-			.transform(scale3d(0,0,1));
-			.transition( all 200ms ease-out );
-			.position(absolute, 50%, auto, auto, @dot-dimension / -2, @dot-dimension, @dot-dimension );
-
-			background: transparent;
-			border-radius: 1em;
-			display: block;
-			margin-top: @dot-dimension / -2;
-		}
-
 		&.active,
 		&:hover {
 			background: @color-primary;
-			@media screen and (min-width: @breakpoint) { background: transparent; }
 
-			a {
-				.link(@color-lightest);
-				@media screen and (min-width: @breakpoint) { .link(@color-primary); }
-			}
+			a { .link(@color-lightest); }
 
 			&:before {
 				.transform(scale3d(1,1,1));
 				background: @color-primary;
-			}
-
-			svg > * {
-				fill: @color-primary;
-				stroke: @color-primary;
-			}
-		}
-
-		&.logo {
-			display: block;
-
-			@media screen and (min-width: @breakpoint) {
-				background: @color-primary;
-				height: 4rem;
-				margin-bottom: .75rem;
-
-				&:hover { background: darken(@color-primary, 5%); }
-
-				a { padding-top: .375rem; }
-				img { height: 3rem; }
-				span { display: none; }
-			}
-
-			@media screen and (min-width: (@breakpoint * 1.5)) {
-				height: 5rem;
-
-				img { height: 3.75rem; }
-				a { padding-top: .5rem; }
 			}
 		}
 
@@ -78,38 +26,6 @@
 			.link(@color-dark);
 			.type-semibold;
 			display: block;
-
-			@media screen and (min-width: @breakpoint) { padding: .75rem 0; }
-		}
-
-		svg,
-		img {
-			.transition( all 200ms ease-out );
-			display: none;
-
-			@media screen and (min-width: @breakpoint) {
-				display: inline-block;
-				height: 2rem;
-				margin-bottom: .25rem;
-				vertical-align: top;
-				width: auto;
-				max-width: 100%;
-			}
-
-			@media screen and (min-width: (@breakpoint * 1.5)) {
-				height: 2.25rem;
-			}
-
-			> * {
-				fill: @color-dark;
-				stroke: @color-dark;
-			}
-		}
-
-		svg + span {
-			@media screen and (min-width: @breakpoint) {
-				display: block;
-			}
 		}
 	}
 }
