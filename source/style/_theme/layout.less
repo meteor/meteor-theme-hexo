@@ -15,73 +15,32 @@ body {
 }
 
 .panel {
-  .scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
   box-shadow: rgba(0,0,0,.1) 0 0 5px 0 inset;
-
-  @media screen and (min-width: @breakpoint) {
-    .position(fixed, 0, auto, 0, 0, @panel-width-tablet);
-  }
-  @media screen and (min-width: (@breakpoint * 1.5)) { width: @panel-width; }
-
 	background: @color-mediumlight;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
   z-index: 1;
 }
 
 .sidebar {
-  .position(fixed, 0, auto, 0, 0, @sidebar-width);
+  .position(fixed, @panel-width-mobile, auto, 0, 0, @sidebar-width);
+  .scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
+  background: @color-lighter;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 2;
 
-
-  .transform(translateX(-@sidebar-width));
-  @media screen and (min-width: @breakpoint) { .transform(translateX(0)); }
-
-  @media screen and (max-width: (@breakpoint - 1px)) {
-    .scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    z-index: 0;
-  }
-
-  .sidebar-content {
-    @media screen and (min-width: @breakpoint) {
-      .position(absolute, 0,0,0, @panel-width-tablet, @sidebar-width);
-      .transform(translateX(-@sidebar-width));
-    }
-
-    @media screen and (min-width: (@breakpoint * 1.5)) {
-      //show on desktop
-      left: @panel-width;
-      .transform(translateX(0));
-    }
-
-    .scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
-    background: @color-lighter;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    z-index: 0;
+  @media screen and (min-width: @breakpoint) {
+    top: @panel-width-tablet;
   }
 }
 
 .nav {
-  // appears on mobile/tablet only
   .position(fixed, 0,0,auto, 0, auto, @panel-width-mobile);
   opacity: 1;
   z-index: 3;
 
   @media screen and (min-width: @breakpoint) {
     height: @panel-width-tablet;
-    left: @panel-width-tablet;
-  }
-
-  @media screen and (min-width: (@breakpoint * 1.5)) {
-    height: 0;
-    opacity: 0;
-    left: @panel-width;
-    z-index: -1;
   }
 }
 
@@ -93,13 +52,8 @@ body {
   z-index: 2;
 
   @media screen and (min-width: @breakpoint) {
-    margin-left: @panel-width-tablet;
     padding-top: @panel-width-tablet;
-  }
-
-  @media screen and (min-width: (@breakpoint * 1.5)) {
-    margin-left: @sidebar-width + @panel-width;
-    padding-top: 1rem;
+    margin-left: @sidebar-width;
   }
 }
 
@@ -128,26 +82,12 @@ body {
       //@media screen and (min-width: (@breakpoint * 1.5)) { left: @panel-width; }
     }
 
-    .nav {
-      left: @sidebar-width;
-      right: -1 * (@sidebar-width);
-
-      @media screen and (min-width: (@breakpoint * 1)) {
-        left: @sidebar-width + @panel-width-tablet;
-        right: -1 * (@sidebar-width + @panel-width-tablet);
-      }
-
-      @media screen and (min-width: (@breakpoint * 1.5)) {
-        left: @panel-width;
-        right: 0;
-      }
-    }
-
     .content {
-      left: @sidebar-width;
+      //left: @sidebar-width;
+      .transform(translateX(@sidebar-width));
 
       @media screen and (min-width: (@breakpoint * 1.5)) {
-        left: 0;
+        .transform(translateX(0));
       }
     }
   }

@@ -1,15 +1,13 @@
 <div class="sidebar">
   <div class="panel">
-    <div class="panel-item logo">
-      <a href="<%- theme.logo.url %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
-        <img src="<%- config.logo && config.logo.desktop || theme.logo.sidebar %>" alt="<%- theme.logo.title %>">
+    <div class="panel-item">
+      <a class="" href="<%- theme.logo.url %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
         <span><%- theme.logo.title %></span>
       </a>
     </div>
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
       <div class="panel-item <%- link.active && 'active' %>"">
         <a class="" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
-          <%- link.partial ?  partial('partials/' + link.partial) : '<img src="' + link.src + '">' %>
           <span><%- title %></span>
         </a>
       </div>

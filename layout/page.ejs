@@ -2,29 +2,38 @@
     '/tree/master/' + (config.content_root || 'content') + '/' +
     page.path.replace(/\.html$/, '.md'); %>
 
-<%- partial('partials/sidebar') %>
-
 <div class="nav dark">
   <div class="nav-group">
     <div class="nav-item">
-      <span class="js-sidebar-toggle">
+      <span class="js-sidebar-toggle show-mobile">
         <span class="icon-menu"></span>
       </span>
+      <a class="logo show-desktop" href="<%- theme.logo.url %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
+        <img src="<%- config.logo && config.logo.mobile || theme.logo.nav_mobile %>" alt="<%- config.title %>"/>
+        <span><%- theme.logo.subtitle %></span>
+      </a>
     </div>
   </div>
 
-  <div class="center-wrapper">
+  <div class="center-wrapper show-mobile">
     <img src="<%- config.logo && config.logo.mobile || theme.logo.nav_mobile %>" alt="<%- config.title %>"/>
     <div><%- config.subtitle %></div>
   </div>
 
   <% if (config.apis && config.apis.docsearch) { %>
   <div class="nav-group right">
-    <div class="nav-item">
+    <div class="nav-item show-mobile">
       <span class="js-search-toggle">
         <span class="icon-search"></span>
       </span>
     </div>
+    <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
+      <div class="nav-item show-desktop <%- link.active && 'active' %>">
+        <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
+          <span><%- title %></span>
+        </a>
+      </div>
+    <% }) %>
   </div>
 
   <div class="nav-search">
@@ -40,12 +49,13 @@
         </span>
       </div>
     </div>
-    
+
     <div class="wrapper-mobile-search-results"></div>
   </div>
   <% } %>
 </div>
 
+<%- partial('partials/sidebar') %>
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">

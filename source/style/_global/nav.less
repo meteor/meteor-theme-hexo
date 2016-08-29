@@ -39,7 +39,6 @@
 
   .nav-group {
     .position(absolute, 0, auto, auto, 0);
-		@media screen and (min-width: @breakpoint) { top: .5rem; }
 		.std-xpadding;
     z-index: 1;
 
@@ -54,11 +53,20 @@
     display: inline-block;
     line-height: 3rem;
     height: 3rem;
+		@media screen and (min-width: @breakpoint) {
+			line-height: 4rem;
+	    height: 4rem;
+		}
     vertical-align: top;
 
 		& + .nav-item {
 			margin-left: .75rem;
 			@media screen and (min-width: @breakpoint) { margin-left: 1.875rem;  }
+		}
+
+		&.active {
+			border-bottom: 2px solid @color-primary;
+			color: @color-primary;
 		}
 
     .link {
