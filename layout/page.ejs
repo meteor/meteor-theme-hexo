@@ -20,13 +20,14 @@
     <div><%- config.subtitle %></div>
   </div>
 
-  <% if (config.apis && config.apis.docsearch) { %>
   <div class="nav-group right">
-    <div class="nav-item show-mobile">
-      <span class="js-search-toggle">
-        <span class="icon-search"></span>
-      </span>
-    </div>
+    <% if (config.apis && config.apis.docsearch) { %>
+      <div class="nav-item show-mobile">
+        <span class="js-search-toggle">
+          <span class="icon-search"></span>
+        </span>
+      </div>
+    <% } %>
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
       <div class="nav-item show-desktop <%- link.active && 'active' %>">
         <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
@@ -36,23 +37,25 @@
     <% }) %>
   </div>
 
-  <div class="nav-search">
-    <div class="input-symbol">
-      <input type="text" placeholder="Search <%- config.subtitle %>" id="mobile-search-input"/>
-      <span class="icon-search"></span>
-    </div>
-
-    <div class="nav-group right">
-      <div class="nav-item">
-        <span class="js-search-toggle">
-          <span class="icon-close"></span>
-        </span>
+  <% if (config.apis && config.apis.docsearch) { %>
+    <div class="nav-search">
+      <div class="input-symbol">
+        <input type="text" placeholder="Search <%- config.subtitle %>" id="mobile-search-input"/>
+        <span class="icon-search"></span>
       </div>
-    </div>
 
-    <div class="wrapper-mobile-search-results"></div>
-  </div>
+      <div class="nav-group right">
+        <div class="nav-item">
+          <span class="js-search-toggle">
+            <span class="icon-close"></span>
+          </span>
+        </div>
+      </div>
+
+      <div class="wrapper-mobile-search-results"></div>
+    </div>
   <% } %>
+
 </div>
 
 <%- partial('partials/sidebar') %>
