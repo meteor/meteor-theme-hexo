@@ -37,7 +37,6 @@
     createSubMenu(activeLink.parentNode, h2sWithH3s)
     smoothScroll.init({
       speed: 400,
-      offset: window.innerWidth > 560 ? 115 : 55,
       callback: function () {
         scrolling = false
       }
