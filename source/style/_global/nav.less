@@ -9,11 +9,13 @@
 
   &.dark {
     color: @color-darker;
+		.link { .link(@color-darker); }
     svg { fill: @color-darkest; }
   }
 
   &.light {
     color: @color-lightest;
+		.link { .link(@color-lightest); }
     svg { fill: @color-lightest; }
   }
 
@@ -66,7 +68,8 @@
 
 		&.active {
 			border-bottom: 2px solid @color-primary;
-			color: @color-primary;
+
+			.link { color: @color-primary; }
 		}
 
     .link {
