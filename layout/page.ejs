@@ -16,11 +16,6 @@
     </div>
   </div>
 
-  <div class="center-wrapper show-mobile">
-    <img src="<%- config.logo && config.logo.mobile || theme.logo.nav_mobile %>" alt="<%- config.title %>"/>
-    <div><%- config.subtitle %></div>
-  </div>
-
   <div class="nav-group right">
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
       <div class="nav-item show-desktop <%- link.active && 'active' %> <%- link.separator && 'separator' %>">
