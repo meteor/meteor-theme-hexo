@@ -2,7 +2,7 @@
   <div class="panel">
     <div class="panel-item">
       <a class="" href="<%- theme.logo.url %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
-        <span><%- theme.logo.title %></span>
+        <span><%- theme.logo.title %> <%- theme.logo.subtitle %></span>
       </a>
     </div>
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
