@@ -19,14 +19,14 @@
   hr + * { margin-top: 0 !important; }
 
   h2 {
-		.font-m2;
+		.font-m3;
 		.type-bold;
 		color: @color-darker;
     margin-bottom: 1rem;
   }
 
   h3 {
-		.font-m1;
+		.font-m2;
 		.type-semibold;
 		color: @color-darker;
 		margin-bottom: .25rem;
@@ -57,6 +57,7 @@
 	}
 
   p {
+		.type-secondary;
     margin: @spacing 0;
     position: relative;
 
@@ -64,15 +65,10 @@
 		&:only-of-type { margin: 0; }
   }
 
-	a code {
-		text-decoration: underline;
-	}
-
 	p a,
 	li a {
 		.link(@color-primary);
 		.type-normal;
-		text-decoration: underline;
 	}
 
   figure {
@@ -122,10 +118,15 @@
 
   ol,
 	ul {
+		.type-secondary;
     list-style-position: outside;
     margin-bottom: @spacing/2;
     margin-top: @spacing/2;
     padding-left: 30px;
+
+		li {
+			margin-bottom: .5rem;
+		}
   }
 
   ol { list-style-type: decimal; }
@@ -170,6 +171,10 @@
 				white-space: pre;
 		  }
 		}
+	}
+
+	code {
+		font-size: 90%;
 	}
 
 	dl {
