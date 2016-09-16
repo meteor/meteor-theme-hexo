@@ -34,7 +34,7 @@
 
 	.heading-toc {
 		.subheading-caps;
-		color: @color-complementary;
+		color: @color-darker;
 		padding: 1.5em 0 .25em;
 	}
 
@@ -70,7 +70,7 @@
 
 			&.current {
 				&:extend(.link.primary all);
-				.type-semibold;
+				.type-bold;
 			}
 
 			&:before {
@@ -98,8 +98,12 @@
 
 			&.active,
 			&:hover {
-				color: @color-primary !important;
 				&:before { opacity: 1; }
+			}
+
+			&.active {
+				.type-semibold;
+				color: @color-primary !important;
 			}
 
 			&.h3 { .link(@color-dark); }
