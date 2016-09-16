@@ -21,7 +21,7 @@ body {
 }
 
 .sidebar {
-  .position(fixed, @panel-width-mobile, auto, 0, 0, @sidebar-width);
+  .position(fixed, @panel-width-tablet, auto, 0, 0, @sidebar-width);
   .scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
   background: @color-lighter;
   overflow-y: auto;
@@ -35,20 +35,16 @@ body {
 }
 
 .nav {
-  .position(fixed, 0,0,auto, 0, auto, @panel-width-mobile);
+  .position(fixed, 0,0,auto, 0, auto, @panel-width-tablet);
   opacity: 1;
   z-index: 3;
-
-  @media screen and (min-width: @breakpoint) {
-    height: @panel-width-tablet;
-  }
 }
 
 .content {
   .position(relative, 0,0,0,0);
   .transform(translate3d(0,0,0));
   background: @color-lightest;
-  padding-top: @panel-width-mobile;
+  padding-top: @panel-width-tablet;
   z-index: 2;
 
   @media screen and (min-width: @breakpoint) {
