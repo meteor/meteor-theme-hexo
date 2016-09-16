@@ -1,27 +1,27 @@
 .nav {
 	.background-image(linear-gradient(top, rgba(255,255,255,.96) 0%, rgba(255,255,255,.99) 100%));
-	box-shadow: @color-light 0 -1px 0 0 inset;
 
-	.logo {
-		height: 40px;
-		margin-top: -2px;
-		width: auto;
-		display: block;
+	.nav-item .link {
+		display: inline-block;
+		line-height: 4rem;
+		margin-top: -.5rem;
+	}
 
-		img {
-			display: inline-block;
-			height: 100%;
-			vertical-align: middle;
-		}
-
-		span {
-			.type-normal;
-			display: inline-block;
-			vertical-align: middle;
-			margin-left: 4px;
-			line-height: 1;
+	.nav-item:hover .link,
+	.nav-item.active .link {
+		color: @color-primary;
+		text-decoration: none;
+		&:before {
+			content:'';
+			display: block;
+			position: absolute;
+			bottom: -.5rem;
+			width: 100%;
+			height: 0;
+			border-bottom: 2px solid @color-primary;
 		}
 	}
+
 
 	.nav-search {
 		.position(absolute, 0,0,0,0);
