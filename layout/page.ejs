@@ -86,7 +86,8 @@
     <div class="content-wrapper">
       <%
         function findAdjacent (direction) {
-          var pages = site.pages.find({}).sort({order: 1}).map(function (page) { return page })
+          var pagePaths = _.flatten(_.map(config.sidebar_categories, function(vals) { return vals; }));
+          var pages = _.map(pagePaths, function (val) { return site.pages.findOne({path: val + '.html'}); });
           var i = pages.length
           while (i--) {
             if (pages[i].title === page.title) {
