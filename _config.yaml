@@ -9,7 +9,7 @@ favicon: logo/favicon.png
 nav_links:
   'React':
     url: http://dev.apollodata.com/react
-  'Angular 2':
+  'Angular':
     url: http://dev.apollodata.com/angular2
   'iOS':
     url: http://dev.apollodata.com/ios
