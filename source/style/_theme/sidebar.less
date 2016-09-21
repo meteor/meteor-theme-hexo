@@ -8,7 +8,7 @@
 
 		.title-sidebar {
 			.font-s3;
-			.type-semibold;
+			.type-bold;
 		}
 
 		.version-sidebar {
@@ -20,8 +20,7 @@
 	}
 
 	.wrapper-search {
-		display: none;
-		@media screen and (min-width: @breakpoint) { display: block; }
+		display: block;
 
 		.std-xpadding;
 		margin-bottom: .75rem;
@@ -35,7 +34,7 @@
 
 	.heading-toc {
 		.subheading-caps;
-		color: @color-complementary;
+		color: @color-darker;
 		padding: 1.5em 0 .25em;
 	}
 
@@ -65,13 +64,14 @@
 		a {
 			.link(@color-darkest);
 			.type-normal;
+			.type-secondary;
 			display: block;
 			line-height: 1rem;
 			position: relative;
 
 			&.current {
 				&:extend(.link.primary all);
-				.type-semibold;
+				.type-bold;
 			}
 
 			&:before {
@@ -99,8 +99,11 @@
 
 			&.active,
 			&:hover {
-				color: @color-primary !important;
 				&:before { opacity: 1; }
+			}
+
+			&.active {
+				color: @color-primary !important;
 			}
 
 			&.h3 { .link(@color-dark); }

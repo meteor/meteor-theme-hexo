@@ -19,14 +19,16 @@
   hr + * { margin-top: 0 !important; }
 
   h2 {
-		.font-l1;
-		.type-light;
+		.font-m3;
+		.type-bold;
+		color: @color-darker;
     margin-bottom: 1rem;
   }
 
   h3 {
-		.font-m3;
-		.type-light;
+		.font-m2;
+		.type-semibold;
+		color: @color-darker;
 		margin-bottom: .25rem;
 	}
 
@@ -55,6 +57,7 @@
 	}
 
   p {
+		.type-secondary;
     margin: @spacing 0;
     position: relative;
 
@@ -62,15 +65,10 @@
 		&:only-of-type { margin: 0; }
   }
 
-	a code {
-		text-decoration: underline;
-	}
-
 	p a,
 	li a {
 		.link(@color-primary);
 		.type-normal;
-		text-decoration: underline;
 	}
 
   figure {
@@ -120,10 +118,15 @@
 
   ol,
 	ul {
+		.type-secondary;
     list-style-position: outside;
     margin-bottom: @spacing/2;
     margin-top: @spacing/2;
     padding-left: 30px;
+
+		li {
+			margin-bottom: .5rem;
+		}
   }
 
   ol { list-style-type: decimal; }
@@ -170,6 +173,10 @@
 		}
 	}
 
+	code {
+		font-size: 90%;
+	}
+
 	dl {
     padding-left: 30px;
 		margin: 0;
@@ -191,42 +198,4 @@
 			margin: 0;
 		}
   }
-
-  // Tables based on GH markdown format
-  // table {
-  //   .font-s2;
-  //   padding: 0;
-  // }
-  // table tr {
-  //   border-top: 1px solid @color-mediumlight;
-  //   background-color: white;
-  //   margin: 0;
-  //   padding: 0;
-  // }
-  // table tr:nth-child(2n) {
-  //   background-color: @color-light;
-  // }
-  // table tr th {
-  //   font-weight: bold;
-  //   border: 1px solid @color-medium;
-  //   border-radius: 3px 3px 0 0;
-  //   text-align: left;
-  //   margin: 0;
-  //   padding: .5rem .75rem;
-  // }
-  // table tr td {
-  //   border: 1px solid #ddd;
-  //   text-align: left;
-  //   margin: 0;
-  //   padding: .5rem 1rem;
-  // }
-	//
-  // table tr th :first-child, table tr td:first-child {
-  //   margin-top: 0;
-  // }
-	//
-  // table tr th :last-child, table tr td:last-child {
-  //   margin-bottom: 0;
-  // }
-	//
 }

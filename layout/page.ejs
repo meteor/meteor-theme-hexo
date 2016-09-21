@@ -4,58 +4,27 @@
 
 <div class="nav dark">
   <div class="nav-group">
-    <div class="nav-item">
-      <span class="js-sidebar-toggle show-mobile">
+    <div class="nav-item show-mobile">
+      <span class="js-sidebar-toggle ">
         <span class="icon-menu"></span>
       </span>
-      <a class="logo show-desktop" href="<%- theme.logo.url %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
-        <img src="<%- config.logo && config.logo.mobile || theme.logo.nav_mobile %>" alt="<%- config.title %>"/>
-        <span><%- theme.logo.subtitle %></span>
+    </div>
+    <div class="nav-item">
+      <a class="logo-wrapper" href="<%- theme.logo.url %>" title="<%- theme.logo.title %> <%- theme.logo.subtitle %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
+        <img src="<%- config.logo && config.logo.mobile || theme.logo.nav_mobile %>" alt="<%- theme.logo.title %>" class="logo"/><img src="<%- config.logo && config.logo.mobile || theme.logo.subbrand %>" class="logo-subbrand" alt="<%- theme.logo.subtitle %>"/>
       </a>
     </div>
   </div>
 
-  <div class="center-wrapper show-mobile">
-    <img src="<%- config.logo && config.logo.mobile || theme.logo.nav_mobile %>" alt="<%- config.title %>"/>
-    <div><%- config.subtitle %></div>
-  </div>
-
   <div class="nav-group right">
-    <% if (config.apis && config.apis.docsearch) { %>
-      <div class="nav-item show-mobile">
-        <span class="js-search-toggle">
-          <span class="icon-search"></span>
-        </span>
-      </div>
-    <% } %>
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
-      <div class="nav-item show-desktop <%- link.active && 'active' %>">
+      <div class="nav-item show-desktop <%- link.active && 'active' %> <%- link.separator && 'separator' %>">
         <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
           <span><%- title %></span>
         </a>
       </div>
     <% }) %>
   </div>
-
-  <% if (config.apis && config.apis.docsearch) { %>
-    <div class="nav-search">
-      <div class="input-symbol">
-        <input type="text" placeholder="Search <%- config.subtitle %>" id="mobile-search-input"/>
-        <span class="icon-search"></span>
-      </div>
-
-      <div class="nav-group right">
-        <div class="nav-item">
-          <span class="js-search-toggle">
-            <span class="icon-close"></span>
-          </span>
-        </div>
-      </div>
-
-      <div class="wrapper-mobile-search-results"></div>
-    </div>
-  <% } %>
-
 </div>
 
 <%- partial('partials/sidebar') %>
@@ -69,7 +38,7 @@
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn primary small round lowercase" href="<%- githubUrl %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="<%- githubUrl %>" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           <% if (page.discourseTopicId) { %>
             <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>"><span class="icon-comment"></span> <span>Discuss</span></a>
           <% } %>
