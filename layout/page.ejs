@@ -18,7 +18,8 @@
 
   <div class="nav-group right">
     <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
-      <div class="nav-item show-desktop <%- link.active && 'active' %> <%- link.separator && 'separator' %>">
+      <% active = link.active || config.url === link.url %>
+      <div class="nav-item show-desktop <%- active && 'active' %> <%- link.separator && 'separator' %>">
         <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
           <span><%- title %></span>
         </a>
