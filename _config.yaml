@@ -1,10 +1,10 @@
 logo:
-  nav_mobile: logo/logo-apollo-space-left.svg
-  subbrand: logo/logo-apollo-subbrands-developers-space.svg
+  nav_mobile: images/logo-apollo-space-left.svg
+  subbrand: images/logo-apollo-subbrands-developers-space.svg
   title: Apollo
   subtitle: Developers
   url: http://dev.apollodata.com/
-favicon: logo/favicon.png
+favicon: images/favicon.png
 
 nav_links:
   'React':
