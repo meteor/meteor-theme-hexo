@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="<%- theme.logo.url %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
+      <a class="" href="<%- relative_url(page.path, theme.logo.url) %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
         <span><%- theme.logo.title %> <%- theme.logo.subtitle %></span>
       </a>
     </div>
