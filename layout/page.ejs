@@ -10,12 +10,13 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="<%- theme.logo.url %>" title="<%- theme.logo.title %> <%- theme.logo.subtitle %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
-        <img src="<%- relative_url(page.path, config.logo && config.logo.mobile || theme.logo.nav_mobile) %>" alt="<%- theme.logo.title %>" class="logo"/>
-        <% if (theme.logo && theme.logo.subbrand) { %>
-          <img src="<%- relative_url(page.path, theme.logo.subbrand) %>" class="logo-subbrand" alt="<%- theme.logo.subtitle %>"/>
+      <% logo = config.logo || theme.logo %>
+      <a class="logo-wrapper" href="<%- logo.url %>" title="<%- logo.title %> <%- logo.subtitle %>" <%- logo.target && 'target=' + logo.target %> >
+        <img src="<%- relative_url(page.path, logo && logo.mobile || logo.nav_mobile) %>" alt="<%- logo.title %>" class="logo"/>
+        <% if (logo && logo.subbrand) { %>
+          <img src="<%- relative_url(page.path, logo.subbrand) %>" class="logo-subbrand" alt="<%- logo.subtitle %>"/>
         <% } else { %>
-          <span><%- theme.logo && theme.logo.subtitle %></span>
+          <span><%- logo && logo.subtitle %></span>
         <% } %>
       </a>
     </div>
