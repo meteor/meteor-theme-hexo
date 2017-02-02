@@ -71,7 +71,7 @@
         _st('install','<%- config.apis.swiftype %>','2.0.0');
       <% } else if (config.apis && config.apis.docsearch) { %>
 
-        ['desktop', 'mobile'].forEach(function(type) {
+        ['desktop'].forEach(function(type) {
           var search = docsearch({
             apiKey: '<%- config.apis.docsearch.apiKey %>',
             indexName: '<%- config.apis.docsearch.indexName %>',
