@@ -169,6 +169,10 @@
 		    padding: @spacing 15px @spacing 20px;
 				margin: 0;
 				white-space: pre;
+
+				// Make sure that empty lines don't collapse to zero height by
+				// inserting a zero-width space.
+				.line:empty::after { content: '\200b'; }
 		  }
 		}
 	}
