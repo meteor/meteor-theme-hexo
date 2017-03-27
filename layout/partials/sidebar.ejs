@@ -50,7 +50,7 @@
               <% p = site.pages.findOne({path: path + '.html'}); %>
               <li class="item-toc <%- page.title === p.title ? ' current' : '' %>">
                 <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link <%- page.title === p.title ? ' current' : '' %>">
-                  <span><%- p.title %></span>
+                  <span><%- p.sidebar_title || p.title %></span>
                 </a>
               </li>
             <% }); %>
