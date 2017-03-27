@@ -12,7 +12,11 @@
     <div class="nav-item">
       <a class="logo-wrapper" href="<%- theme.logo.url %>" title="<%- theme.logo.title %> <%- theme.logo.subtitle %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
         <img src="<%- config.logo && config.logo.mobile || theme.logo.nav_mobile %>" alt="<%- theme.logo.title %>" class="logo"/>
-        <span><%- theme.logo.subtitle %></span>
+        <% if (theme.logo && theme.logo.subbrand) { %>
+          <img src="<%- theme.logo.subbrand %>" class="logo-subbrand" alt="<%- theme.logo.subtitle %>"/>
+        <% } else { %>
+          <span><%- theme.logo && theme.logo.subtitle %></span>
+        <% } %>
       </a>
     </div>
   </div>
