@@ -60,6 +60,9 @@ body {
   .content {
     .transition(all 300ms @easing);
   }
+  .sidebar {
+    pointer-events: none;
+  }
   .sidebar,
   .sidebar-content {
     .transition(all 300ms @easing);
@@ -67,6 +70,7 @@ body {
 
   &.sidebar-visible {
     .sidebar {
+      pointer-events: auto;
       .transform(translateX(0));
 
       .sidebar-content {
