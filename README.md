@@ -9,6 +9,8 @@ Known **Meteor** repos that this theme is used by:
 * https://github.com/apollographql/ios-docs
 * https://github.com/apollographql/android-docs
 * https://github.com/apollographql/tools-docs
+* https://github.com/apollographql/optics-docs
+* https://github.com/apollographql/community
 
 If a change to this theme is made, those repos need their Git submodules updated.
 
