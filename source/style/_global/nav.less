@@ -8,13 +8,26 @@ nav {
 	}
 }
 
-#sidebar-panel-nav {
-	.nav-menu {
-		display: block;
+.panel {
+	#sidebar-panel-nav {
+		.nav-menu {
+			display: block;
+		}
+
+		.nav-header {
+			display: none;
+		}
+	}
+}
+
+.nav-group.left {
+	.nav-item {
+		display: inline-block;
+		line-height: 3rem;
 	}
 
-	.nav-header {
-		display: none;
+	.mobile-button {
+		margin-right: 0.75rem;
 	}
 }
 
@@ -24,15 +37,6 @@ nav {
 	.position(relative, 0, 0, auto, 0, auto, 4rem);
 	text-align: center;
 	z-index: 3;
-
-	.nav-item {
-		display: inline-block;
-		line-height: 3rem;
-	}
-
-	.mobile-button {
-		margin-right: 0.75rem;
-	}
 
   &.dark {
     color: @color-darker;
