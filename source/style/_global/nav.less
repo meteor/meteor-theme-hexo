@@ -8,12 +8,31 @@ nav {
 	}
 }
 
+#sidebar-panel-nav {
+	.nav-menu {
+		display: block;
+	}
+
+	.nav-header {
+		display: none;
+	}
+}
+
 .nav {
 	.std-xpadding;
 	.transform(translate3d(0,0,0));
 	.position(relative, 0, 0, auto, 0, auto, 4rem);
 	text-align: center;
 	z-index: 3;
+
+	.nav-item {
+		display: inline-block;
+		line-height: 3rem;
+	}
+
+	.mobile-button {
+		margin-right: 0.75rem;
+	}
 
   &.dark {
     color: @color-darker;
