@@ -1,3 +1,36 @@
+nav {
+	padding: 0 !important;
+	margin: 0 !important;
+	max-width: 100% !important;
+	position: relative !important;
+	.nav-header {
+		display: none;
+	}
+}
+
+.panel {
+	#sidebar-panel-nav {
+		.nav-menu {
+			display: block;
+		}
+
+		.nav-header {
+			display: none;
+		}
+	}
+}
+
+.nav-group.left {
+	.nav-item {
+		display: inline-block;
+		line-height: 3rem;
+	}
+
+	.mobile-button {
+		margin-right: 0.75rem;
+	}
+}
+
 .nav {
 	.std-xpadding;
 	.transform(translate3d(0,0,0));
@@ -40,48 +73,7 @@
 		}
 
 		.logo-subbrand {
-			display: inline-block;
-			height: 15px;
-			margin-top: -3px;
-			vertical-align: middle;
+			display: none;
 		}
-  }
-
-  .nav-item {
-    cursor: pointer;
-    display: inline-block;
-    line-height: 3rem;
-    height: 3rem;
-    vertical-align: top;
-		position: relative;
-
-		& + .nav-item {
-			margin-left: .75rem;
-			@media screen and (min-width: @breakpoint) { margin-left: 1.875rem;  }
-		}
-
-		&.show-mobile + .nav-item {
-			@media screen and (min-width: @breakpoint) {
-				margin-left: 0;
-			}
-		}
-
-
-    .link {
-			.font-s2;
-			line-height: 1;
-
-			.type-semibold;
-		}
-
-		.btn {
-	    vertical-align: middle;
-	  }
-
-    .icon-menu {
-			.font-s3;
-      line-height: 1;
-      vertical-align: text-top;
-    }
   }
 }
