@@ -18,14 +18,9 @@
   </div>
 
   <div class="nav-group right">
-    <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
-      <% active = link.active || config.url === link.url %>
-      <div class="nav-item show-desktop <%- active && 'active' %> <%- link.separator && 'separator' %>">
-        <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
-          <span><%- title %></span>
-        </a>
-      </div>
-    <% }) %>
+    <div id="nav-container"></div>
+    <script src="http://127.0.0.1:8080/index.js"></script>
+    <script>ApolloNav.initNav({ theme: 'light' }, 'nav-container')</script>
   </div>
 </div>
 
