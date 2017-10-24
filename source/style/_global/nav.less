@@ -38,6 +38,28 @@ nav {
 	text-align: center;
 	z-index: 3;
 
+	&.navy {
+		background-image: linear-gradient(280deg,#141233 2%,#2d365a 55%,#394a74 85%,#3d598b 100%);
+		color: @color-lightest;
+		a { .link(@color-lightest); }
+    svg { fill: @color-lightest; }
+
+		.popup {
+			background-image: linear-gradient(180deg,#516fad 4%,#3b5a9e 97%);
+			padding: 0;
+			.menu-content {
+				background-color: transparent;
+				margin-top: 0;
+				.nav-item {
+					margin: 0;
+					&:hover {
+						background-color: fade(#2d365a, 75%);
+					}
+				}
+			}
+		}
+	}
+
   &.dark {
     color: @color-darker;
 		border-bottom: 1px solid @color-mediumlight;
