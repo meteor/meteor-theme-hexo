@@ -1,9 +1,36 @@
+@screen-mobile: 600px;
+
 // Show only on desktop
 .show-mobile {
 	@media screen and (min-width: @breakpoint) {
 		display: none !important;
 	}
 }
+
+// Mobile-specific styling
+@media (max-width: @screen-mobile) {
+
+	.header-content {
+		.header-wrapper {
+			display: block !important;
+		}
+		.title-page {
+			padding-right: 0 !important;
+		}
+		.page-actions {
+			text-align: left !important;
+		}
+	}
+
+	.pagination {
+		display: flex;
+
+		.content-wrapper {
+			display: inline-block;
+		}
+	}
+}
+
 
 
 // Show only on desktop
