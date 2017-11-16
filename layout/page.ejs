@@ -79,7 +79,7 @@
           var pages = _.map(pagePaths, function (val) { return site.pages.findOne({path: val + '.html'}); });
           var i = pages.length
           while (i--) {
-            if (pages[i].title === page.title) {
+            if (pages[i] && pages[i].title === page.title) {
               break
             }
           }
