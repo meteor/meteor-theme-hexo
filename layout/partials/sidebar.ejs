@@ -47,12 +47,34 @@
           <% } %>
           <ul class="list-toc">
             <% pages.forEach(function(path) { %>
-              <% p = site.pages.findOne({path: path + '.html'}); %>
-              <li class="item-toc <%- page.title === p.title ? ' current' : '' %>">
-                <a href="<%- relative_url(page.path, p.path) %>" class="sidebar-link <%- page.title === p.title ? ' current' : '' %>">
-                  <span><%- p.title %></span>
+              <%
+                // The path we've been told to find from _config.yaml.
+                const htmlPath = `${path}.html`
+
+                // Highlight this link if it's the page we're on.
+                const currentClass =
+                  page.path === htmlPath ? ' current' : '';
+
+                // Lookup information about this page.
+                const dbLink = site.pages.findOne({path: htmlPath});
+
+                const targetUrl =
+                  dbLink &&
+                  dbLink.path &&
+                  relative_url(page.path, dbLink.path);
+
+                const displayTitle = dbLink && dbLink.title || path;
+              %>
+              <% if (dbLink) { %>
+              <li class="item-toc <%- currentClass %>">
+                <a
+                  href="<%- targetUrl %>"
+                  class="sidebar-link <%- currentClass %>"
+                >
+                  <span><%- displayTitle %></span>
                 </a>
               </li>
+              <% } %>
             <% }); %>
           </ul>
         </li>
