@@ -1,3 +1,42 @@
+<%
+  const hasOwn = Object.prototype.hasOwnProperty;
+  function isOutsidePath(path) {
+    return hasOwn.call(path, "href") && hasOwn.call(path, "title");
+  }
+
+  function pathDetails(path) {
+    // If it's a link to an outside URL we don't have any page information
+    // so we just obey what we've been provided.
+    if (isOutsidePath(path)) {
+      return path;
+    }
+
+    // The path we've been told to find from _config.yaml.
+    const htmlPath = `${path}.html`
+
+    const extraClasses = [];
+
+    // Highlight this link if it's the page we're on.
+    if (page.path === htmlPath) {
+      extraClasses.push("current");
+    }
+
+    // Lookup information about this page.
+    const doc = site.pages.findOne({ path: htmlPath });
+
+    // Display nothing if there are no DB details available.
+    if (!doc) {
+      return;
+    }
+
+    return {
+      href: doc.path && relative_url(page.path, doc.path),
+      title: doc.sidebar_title || doc.title || path,
+      extraClasses: extraClasses.join(" "),
+    };
+  }
+%>
+
 <div class="sidebar charcoal">
   <div class="panel">
     <div id="sidebar-panel-nav"></div>
@@ -37,31 +76,14 @@
           <% } %>
           <ul class="list-toc">
             <% pages.forEach(function(path) { %>
-              <%
-                // The path we've been told to find from _config.yaml.
-                const htmlPath = `${path}.html`
-
-                // Highlight this link if it's the page we're on.
-                const currentClass =
-                  page.path === htmlPath ? ' current' : '';
-
-                // Lookup information about this page.
-                const dbLink = site.pages.findOne({path: htmlPath});
-
-                const targetUrl =
-                  dbLink &&
-                  dbLink.path &&
-                  relative_url(page.path, dbLink.path);
-
-                const displayTitle = (dbLink && (dbLink.sidebar_title || dbLink.title)) || path;
-              %>
-              <% if (dbLink) { %>
-              <li class="item-toc <%- currentClass %>">
+              <% const details = pathDetails(path) %>
+              <% if (details) { %>
+              <li class="item-toc <%- details.extraClasses %>">
                 <a
-                  href="<%- targetUrl %>"
-                  class="sidebar-link <%- currentClass %>"
+                  href="<%- details.href %>"
+                  class="sidebar-link <%- details.extraClasses %>"
                 >
-                  <span><%- displayTitle %></span>
+                  <span><%- details.title %></span>
                 </a>
               </li>
               <% } %>
