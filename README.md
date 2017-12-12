@@ -3,13 +3,15 @@ Known **Meteor** repos that this theme is used by:
 * https://github.com/meteor/guide/
 * https://github.com/meteor/docs/
 * https://github.com/meteor/galaxy-docs/
-* https://github.com/apollographql/core-docs
-* https://github.com/apollographql/react-docs
-* https://github.com/apollographql/angular-docs
-* https://github.com/apollographql/ios-docs
-* https://github.com/apollographql/android-docs
-* https://github.com/apollographql/tools-docs
-* https://github.com/apollographql/optics-docs
+* https://github.com/apollographql/apollo-client
+* https://github.com/apollographql/apollo-link
+* https://github.com/apollographql/apollo-angular
+* https://github.com/apollographql/apollo-ios
+* https://github.com/apollographql/apollo-android
+* https://github.com/apollographql/graphql-tools
+* https://github.com/apollographql/apollo-server
+* https://github.com/apollographql/subscriptions-transport-ws
+* https://github.com/apollographql/engine-docs
 * https://github.com/apollographql/community
 
 If a change to this theme is made, those repos need their Git submodules updated.
