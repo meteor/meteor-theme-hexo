@@ -29,8 +29,15 @@
       return;
     }
 
+    let href = doc.path && relative_url(page.path, doc.path);
+
+    // Make sure we don't link to /docs/thing/index.html, and instead link to /docs/thing/
+    if (href.endsWith('index.html')) {
+      href = href.replace(/index.html$/, '.');
+    }
+
     return {
-      href: doc.path && relative_url(page.path, doc.path),
+      href,
       title: doc.sidebar_title || doc.title || path,
       extraClasses: extraClasses.join(" "),
     };
