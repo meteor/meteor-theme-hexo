@@ -1,3 +1,5 @@
+[Read the docs docs.](https://docs-docs.netlify.com/docs/docs/)
+
 Known **Meteor** repos that this theme is used by:
 
 * https://github.com/meteor/guide/
