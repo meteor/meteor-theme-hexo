@@ -66,6 +66,7 @@
   }
 
 	p a,
+        td a,
 	li a {
 		.link(@color-primary);
 		.type-normal;
@@ -146,12 +147,22 @@
     }
   }
 
+  td {
+    border: 1px solid;
+    padding: 5px;
+  }
+
 
 	.highlight {
 		.font-s2;
 		overflow-x: auto;
 
 		table { width: 100%; }
+                // Reset the changes from above for non-highlight tables.
+                td {
+                  border: none;
+                  padding: 0;
+                }
 
 		.gutter { width: 40px; }
 
