@@ -10,6 +10,7 @@ Known **Meteor** repos that this theme is used by:
 * https://github.com/apollographql/apollo-angular
 * https://github.com/apollographql/apollo-ios
 * https://github.com/apollographql/apollo-android
+* https://github.com/apollographql/docs-docs
 * https://github.com/apollographql/graphql-tools
 * https://github.com/apollographql/apollo-server
 * https://github.com/apollographql/subscriptions-transport-ws
