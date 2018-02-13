@@ -1,4 +1,4 @@
-@color-highlight-header-background: fade(@color-dark, 95%);
+@color-highlight-header-background: @color-mediumlight;
 @color-highlight-text: @color-primary;
 
 // The dropdown adapts to screen size, to provide three different displays.
@@ -23,8 +23,7 @@
   bottom: auto !important;
   left: 0 !important;
   right: 0 !important;
-
-  background: transparent;
+  background: @color-lighter;
 }
 
 .wrapper-mobile-search-results .aa-dropdown-menu {
@@ -38,8 +37,8 @@
     top: @panel-width-tablet !important;
   }
 
-  background: transparent;
-  // box-shadow: rgba(0, 0, 0, 0.03) 0 0 1px 5px;
+  background: fade(@color-lightest, 97);
+  box-shadow: rgba(0, 0, 0, 0.03) 0 0 1px 5px;
   text-align: left;
 
   > * {
@@ -56,8 +55,9 @@
 .algolia-docsearch-suggestion--content {
   &:extend(.sidebar ul.list-toc li);
   &:extend(.sidebar ul.list-toc a all);
-  color: @color-lightest !important;
 }
+
+
 
 // Each sub-suggestion
 .algolia-docsearch-suggestion__secondary {
@@ -69,7 +69,6 @@
   &:extend(.sidebar .heading-toc);
 
   display: none;
-  color: @color-lightest !important;
   // Only show it when flaggued as "__main"
   .algolia-docsearch-suggestion__main & {
     display: block;
@@ -160,5 +159,27 @@
     background-repeat: no-repeat;
     background-size: contain;
     vertical-align: middle;
+  }
+}
+
+.sidebar {
+  &.charcoal {
+    @color-highlight-header-background: fade(@color-dark, 95%);
+
+    .wrapper-desktop-search-results .aa-dropdown-menu {
+      background: transparent;
+    }
+
+    .wrapper-mobile-search-results .aa-dropdown-menu {
+      background: transparent;
+    }
+
+    .algolia-docsearch-suggestion--content {
+      color: @color-lightest !important;
+    }
+
+    .algolia-docsearch-suggestion--category-header {
+      color: @color-lightest !important;
+    }
   }
 }
