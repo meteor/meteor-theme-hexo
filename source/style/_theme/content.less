@@ -1,175 +1,208 @@
 .content {
-	.content-wrapper {
-		.std-xpadding;
-	  .std-ypadding;
-		.page-margins;
-		overflow: auto;
-	}
+  .content-wrapper {
+    .std-ypadding;
+    overflow: visible;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
-	.anchor-offset {
-		//offsets anchor links so the title is not hidden by header
-		display: block;
+  .anchor-offset {
+    //offsets anchor links so the title is not hidden by header
+    display: block;
     position: relative;
     top: -55px;
-		@media screen and (min-width: @breakpoint) { top: -71px; }
+    @media screen and (min-width: @breakpoint) {
+      top: -71px;
+    }
     visibility: hidden;
-	}
+  }
 
-	.header-content {
-		margin-bottom: 2rem;
-		padding-top: 1rem;
+  .header-content {
+    margin-bottom: 2rem;
+    padding-top: 1rem;
 
-		.title-page {
-			.font-l2;
-			.type-semibold;
+    .title-page {
+      .font-l2;
+      .type-semibold;
+    }
 
-			margin-bottom: .5rem;
-		}
+    .subtitle-page {
+      .font-m1;
+      .type-light;
+      line-height: 1.2;
+      margin-bottom: 1rem;
 
-		.subtitle-page {
-			.font-m1;
-			.type-light;
-			line-height: 1.2;
-			margin-bottom: 1rem;
+      @media screen and (min-width: @breakpoint) {
+        .font-m2;
+        line-height: 1.32;
+      }
+    }
 
-			@media screen and (min-width: @breakpoint) {
-				.font-m2;
-				line-height: 1.32;
-			}
-		}
+    .page-actions {
+      a {
+        margin-right: 0.5rem;
+      }
+    }
+  }
 
-		.page-actions {
-			margin: 1rem 0;
-			a {  margin-right: .5rem; }
-		}
-	}
+  .api {
+    .font-s3;
+    background: @color-lightest;
+    border: 1px solid @color-mediumlight;
+    margin: 1.5em 0;
 
+    .api-heading {
+      background: @color-lighter;
+      padding: 1rem 1.25rem 1.25rem;
 
-	.api {
-		.font-s3;
-		background: @color-lightest;
-		border: 1px solid @color-mediumlight;
-		margin: 1.5em 0;
+      .locus {
+        .font-s2;
+        .type-italic;
+        color: @color-dark;
+        float: right;
+        line-height: 24px;
+      }
 
-		.api-heading {
-			background: @color-lighter;
-			padding: 1rem 1.25rem 1.25rem;
+      .title-api {
+        .type-code;
+        .font-code;
+        margin: 0;
+        padding: 0;
 
-			.locus {
-				.font-s2;
-				.type-italic;
-				color: @color-dark;
-				float: right;
-				line-height: 24px;
-			}
+        .anchor {
+          display: none;
+        }
 
-			.title-api {
-				.type-code;
-				.font-code;
-				margin: 0;
-				padding: 0;
+        em {
+          .type-italic;
+        }
+      }
 
-				.anchor { display: none; }
+      .subtext-api {
+        .font-s2;
 
-				em { .type-italic; }
-			}
+        .code {
+          .font-code;
+          .type-code;
+          display: inline-block;
+          margin-right: 20px;
+        }
 
-			.subtext-api {
-				.font-s2;
+        .src-code {
+          &:extend(.link.tertiary);
+        }
+      }
+    }
 
-				.code {
-					.font-code;
-					.type-code;
-					display: inline-block;;
-					margin-right: 20px;
-				}
+    .api-body {
+      .font-s2;
+      padding: 1.25rem 1.25rem;
 
-				.src-code {
-					&:extend(.link.tertiary);
-				}
-			}
-		}
+      .subheading {
+        .font-s1;
+        .subheading-caps;
+        color: @color-mediumdark;
+        margin: 0.5rem 0 0.5rem;
+      }
 
-		.api-body {
-			.font-s2;
-			padding:1.25rem 1.25rem;
+      .desc:not(:only-child) {
+        margin-bottom: 1.25em;
+      }
 
-			.subheading {
-				.font-s1;
-				.subheading-caps;
-				color: @color-mediumdark;
-				margin:.5rem 0 .5rem;
-			}
+      p {
+        &:only-child {
+          margin: 0;
+        }
 
-			.desc:not(:only-child) { margin-bottom: 1.25em;	}
+        &:first-child {
+          margin-top: 0;
+        }
+      }
 
-			p {
-				&:only-child { margin: 0; }
+      dl {
+        padding-left: 0;
 
-				&:first-child { margin-top: 0; }
-			}
+        dt {
+          .term-code;
+        }
 
-			dl {
-				padding-left: 0;
+        dd {
+          margin-left: 0;
+        }
+      }
+    }
+  }
 
-				dt { .term-code; }
+  .pagination {
+    border-top: 1px solid @color-mediumlight;
+    border-bottom: 1px solid @color-mediumlight;
+    margin-bottom: 1.5rem;
+    display: flex;
 
-				dd { margin-left: 0; }
-			}
-		}
-	}
+    .link {
+      .font-s2;
+      @media screen and (min-width: @breakpoint) {
+        .font-s3;
+      }
 
-	.pagination {
-		border-top: 1px solid @color-mediumlight;
-		border-bottom: 1px solid @color-mediumlight;
-		margin-bottom: 1.5rem;
+      float: left;
+      position: relative;
 
-		.link {
-			.font-s2;
-			@media screen and (min-width: @breakpoint) { .font-s3; }
+      &:hover {
+        text-decoration: none;
+      }
+    }
 
-			float: left;
-			position: relative;
+    .prev {
+      [class^="icon-"] {
+        left: -2em;
+      }
+    }
 
-			&:hover { text-decoration: none; }
-		}
+    .next {
+      float: right;
+      text-align: right;
 
-		.prev {
-			[class^="icon-"] { left: -2em; }
-		}
+      .subtitle-pagination {
+        margin-right: -0.35em;
+      }
 
-		.next {
-			float: right;
-			text-align: right;
+      [class^="icon-"] {
+        right: -2em;
+      }
+    }
 
-			.subtitle-pagination { margin-right: -.35em; }
+    .subtitle-pagination {
+      .subheading-caps;
+      .font-s1;
+      color: @color-medium;
+      display: block;
+      line-height: 1;
+    }
 
-			[class^="icon-"] { right: -2em; }
-		}
+    [class^="icon-"] {
+      .position(absolute, 25%);
+      display: none;
 
-		.subtitle-pagination {
-			.subheading-caps;
-			.font-s1;
-			color: @color-medium;
-			display: block;
-			line-height: 1;
-		}
+      @media screen and (min-width: @breakpoint) {
+        display: block;
+      }
+    }
+  }
 
-		[class^="icon-"] {
-			.position(absolute, 25%);
-			display: none;
+  .github {
+    padding-bottom: 1.5rem;
+    text-align: center;
+  }
 
-			@media screen and (min-width: @breakpoint) { display: block; }
-		}
-	}
+  .objdesc > dt {
+    .term-code;
+  }
 
-	.github {
-		padding-bottom: 1.5rem;
-		text-align: center;
-	}
-
-	.objdesc > dt {
-  	.term-code;
+  .line {
+    // Hack to fix https://github.com/meteor/hexo-theme-meteor/issues/41
+    height: 19px;
   }
 
 	.line {

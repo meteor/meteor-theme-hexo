@@ -8,6 +8,12 @@
   @media screen and (min-width: (@breakpoint * 2)) { margin: 0 2*@page-margin; }
 }
 
+.page-padding() {
+  @media screen and (min-width: (@breakpoint * 1)) { padding: 0 1*@page-margin; }
+  @media screen and (min-width: (@breakpoint * 1.5)) { padding: 0 1.5*@page-margin; }
+  @media screen and (min-width: (@breakpoint * 2)) { padding: 0 2*@page-margin; }
+}
+
 .std-ypadding() {
   padding-top: 1.25rem; //20px
   padding-bottom: 1.25rem;

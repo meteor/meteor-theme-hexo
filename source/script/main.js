@@ -1,5 +1,8 @@
 (function () {
 
+  var forEach = Array.prototype.forEach;
+  var some = Array.prototype.some;
+
   var MAX_HEADER_DEPTH = 3
   var scrolling = false
   var scrollTimeout
@@ -59,7 +62,7 @@
     var subMenu = document.createElement('ul')
     subMenu.className = 'sub-menu'
     container.appendChild(subMenu)
-    Array.prototype.forEach.call(headers, function (h) {
+    forEach.call(headers, function (h) {
       var link = createSubMenuLink(h.header)
       subMenu.appendChild(link)
       if (h.subHeaders) {
@@ -154,17 +157,39 @@
     document.querySelector('.item-toc a[href=""]').scrollIntoView();
   }
 
+  function findCurrentVersion() {
+    // First try the path ("master" branch, main domain), e.g.:
+    // https://docs.domain.com/v1.2.3
+    // https://docs.domain.com/v1.2.3/
+    // https://docs.domain.com/v1.2.3/api/email.html
+    var versionInPath = location.pathname.match(/^\/v(\d[^\/]+)/);
+    if (versionInPath && versionInPath[1]) {
+      return versionInPath[1];
+    }
+
+    // Then try the hostname ("version" branches, subdomains; Netlify), e.g.:
+    // https://version-1-2-3--docs.domain.com
+    // https://version-1-2-3--docs.domain.com/
+    // https://version-1-2-3--docs.domain.com/api/email.html
+    var versionInHostname = location.hostname.match(/^version-([0-9-]+?)--/);
+    if (versionInHostname && versionInHostname[1]) {
+      return versionInHostname[1].replace(/-/g, ".");
+    }
+  }
+
   // version select
-  var currentVersion = location.pathname.match(/^\/(v\d[^\/]+)/)
-  ;[].forEach.call(document.querySelectorAll('.version-select'), function (select) {
+  var currentVersion = findCurrentVersion();
+  var versionSelects = document.querySelectorAll('.version-select');
+  forEach.call(versionSelects, function (select) {
     if (currentVersion) {
-      [].some.call(select.options, function (o) {
-        if (o.value === currentVersion[1]) {
+      some.call(select.options, function (o) {
+        if (o.value === "v" + currentVersion) {
           o.selected = true
           return true
         }
       })
     }
+
     select.addEventListener('change', function () {
       var targetPath = '/'
       if (select.selectedIndex !== 0) {
