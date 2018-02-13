@@ -17,7 +17,9 @@
     <title><%- page.title %> | <%- config.title %></title>
     <meta name="description" content="<%- page.description %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="<%- theme.favicon || 'https://www.meteor.com/favicon.png' %>" sizes="16x16 32x32 64x64">
+    <% if (config.favicon) {  %>
+      <link rel="shortcut icon" type="image/png" href="<%- url_for(config.favicon, { relative: true }) %>" sizes="16x16 32x32 64x64">
+    <% } %>
 
     <!-- Social -->
     <meta property="og:type" content="article">
