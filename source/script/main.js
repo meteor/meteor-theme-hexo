@@ -13,10 +13,12 @@
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
   }
 
   function escapeHtml(string) {
-    return String(string).replace(/[&<>]/g, function(s) {
+    return String(string).replace(/[&<>'"]/g, function(s) {
       return escapeEntityMap[s];
     });
   }
