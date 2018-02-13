@@ -1,5 +1,8 @@
 (function () {
 
+  var forEach = Array.prototype.forEach;
+  var some = Array.prototype.some;
+
   var MAX_HEADER_DEPTH = 3
   var scrolling = false
   var scrollTimeout
@@ -8,6 +11,18 @@
 
   var forEach = Array.prototype.forEach;
   var some = Array.prototype.some;
+
+  var escapeEntityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+  }
+
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>]/g, function(s) {
+      return escapeEntityMap[s];
+    });
+  }
 
   // create sub links for h2s
   var h2s = document.querySelectorAll('h2')
@@ -64,7 +79,7 @@
     allLinks.push(h)
     var headerLink = document.createElement('li')
     headerLink.innerHTML =
-      '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '"><span>' + (h.title || h.textContent) + '</span></a>'
+      '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '"><span>' + escapeHtml(h.title || h.textContent) + '</span></a>'
     headerLink.firstChild.addEventListener('click', onLinkClick)
     return headerLink
   }
