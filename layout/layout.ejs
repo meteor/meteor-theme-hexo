@@ -18,7 +18,7 @@
     <meta name="description" content="<%- page.description %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <% if (config.favicon) {  %>
-      <link rel="shortcut icon" type="image/png" href="<%- url_for(config.favicon, { relative: true }) %>" sizes="16x16 32x32 64x64">
+      <link rel="shortcut icon" type="image/png" href="<%= url_for(config.favicon, { relative: true }) %>" sizes="16x16 32x32 64x64">
     <% } %>
 
     <!-- Social -->
@@ -35,7 +35,7 @@
     <!-- Misc -->
     <meta name="google-site-verification" content="" />
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="<%= config.root || '/' %>style/style.css">
+    <link rel="stylesheet" href="<%= url_for('style/style.css', { relative: true }) %>">
   </head>
   <body class="">
     <% if (config.apis && config.apis.gtm) { %>
@@ -45,8 +45,8 @@
       <!-- End Google Tag Manager (noscript) -->
     <% } %>
     <%- body %>
-    <script src="<%= config.root || '/' %>script/smooth-scroll.min.js"></script>
-    <script src="<%= config.root || '/' %>script/main.js"></script>
+    <script src="<%= url_for('script/smooth-scroll.min.js', { relative: true }) %>"></script>
+    <script src="<%= url_for('script/main.js', { relative: true }) %>"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
 
