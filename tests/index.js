@@ -5,6 +5,7 @@ const {
 } = require("path");
 const assert = require("assert");
 const symlink = promisify(require("fs").symlink);
+const remove = promisify(require("fs-extra").remove);
 
 const {
   determineConfigsToTest,
@@ -21,11 +22,12 @@ const gitRepoTestTheme = "https://github.com/meteor/theme-example.git";
 // TODO: Write a separate config with:
 // the root path set properly. (this will also help test root!)
 
-(async function main() {
+const result = (async function main() {
   const dirTheme = pathResolve(__dirname, "..");
   const configPackages = determineConfigsToTest();
 
-  const dirOutRoot = await tmp.tmpName();
+  const dirOutRootHandle = await tmp.dir();
+  const dirOutRoot = dirOutRootHandle.path;
   const dirPublic = pathResolve(__dirname, "public");
 
   console.log(
@@ -57,4 +59,10 @@ const gitRepoTestTheme = "https://github.com/meteor/theme-example.git";
   await writeFileIndex(configPackages, pathJoin(dirOutRoot, "index.html"));
 
   await putInPlace(dirOutRoot, dirPublic);
+
+  console.log("Cleaning up...");
+  await remove(tempThemeDirPath);
+  await remove(dirOutRoot);
+
+  console.log(`Done.  Output is in ${dirPublic}.`);
 })();

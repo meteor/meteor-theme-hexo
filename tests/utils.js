@@ -180,7 +180,7 @@ async function writeFileIndex(configFiles, destinationPath) {
 async function initiateTheme(repo) {
   const git = require("simple-git/promise");
 
-  const tempDirHandle = await tmp.dir({ keep: true });
+  const tempDirHandle = await tmp.dir();
   await git().clone(repo, tempDirHandle.path);
   return tempDirHandle;
 }
