@@ -3,8 +3,6 @@ const {
   resolve: pathResolve,
   join: pathJoin,
 } = require("path");
-const assert = require("assert");
-const symlink = promisify(require("fs").symlink);
 const remove = promisify(require("fs-extra").remove);
 
 const {
