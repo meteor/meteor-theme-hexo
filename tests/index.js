@@ -10,7 +10,7 @@ const {
   determineConfigsToTest,
   generateWithRepo,
   initiateTheme,
-  removeSymlinkIfExists,
+  putInPlace,
   writeFileIndex,
 } = require("./utils.js");
 
@@ -27,8 +27,6 @@ const gitRepoTestTheme = "https://github.com/meteor/theme-example.git";
 
   const dirOutRoot = await tmp.tmpName();
   const dirPublic = pathResolve(__dirname, "public");
-
-  await removeSymlinkIfExists(dirPublic);
 
   console.log(
     `Running tests for the config package: ${configPackages.join(',')}`);
@@ -58,6 +56,5 @@ const gitRepoTestTheme = "https://github.com/meteor/theme-example.git";
   // Make a _very_ simple index.html page which links to the subdirectories.
   await writeFileIndex(configPackages, pathJoin(dirOutRoot, "index.html"));
 
-  // Make the symlink from our known location, so it can be found easily.
-  await symlink(dirOutRoot, dirPublic);
+  await putInPlace(dirOutRoot, dirPublic);
 })();

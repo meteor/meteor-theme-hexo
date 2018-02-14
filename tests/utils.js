@@ -2,11 +2,15 @@ const assert = require("assert");
 const { promisify } = require("util");
 const exists = promisify(require("fs").exists);
 const lstat = promisify(require("fs").lstat);
+const mkdtemp = promisify(require("fs").mkdtemp);
 const readFile = promisify(require("fs").readFile);
 const rename = promisify(require("fs").rename);
 const symlink = promisify(require("fs").symlink);
 const unlink = promisify(require("fs").unlink);
 const writeFile = promisify(require("fs").writeFile);
+
+const copy = promisify(require("fs-extra").copy);
+const remove = promisify(require("fs-extra").remove);
 
 const tmp = require("tmp-promise");
 const yaml = require("js-yaml");
@@ -37,26 +41,6 @@ function determineConfigsToTest() {
   }
 
   return toTest;
-}
-
-function removeSymlinkIfExists(path) {
-  return lstat(path)
-    .catch(err => {
-      // If the directory doesn't exist, that's okay, we were just
-      // trying to make way to write to it later anyway.  Any other
-      // failure here will likely be problematic though (permission, etc.).
-      if (err.code !== 'ENOENT') {
-        throw err;
-      }
-    })
-    .then(stats => {
-      // If it's not a symlink, we don't know what to do with it.
-      if (! (stats && stats.isSymbolicLink())) {
-        return Promise.resolve();
-      }
-
-      return unlink(path);
-    });
 }
 
 // Read a top level value from a YAML file.
@@ -151,6 +135,31 @@ async function generateWithRepo({ dirTheme, repoPath, configPackage, dirOut }) {
   }
 }
 
+async function putInPlace(source, dest) {
+  // We'll try to do this as atomically as possible.
+  // Symlinks might have been another way to go here, but Netlify doesn't
+  // support symlinks for the public directory to publish (likely due to
+  // Go preventing it by default to avoid cycles).
+
+  const makeTempDir = () => mkdtemp(pathJoin(dest, "..", ".temp-"));
+  const tempDest = await makeTempDir();
+
+  await copy(source, tempDest);
+
+  // If we need to move an old directory out of the way, use a temp
+  const tempOld = await exists(dest) && await makeTempDir();
+  if (tempOld) {
+    await rename(dest, tempOld);
+  }
+
+  await rename(tempDest, dest);
+
+  // We don't need to wait for the old directory to get removed.
+  if (tempOld) {
+    remove(tempOld);
+  }
+}
+
 async function writeFileIndex(configFiles, destinationPath) {
   const makeLink = (file) => `<li><a href="${file}">${file}</a></li>`;
   const links = configFiles.map(makeLink).join("\n");
@@ -180,6 +189,6 @@ module.exports = {
   determineConfigsToTest,
   generateWithRepo,
   initiateTheme,
-  removeSymlinkIfExists,
+  putInPlace,
   writeFileIndex,
 };
