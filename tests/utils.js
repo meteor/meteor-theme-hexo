@@ -43,31 +43,6 @@ function determineConfigsToTest() {
   return toTest;
 }
 
-// Read a top level value from a YAML file.
-async function findTopLevelValueFromYamlFile(path, param) {
-  try {
-    return yaml.safeLoad(
-      await readFile(path, 'utf8'))[param]
-  } catch (err) {
-    return Promise.resolve(undefined);
-  }
-}
-
-function findResolvedTopLevelStringFromYamlFiles(paths, param) {
-  // Map each path to a Promise.
-  const topLevelValues =
-    paths.map(path => findTopLevelValueFromYamlFile(path, param));
-
-  // Once all top level values have been read, resolve based on the
-  // proper inheritance (with later values superceding earlier values).
-  return Promise.all(topLevelValues)
-    .then(values =>
-      values.reduce(
-        (accum, value) => value || accum,
-        undefined
-      ));
-}
-
 async function generateWithRepo({ dirTheme, repoPath, configPackage, dirOut }) {
   const git = require("simple-git/promise");
   const shelljs = require("shelljs");
@@ -108,11 +83,6 @@ async function generateWithRepo({ dirTheme, repoPath, configPackage, dirOut }) {
     await exists("_config.yml"),
     "The test theme's _config.yml was not found.");
   configFiles.push("_config.yml");
-
-  const value =
-    await findResolvedTopLevelStringFromYamlFiles(configFiles, "root");
-
-  console.log("INHERITED VALUE IS", value);
 
   const additionalConfigPath = "_theme_test_additional.yml";
 
