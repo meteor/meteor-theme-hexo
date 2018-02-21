@@ -17,9 +17,6 @@ const tmp = require("tmp-promise");
 
 const gitRepoTestTheme = "https://github.com/meteor/theme-example.git";
 
-// TODO: Write a separate config with:
-// the root path set properly. (this will also help test root!)
-
 const result = (async function main() {
   const dirTheme = pathResolve(__dirname, "..");
   const configPackages = determineConfigsToTest();
