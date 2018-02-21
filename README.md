@@ -5,6 +5,7 @@ Known **Meteor** repos that this theme is used by:
 * https://github.com/meteor/guide/
 * https://github.com/meteor/docs/
 * https://github.com/meteor/galaxy-docs/
+* https://github.com/apollographql/apollo
 * https://github.com/apollographql/apollo-client
 * https://github.com/apollographql/apollo-link
 * https://github.com/apollographql/apollo-angular
