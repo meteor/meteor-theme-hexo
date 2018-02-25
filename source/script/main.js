@@ -154,12 +154,18 @@
     }
   }
 
-
   // scroll sidebar page link into view on page load (except for the top link)
-  var atRoot = location.pathname === '/' || location.pathname === '/index.html';
+
+  // Careful, this commented code will not work due to the redirection of the root
+  // var atRoot = location.pathname === '/' || location.pathname === '/index.html'
+
+  var allSidebarLinks = document.querySelectorAll('.item-toc a.sidebar-link');
+  var currentSideBarLink = document.querySelector('.item-toc a[href=""]');
+
+  var atRoot = allSidebarLinks[0] === currentSideBarLink;
   if (!atRoot || location.hash !== '') {
     // hexo rewrites the URLs to be relative, so the current page has href="".
-    document.querySelector('.item-toc a[href=""]').scrollIntoView();
+    currentSideBarLink.scrollIntoView();
   }
 
   function findCurrentVersion() {
