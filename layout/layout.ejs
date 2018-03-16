@@ -47,7 +47,9 @@
     <%- body %>
     <script src="<%= url_for('script/smooth-scroll.min.js', { relative: true }) %>"></script>
     <script src="<%= url_for('script/main.js', { relative: true }) %>"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
+    <% if (config.apis && config.apis.docsearch) { %>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
+    <% } %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
 
     <script>
@@ -88,10 +90,16 @@
         })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
         _st('install','<%- config.apis.swiftype %>','2.0.0');
       <% } else if (config.apis && config.apis.docsearch) { %>
-
         ['desktop'].forEach(function(type) {
           var search = docsearch({
             apiKey: '<%- config.apis.docsearch.apiKey %>',
+            <%#
+              A custom deployment, directly through Algolia, requires the 'appId'.  This is useful
+              for testing, but is not necessary when using their free Docsearch service.
+            %>
+            <% if (config.apis.docsearch.appId) { %>
+              appId: '<%- config.apis.docsearch.appId %>',
+            <% } %>
             indexName: '<%- config.apis.docsearch.indexName %>',
             inputSelector: '#' + type + '-search-input',
             autocompleteOptions: {
