@@ -1,5 +1,3 @@
-[Read the docs docs.](https://docs-docs.netlify.com/docs/docs/)
-
 ## Usage
 
 The theme is available on `npm` as `meteor-theme-hexo` (please note the slight naming difference to this repository).  The theme can be used by either:
@@ -12,6 +10,10 @@ The theme is available on `npm` as `meteor-theme-hexo` (please note the slight n
 This theme deploys to npm as [`meteor-theme-hexo`](https://www.npmjs.com/packages/meteor-theme-hexo).  The package is named slightly different from its GitHub repository because without this naming convention, Hexo believes this to be a plugin!  (Hexo doesn't typically endorse installing a theme from npm.)
 
 > TODO: Rename this repository?
+
+## Docs docs
+
+There are [docs docs](https://docs-docs.netlify.com/docs/docs/) for help with docs deployments!  Please read them (and help update them on [their own repository](https://github.com/apollographql/docs-docs/) if they're wrong!).
 
 ## Known deployments
 
