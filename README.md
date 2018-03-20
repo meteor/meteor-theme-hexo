@@ -5,6 +5,23 @@ The theme is available on `npm` as `meteor-theme-hexo` (please note the slight n
 1. (preferred) Installing the theme from `npm` and allowing dependency auto-update tools, like @renovate-bot or @greenkeeperio-bot, to update the npm for you.  This requires you to set the `theme` in your `_config.yml` as `../node_modules/meteor-theme-hexo`; or
 2. (less preferred) Cloning this repository into Hexo's `themes/meteor` directory and referring to the `theme` in your `_config.yml` as `meteor`.  This will require you to update the theme, or at least its submodule, manually!
 
+## Developing
+
+In order to develop this theme, you should:
+
+1. Checkout this theme.
+2. Checkout the [`theme-example` docs deployment](https://github.com/meteor/theme-example) alongside the `hexo-theme-meteor` directory from the previous step.
+3. Go into the `theme-example` repository
+4. Run `npm install`
+5. Run `mkdir -p themes && cd themes && ln -s ../../hexo-theme-meteor && cd ..`
+   > Note: This is only necessary the _first_ time!
+6. Run:
+   ```
+   npm start -- --config-pkg apollo-hexo-config --theme-dir themes/meteor
+   ```
+
+> For more information, check the [README.md on `theme-example`](https://github.com/meteor/theme-example/blob/master/README.md).
+
 ## npm
 
 This theme deploys to npm as [`meteor-theme-hexo`](https://www.npmjs.com/packages/meteor-theme-hexo).  The package is named slightly different from its GitHub repository because without this naming convention, Hexo believes this to be a plugin!  (Hexo doesn't typically endorse installing a theme from npm.)
