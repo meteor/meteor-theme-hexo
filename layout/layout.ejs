@@ -35,7 +35,11 @@
     <!-- Misc -->
     <meta name="google-site-verification" content="" />
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="<%= url_for('style/style.css', { relative: true }) %>">
+    <% if (config.css_bundle) {  %>
+      <link rel="stylesheet" href="<%= url_for('style/bundle-' + config.css_bundle + '.css', { relative: true }) %>">
+    <% } else { %>
+      <link rel="stylesheet" href="<%= url_for('style/style.css', { relative: true }) %>">
+    <% } %>
   </head>
   <body class="">
     <% if (config.apis && config.apis.gtm) { %>
