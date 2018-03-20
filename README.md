@@ -14,8 +14,8 @@ Known repositories that this theme is used by:
 | [apollographql/apollo-ios](https://github.com/apollographql/apollo-ios/) | https://www.apollographql.com/docs/ios/ |
 | [apollographql/apollo-android](https://github.com/apollographql/apollo-android/) | https://www.apollographql.com/docs/android/ |
 | [apollographql/docs-docs](https://github.com/apollographql/docs-docs/) | https://docs-docs.netlify.com/docs/docs/ |
-| [apollographql/graphql-tools](https://github.com/apollographql/graphql-tools/) | http://apollographql.com/docs/graphql-tools/ |
-| [apollographql/apollo-server](https://github.com/apollographql/apollo-server/) | http://apollographql.com/docs/apollo-server/ |
+| [apollographql/graphql-tools](https://github.com/apollographql/graphql-tools/) | https://apollographql.com/docs/graphql-tools/ |
+| [apollographql/apollo-server](https://github.com/apollographql/apollo-server/) | https://apollographql.com/docs/apollo-server/ |
 | [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws/) | https://www.apollographql.com/docs/graphql-subscriptions/ |
 | [apollographql/engine-docs](https://github.com/apollographql/engine-docs/) | https://www.apollographql.com/docs/engine/ |
 | [apollographql/community](https://github.com/apollographql/community/) | https://www.apollographql.com/docs/community/ |
