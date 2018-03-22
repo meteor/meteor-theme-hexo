@@ -41,7 +41,7 @@ There are [docs docs](https://docs-docs.netlify.com/docs/docs/) for help with do
 | :relaxed: | [meteor/guide](https://github.com/meteor/guide/) | https://guide.meteor.com/ |
 | :relaxed: | [meteor/docs](https://github.com/meteor/docs/) | https://docs.meteor.com/ |
 | :relaxed: | [meteor/galaxy-docs](https://github.com/meteor/galaxy-docs/) | https://galaxy-guide.meteor.com/ |
-| | [apollographql/apollo](https://github.com/apollographql/apollo/) | https://www.apollographql.com/docs/ |
+| :relaxed: | [apollographql/apollo](https://github.com/apollographql/apollo/) | https://www.apollographql.com/docs/ |
 | :relaxed: | [apollographql/apollo-client](https://github.com/apollographql/apollo-client/) | https://www.apollographql.com/docs/react/ |
 | :relaxed: | [apollographql/apollo-link](https://github.com/apollographql/apollo-link/) | https://www.apollographql.com/docs/link/ |
 | | [apollographql/apollo-angular](https://github.com/apollographql/apollo-angular/) | https://www.apollographql.com/docs/angular/ |
@@ -51,8 +51,8 @@ There are [docs docs](https://docs-docs.netlify.com/docs/docs/) for help with do
 | | [apollographql/graphql-tools](https://github.com/apollographql/graphql-tools/) | https://apollographql.com/docs/graphql-tools/ |
 | :relaxed: | [apollographql/apollo-server](https://github.com/apollographql/apollo-server/) | https://apollographql.com/docs/apollo-server/ |
 | | [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws/) | https://www.apollographql.com/docs/graphql-subscriptions/ |
-| | [apollographql/engine-docs](https://github.com/apollographql/engine-docs/) | https://www.apollographql.com/docs/engine/ |
-| | [apollographql/community](https://github.com/apollographql/community/) | https://www.apollographql.com/docs/community/ |
+| :relaxed: | [apollographql/engine-docs](https://github.com/apollographql/engine-docs/) | https://www.apollographql.com/docs/engine/ |
+| :relaxed: | [apollographql/community](https://github.com/apollographql/community/) | https://www.apollographql.com/docs/community/ |
 
   <sup>[0]</sup> Equipped with auto-update dependency management, so you don't need to make sure the theme is updated.
 
