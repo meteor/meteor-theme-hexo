@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## vNEXT
+
+* The `versions` property is no longer mandatory in `_config.yml` configurations.
+
 ## v1.0.3
 
 * Uses the latest version of the Algolia DocSearch JavaScript library.

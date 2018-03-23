@@ -68,7 +68,7 @@
   <div class="sidebar-content">
     <div class="topcap">
       <span class="title-sidebar"><%- config.title %></span>
-      <% if (config.versions.length > 1) { %>
+      <% if (config.versions && config.versions.length > 1) { %>
         <span class="select version-sidebar nochrome">
           <select class="version-select">
             <% config.versions.forEach(function (v) { %>
