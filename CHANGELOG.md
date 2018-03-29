@@ -3,6 +3,7 @@
 ## vNEXT
 
 * The `versions` property is no longer mandatory in `_config.yml` configurations.
+* mobile: The menu button no longer necessitates the use of the pinky finger to reliably expand and contract it.
 
 ## v1.0.3
 

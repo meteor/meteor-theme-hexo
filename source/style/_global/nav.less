@@ -26,10 +26,6 @@ nav {
 		display: inline-block;
 		line-height: 3rem;
 	}
-
-	.mobile-button {
-		margin-right: 0.75rem;
-	}
 }
 
 .nav {
@@ -97,6 +93,10 @@ nav {
     .position(absolute, .5rem, auto, auto, 0);
 		.std-xpadding;
     z-index: 1;
+
+    .nav-item.mobile-button:first-child {
+      padding-right: 0.75rem;
+    }
 
     &.right {
       left: auto;
