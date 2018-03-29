@@ -49,7 +49,7 @@
       <!-- End Google Tag Manager (noscript) -->
     <% } %>
     <%- body %>
-    <script src="<%= url_for('script/smooth-scroll.min.js', { relative: true }) %>"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/smooth-scroll@12.1.5/dist/js/smooth-scroll.min.js"></script>
     <script src="<%= url_for('script/main.js', { relative: true }) %>"></script>
     <% if (config.apis && config.apis.docsearch) { %>
       <script type="text/javascript" src="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>

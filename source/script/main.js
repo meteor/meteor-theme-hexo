@@ -55,12 +55,13 @@
 
   if (h2sWithH3s.length) {
     createSubMenu(activeLink.parentNode, h2sWithH3s)
-    smoothScroll.init({
+    var scroll = new SmoothScroll('a[href*="#"]', {
       speed: 400,
-      callback: function () {
-        scrolling = false
+      offset: 20,
+      after: function () {
+        scrolling = false;
       }
-    })
+    });
   }
 
   function createSubMenu (container, headers) {
