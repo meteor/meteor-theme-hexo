@@ -3,6 +3,7 @@
 ## vNEXT
 
 * The `versions` property is no longer mandatory in `_config.yml` configurations.
+* Fix incorrectly escaped anchor URLs due to bug in ancient version of [`smooth-scroll`](//npm.im/smooth-scroll). [PR #60](https://github.com/meteor/hexo-theme-meteor/pull/60) [Issue #57](https://github.com/meteor/hexo-theme-meteor/issues/57).
 
 ## v1.0.3
 
