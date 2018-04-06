@@ -2,6 +2,8 @@
 
 ## vNEXT
 
+## v1.0.4
+
 * [Prism](http://prismjs.com/) is now used for highlighting, which enables
   the `graphql` syntax and fixes the less-than-ideal `jsx` highlighting!
   [PR #61](https://github.com/meteor/meteor-theme-hexo/pull/61)
