@@ -73,9 +73,14 @@
     <script type="text/javascript" src="<%= prismBase %>/prism.min.js"></script>
     <script type="text/javascript" src="<%= prismBase %>/plugins/line-numbers/prism-line-numbers.min.js"></script>
     <script type="text/javascript" src="<%= prismBase %>/plugins/line-highlight/prism-line-highlight.min.js"></script>
-    <% prismFlavors.forEach(prismLang => { -%>
-      <script type="text/javascript" src="<%= prismBase %>/components/prism-<%= prismLang %>.min.js"></script>
-    <% }); %>
+    <%
+      // This joins all the syntaxes into a single file, for a single request, care of JsDelivr!
+      prismSyntaxJsUrl = "//cdn.jsdelivr.net/combine/" +
+        prismFlavors
+          .map(prismLang => `npm/prismjs@${prismVersion}/components/prism-${prismLang}.min.js`)
+          .join(",")
+    -%>
+    <script type="text/javascript" src="<%= prismSyntaxJsUrl %>"></script>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/smooth-scroll@12.1.5/dist/js/smooth-scroll.min.js"></script>
     <script src="<%= url_for('script/main.js', { relative: true }) %>"></script>
