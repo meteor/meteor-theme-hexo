@@ -34,6 +34,24 @@
 
     <!-- Misc -->
     <meta name="google-site-verification" content="" />
+
+    <%# We use Prism for syntax highlighting.  Be sure to check out the JS in BODY, below, too! %>
+    <%
+      prismBase = "//cdn.jsdelivr.net/npm/prismjs@1.13.0";
+      prismFlavors = [
+        "bash",
+        "graphql",
+        "json",
+        "jsx",
+        "less",
+        "swift",
+        "typescript"
+      ]
+    %>
+    <link href='//cdn.jsdelivr.net/npm/prismjs@1.13.0/themes/prism.min.css' rel='stylesheet' type='text/css'>
+    <link href='//cdn.jsdelivr.net/npm/prismjs@1.13.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet' type='text/css'>
+    <link href='//cdn.jsdelivr.net/npm/prismjs@1.13.0/plugins/line-highlight/prism-line-highlight.css' rel='stylesheet' type='text/css'>
+
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
     <% if (config.css_bundle) {  %>
       <link rel="stylesheet" href="<%= url_for('style/bundle-' + config.css_bundle + '.css', { relative: true }) %>">
@@ -49,6 +67,15 @@
       <!-- End Google Tag Manager (noscript) -->
     <% } %>
     <%- body %>
+
+    <%# We use Prism for syntax highlighting.  Be sure to check out the CSS in HEAD, above, too! %>
+    <script type="text/javascript" src="<%= prismBase %>/prism.min.js"></script>
+    <script type="text/javascript" src="<%= prismBase %>/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script type="text/javascript" src="<%= prismBase %>/plugins/line-highlight/prism-line-highlight.min.js"></script>
+    <% prismFlavors.forEach(prismLang => { -%>
+      <script type="text/javascript" src="<%= prismBase %>/components/prism-<%= prismLang %>.min.js"></script>
+    <% }); %>
+
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/smooth-scroll@12.1.5/dist/js/smooth-scroll.min.js"></script>
     <script src="<%= url_for('script/main.js', { relative: true }) %>"></script>
     <% if (config.apis && config.apis.docsearch) { %>
