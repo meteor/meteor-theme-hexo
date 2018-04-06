@@ -8,6 +8,9 @@
 * The `versions` property is no longer mandatory in `_config.yml` configurations.
 * Fix incorrectly escaped anchor URLs due to bug in ancient version of [`smooth-scroll`](//npm.im/smooth-scroll). [PR #60](https://github.com/meteor/hexo-theme-meteor/pull/60) [Issue #57](https://github.com/meteor/hexo-theme-meteor/issues/57)
 * mobile: The menu button no longer necessitates the use of the pinky finger to reliably expand and contract it. [PR #59](https://github.com/meteor/hexo-theme-meteor/pull/59) [Issue #35](https://github.com/meteor/hexo-theme-meteor/issues/35)
+* The theme now lives in a repository with the same name as the npm
+  (i.e. `meteor-theme-hexo` instead of `hexo-theme-meteor`).  This simplifies
+  using a local checkout of the package for testing.
 
 ## v1.0.3
 
