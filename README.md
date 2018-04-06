@@ -10,10 +10,10 @@ The theme is available on npm as [`meteor-theme-hexo`](https://npm.im/meteor-the
 In order to develop this theme, you should:
 
 1. Checkout this theme.
-2. Checkout the [`theme-example` docs deployment](https://github.com/meteor/theme-example) alongside the `hexo-theme-meteor` directory from the previous step.
+2. Checkout the [`theme-example` docs deployment](https://github.com/meteor/theme-example) alongside the `meteor-theme-hexo` directory from the previous step.
 3. Go into the `theme-example` repository
 4. Run `npm install`
-5. Run `mkdir -p themes && cd themes && ln -s ../../hexo-theme-meteor meteor && cd ..`
+5. Run `mkdir -p themes && cd themes && ln -s ../../meteor-theme-hexo meteor && cd ..`
    > Note: This is only necessary the _first_ time!
 6. Run:
    ```
