@@ -44,7 +44,7 @@ There are [docs docs](https://docs-docs.netlify.com/docs/docs/) for help with do
 | :relaxed: | [apollographql/apollo](https://github.com/apollographql/apollo/) | https://www.apollographql.com/docs/ |
 | :relaxed: | [apollographql/apollo-client](https://github.com/apollographql/apollo-client/) | https://www.apollographql.com/docs/react/ |
 | :relaxed: | [apollographql/apollo-link](https://github.com/apollographql/apollo-link/) | https://www.apollographql.com/docs/link/ |
-| | [apollographql/apollo-angular](https://github.com/apollographql/apollo-angular/) | https://www.apollographql.com/docs/angular/ |
+| :relaxed: | [apollographql/apollo-angular](https://github.com/apollographql/apollo-angular/) | https://www.apollographql.com/docs/angular/ |
 | :relaxed: | [apollographql/apollo-ios](https://github.com/apollographql/apollo-ios/) | https://www.apollographql.com/docs/ios/ |
 | :relaxed: | [apollographql/apollo-android](https://github.com/apollographql/apollo-android/) | https://www.apollographql.com/docs/android/ |
 | :relaxed: | [apollographql/docs-docs](https://github.com/apollographql/docs-docs/) | https://docs-docs.netlify.com/docs/docs/ |
