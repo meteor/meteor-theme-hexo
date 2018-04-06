@@ -37,7 +37,8 @@
 
     <%# We use Prism for syntax highlighting.  Be sure to check out the JS in BODY, below, too! %>
     <%
-      prismBase = "//cdn.jsdelivr.net/npm/prismjs@1.13.0";
+      prismVersion = "1.13.0";
+      prismBase = "//cdn.jsdelivr.net/npm/prismjs@" + prismVersion;
       prismFlavors = [
         "bash",
         "graphql",
