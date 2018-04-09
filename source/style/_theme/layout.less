@@ -15,16 +15,15 @@ body {
 }
 
 .panel {
-  box-shadow: rgba(0,0,0,.1) 0 0 5px 0 inset;
-	background: #2C2F39;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0 inset;
+  background: #2c2f39;
   z-index: 1;
 }
 
 .sidebar {
   .position(fixed, @panel-width-tablet, auto, 0, 0, @sidebar-width);
-  .scrollbars(6px, rgba(0,0,0,.07), rgba(0,0,0,.05));
   background: @color-lighter;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 2;
@@ -92,6 +91,18 @@ body {
 
 // Sidebar search desktop
 .sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .topcap {
+    flex: none;
+  }
+
+  .wrapper-search {
+    flex: none;
+  }
+
   .wrapper-desktop-search-results {
     .transition(all 300ms @easing);
     max-height: 0;
@@ -100,19 +111,29 @@ body {
   }
 
   .toc {
+    flex: 1;
+    .scrollbars(6px, rgba(0,0,0,0.07), rgba(0,0,0,0.05));
+    overflow-y: auto;
     .transition(all 300ms @easing);
     max-height: 300rem;
     opacity: 1;
   }
 
   &.searching {
+    .wrapper-search {
+      flex: 1;
+    }
+
     .wrapper-desktop-search-results {
+      height: 100%;
       max-height: 100vh;
-      overflow: visible;
+      .scrollbars(6px, rgba(0,0,0,0.07), rgba(0,0,0,0.05));
+      overflow-y: auto;
       opacity: 1;
     }
 
     .toc {
+      flex: none;
       max-height: 0;
       overflow: hidden;
       opacity: 0;
