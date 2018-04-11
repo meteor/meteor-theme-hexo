@@ -65,6 +65,9 @@ pre {
 }
 
 code {
+	&:not([class*="language-"]) {
+		background: @color-light;
+	}
 	display: inline-block;
 	padding-left: 2px;
 	padding-right: 2px;
