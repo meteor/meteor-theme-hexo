@@ -2,6 +2,14 @@
 
 ## vNEXT
 
+* The search box is now pinned to the menu and won't scroll off the page when
+  arriving via an anchor link (which intentionally _highlights_ the target page
+  in the sidebar.
+  [PR #62](https://github.com/meteor/meteor-theme-hexo/pull/62)
+* The background color on `<code>` blocks has been re-instated after it was
+  inadvertently removed.
+  [PR #64](https://github.com/meteor/meteor-theme-hexo/pull/64)
+
 ## v1.0.4
 
 * [Prism](http://prismjs.com/) is now used for highlighting, which enables
