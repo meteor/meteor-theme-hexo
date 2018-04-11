@@ -2,6 +2,8 @@
 
 ## vNEXT
 
+## v1.0.5
+
 * The search box is now pinned to the menu and won't scroll off the page when
   arriving via an anchor link (which intentionally _highlights_ the target page
   in the sidebar.
