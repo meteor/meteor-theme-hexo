@@ -99,8 +99,10 @@
         a.src = 'https://nectar.ninja/api/v1/' + handle.slice(1);
         m.parentNode.insertBefore(a, m);
       })();
+    </script>
 
-     <% if (config.apis && config.apis.ga) { %>
+    <% if (config.apis && config.apis.ga) { %>
+      <script>
         // Google analytics
         ;(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -109,10 +111,11 @@
 
         ga('create', '<%- config.apis.ga %>', 'auto');
         ga('send', 'pageview');
-      <% } %>
+      </script>
+    <% } %>
 
-      <% if (config.apis && config.apis.segment) { %>
-<<<<<<< HEAD
+    <% if (config.apis && config.apis.segment) { %>
+      <script>
         <%#
           We define `analytics` in the global context to guard against HTML elements on the page
           potentially named "analytics".  This is necessary because we have some docs pages with
@@ -131,16 +134,20 @@
         analytics.load("<%- config.apis.segment %>");
         analytics.page();
         }}();
-      <% } %>
+      </script>
+    <% } %>
 
-      // search box
-      <% if (config.apis && config.apis.swiftype) { %>
+    // search box
+    <% if (config.apis && config.apis.swiftype) { %>
+      <script>
         ;(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
         (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
         _st('install','<%- config.apis.swiftype %>','2.0.0');
-      <% } else if (config.apis && config.apis.docsearch) { %>
+      </script>
+    <% } else if (config.apis && config.apis.docsearch) { %>
+      <script>
         ['desktop'].forEach(function(type) {
           var search = docsearch({
             apiKey: '<%- config.apis.docsearch.apiKey %>',
@@ -175,9 +182,11 @@
             }
           });
         });
-      <% } %>
+      </script>
+    <% } %>
 
-      <% if (config.redirects) { %>
+    <% if (config.redirects) { %>
+      <script>
         var REDIRECTS = <%- JSON.stringify(config.redirects, 0, 2) %>;
 
         function redirect() {
@@ -199,7 +208,7 @@
 
         // Redirect on hash change
         window.onhashchange = redirect;
-      <% } %>
-    </script>
+      </script>
+    <% } %>
   </body>
 </html>
