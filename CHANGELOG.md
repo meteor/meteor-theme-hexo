@@ -2,6 +2,9 @@
 
 ## vNEXT
 
+* Elements with HTML IDs of `analytics` will no longer break Segment.io.
+  [PR #](https://github.com/meteor/meteor-theme-hexo/pull/)
+
 ## v1.0.5
 
 * The search box is now pinned to the menu and won't scroll off the page when
