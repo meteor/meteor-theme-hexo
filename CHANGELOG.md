@@ -2,6 +2,8 @@
 
 ## vNEXT
 
+## v1.0.6
+
 * Elements with HTML IDs of `analytics` will no longer break Segment.io.
   [PR #65](https://github.com/meteor/meteor-theme-hexo/pull/65)
 * Update Segment.io JavaScript code to latest version.
