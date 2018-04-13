@@ -2,6 +2,10 @@
 
 ## vNEXT
 
+* Separates various JavaScript snippets into their own context to avoid errors
+  from affecting other scripts.
+  [PR #](https://github.com/meteor/meteor-theme-hexo/pull/)
+
 ## v1.0.5
 
 * The search box is now pinned to the menu and won't scroll off the page when
