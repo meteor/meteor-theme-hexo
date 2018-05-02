@@ -24,7 +24,7 @@ In order to develop this theme, you should:
 
 ## npm
 
-This theme deploys to npm as [`meteor-theme-hexo`](https://www.npmjs.com/packages/meteor-theme-hexo).  The package is named slightly different from its GitHub repository because without this naming convention, Hexo believes this to be a plugin!  (Hexo doesn't typically endorse installing a theme from npm.)
+This theme is on npm as [`meteor-theme-hexo`](https://www.npmjs.com/packages/meteor-theme-hexo).
 
 > TODO: Rename this repository?
 
