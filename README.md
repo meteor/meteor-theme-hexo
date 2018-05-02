@@ -1,6 +1,6 @@
 ## Usage
 
-The theme is available on npm as [`meteor-theme-hexo`](https://npm.im/meteor-theme-hexo) (please note the slight naming difference to this repository).  The theme can be used by either:
+The theme is available on npm as [`meteor-theme-hexo`](https://npm.im/meteor-theme-hexo).  The theme can be used by either:
 
 1. _(preferred)_ Installing the theme from npm and allowing dependency auto-update tools, like [**@renovate-bot**](https://github.com/renovate-bot) or [**@greenkeeperio-bot**](https://github.com/greenkeeperio-bot), to update the npm for you.  This requires you to set the `theme` in your `_config.yml` as `../node_modules/meteor-theme-hexo`; or
 2. _(less ideal)_ Cloning this repository into the doc deployment's `themes/meteor` directory and referring to the `theme` in that deployment's `_config.yml` as just `meteor`.  This will require you to update the theme (or at least its submodule) manually!
@@ -21,12 +21,6 @@ In order to develop this theme, you should:
    ```
 
 > For more information, check the [README.md on `theme-example`](https://github.com/meteor/theme-example/blob/master/README.md).
-
-## npm
-
-This theme is on npm as [`meteor-theme-hexo`](https://www.npmjs.com/packages/meteor-theme-hexo).
-
-> TODO: Rename this repository?
 
 ## Docs docs
 
