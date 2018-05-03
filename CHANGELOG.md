@@ -2,6 +2,10 @@
 
 ## vNEXT
 
+## v1.0.9
+
+* Fix the dropdown so it can detect single digit versions from the URL.
+
 ## v1.0.8
 
 * Update the letter-spacing on the sidebar title, in order to fit additional
