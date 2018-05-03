@@ -2,6 +2,11 @@
 
 ## vNEXT
 
+## v1.0.8
+
+* Update the letter-spacing on the sidebar title, in order to fit additional
+  content onto a single line (like a version dropdown).
+
 ## v1.0.7
 
 * Fix the color of charcoal colored dropdown boxes on the charcoal colored
