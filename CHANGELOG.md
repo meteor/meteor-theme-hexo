@@ -2,6 +2,12 @@
 
 ## vNEXT
 
+## v1.0.7
+
+* Fix the color of charcoal colored dropdown boxes on the charcoal colored
+  background.
+* Fix the version selector to support path-based docs deployments.
+
 ## v1.0.6
 
 * Elements with HTML IDs of `analytics` will no longer break Segment.io.
