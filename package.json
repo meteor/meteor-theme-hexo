@@ -1,6 +1,6 @@
 {
   "name": "meteor-theme-hexo",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "[Read the docs docs.](https://docs-docs.netlify.com/docs/docs/)",
   "main": "index.js",
   "scripts": {
