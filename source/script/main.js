@@ -173,7 +173,7 @@
 
     var rootPath = docsConfigRoot.replace(/\/+$/g, '/');
 
-    var pathVersionRegExp = new RegExp('^' + rootPath + 'v(\\d[^\/]\+)', 'i');
+    var pathVersionRegExp = new RegExp('^' + rootPath + 'v([^\/]\+)', 'i');
 
     var versionInPath = location.pathname.match(pathVersionRegExp);
     if (versionInPath && versionInPath[1]) {
