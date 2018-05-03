@@ -12,6 +12,8 @@
   var forEach = Array.prototype.forEach;
   var some = Array.prototype.some;
 
+  docsConfigRoot = docsConfigRoot || '/';
+
   var escapeEntityMap = {
     '&': '&amp;',
     '<': '&lt;',
@@ -168,7 +170,12 @@
     // https://docs.domain.com/v1.2.3
     // https://docs.domain.com/v1.2.3/
     // https://docs.domain.com/v1.2.3/api/email.html
-    var versionInPath = location.pathname.match(/^\/v(\d[^\/]+)/);
+
+    var rootPath = docsConfigRoot.replace(/\/+$/g, '/');
+
+    var pathVersionRegExp = new RegExp('^' + rootPath + 'v(\\d[^\/]\+)', 'i');
+
+    var versionInPath = location.pathname.match(pathVersionRegExp);
     if (versionInPath && versionInPath[1]) {
       return versionInPath[1];
     }
@@ -197,9 +204,9 @@
     }
 
     select.addEventListener('change', function () {
-      var targetPath = '/'
+      var targetPath = docsConfigRoot;
       if (select.selectedIndex !== 0) {
-        targetPath = '/' + select.value + '/'
+        targetPath = targetPath + select.value + '/'
       }
       location.assign(targetPath)
     })
