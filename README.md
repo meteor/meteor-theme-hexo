@@ -9,16 +9,24 @@ The theme is available on npm as [`meteor-theme-hexo`](https://npm.im/meteor-the
 
 In order to develop this theme, you should:
 
-1. Checkout this theme.
-2. Checkout the [`theme-example` docs deployment](https://github.com/meteor/theme-example) alongside the `meteor-theme-hexo` directory from the previous step.
-3. Go into the `theme-example` repository
-4. Run `npm install`
-5. Run `mkdir -p themes && cd themes && ln -s ../../meteor-theme-hexo meteor && cd ..`
-   > Note: This is only necessary the _first_ time!
-6. Run:
+1. Check out this (`meteor-theme-hexo`) repository.
+2. Check out the [`theme-example` docs deployment](https://github.com/meteor/theme-example) alongside the `meteor-theme-hexo` directory.
+3. Check out either ([`apollo-hexo-config`](https://github.com/apollographql/apollo-hexo-config) or [`meteor-hexo-config`](https://github.com/meteor/meteor-hexo-config)) alongside the `meteor-theme-hexo` directory.  This will leave you with something like:
+     ```
+     Dev/
+     ├── meteor-theme-hexo/
+     ├── meteor-hexo-config/ (or apollo-hexo-config/)
+     └── theme-example/
+     ```
+3. Run `npm install` in the `meteor-theme-hexo`
+4. Switch to the `theme-example` directory.
+5. Run `npm install`
+6. Inside `theme-example`, run:
    ```
-   npm start -- --config-pkg apollo-hexo-config --theme-dir themes/meteor
+   npm start -- --config-dir ../apollo-hexo-config --theme-dir ../meteor-theme-hexo
    ```
+   
+   (or `meteor-hexo-config`, if working on the Meteor theme!)
 
 > For more information, check the [README.md on `theme-example`](https://github.com/meteor/theme-example/blob/master/README.md).
 
