@@ -92,10 +92,12 @@
 
     <ul class="toc">
       <% _.each(config.sidebar_categories, function(pages, category) { %>
+
         <li>
           <% if (category !== 'null') { %>
             <div class="heading-toc"><%- category %></div>
           <% } %>
+
           <ul class="list-toc">
             <% pages.forEach(function(path) { %>
               <% const details = pathDetails(path) %>
@@ -112,6 +114,8 @@
             <% }); %>
           </ul>
         </li>
+
+        <hr />
       <% }); %>
     </ul>
   </div>
