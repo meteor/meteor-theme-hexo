@@ -155,14 +155,36 @@
     }
 
     .prev {
+      border: 1px solid #E6ECF1;
+      padding: 20px 50px;
+      border-radius: 3px;
+      box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+      color: @color-darker;
+
+      &:hover {
+        color: #d347a7;
+        border-color: #d347a7;
+      }
+
       [class^="icon-"] {
         left: -2em;
       }
     }
 
     .next {
+      color: @color-darker;
       float: right;
       text-align: right;
+      border: 1px solid #E6ECF1;
+      padding: 20px 50px;
+      border-radius: 3px;
+      box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+    
+
+      &:hover {
+        color: #d347a7;
+        border-color: #d347a7;
+      }
 
       .subtitle-pagination {
         margin-right: -0.35em;
