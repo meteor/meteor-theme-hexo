@@ -121,6 +121,17 @@
 		.sub-menu {
 			margin-top: .375rem;
 
+			a {
+				
+				&.active {
+					.link(@color-lightest);
+					background: #d347a7;
+					color: @color-primary;
+				}
+				
+			}
+
+
 			&:empty {
 				margin: 0;
 				max-height: 0;
