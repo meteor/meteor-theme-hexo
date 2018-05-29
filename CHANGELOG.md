@@ -2,6 +2,10 @@
 
 ## vNEXT
 
+## v1.0.10
+
+* Add cookie consent banner to help accommodate GDPR regulations.
+
 ## v1.0.9
 
 * Fix the dropdown so it can detect single digit versions from the URL.
