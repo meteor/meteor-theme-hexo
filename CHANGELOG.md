@@ -2,6 +2,12 @@
 
 ## vNEXT
 
+## v1.0.11
+
+* Update theme with new look for Apollo.  The Meteor theme is mostly untouched
+  but there have been some small changes in it as well.
+  [PR #71](https://github.com/meteor/meteor-theme-hexo/pull/71)
+
 ## v1.0.10
 
 * Add cookie consent banner to help accommodate GDPR regulations.
