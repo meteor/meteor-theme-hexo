@@ -2,6 +2,11 @@
 
 ## vNEXT
 
+## v1.0.13
+
+* Align headings with tiered structure content.
+  [PR #78](https://github.com/meteor/meteor-theme-hexo/pull/78)
+
 ## v1.0.12
 
 * Fix the tiered structure of the sidebar items to maintain content nesting!
