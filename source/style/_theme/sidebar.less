@@ -35,7 +35,7 @@
 	.heading-toc {
 		.subheading-caps;
 		color: @color-darker;
-		padding: 1.5em 0 .25em;
+		padding: 1.5em 1.6em .25em;
 	}
 
 	.toc > li:first-child > .heading-toc {
@@ -48,7 +48,7 @@
 		padding-left: 0;
 		margin: 0;
 
-		.std-xpadding;
+		//.std-xpadding;
 		padding-bottom: 1.5rem;
 
 		ul {
@@ -70,6 +70,7 @@
 			line-height: 1rem;
 			position: relative;
 			font-weight: 600;
+			padding-left: 1.5rem;
 
 			&.current {
 				&:extend(.link.primary all);
@@ -97,7 +98,7 @@
 				-moz-osx-font-smoothing: grayscale;
 
 				// Show right arrow icon
-				&:extend(.icon-arrow-right-alt:before);
+				//&:extend(.icon-arrow-right-alt:before);
 			}
 
 			&.active,
@@ -130,7 +131,7 @@
 					.link(@color-lightest);
 					background: #d347a7;
 					color: @color-primary;
-					width: 117%;
+					width: 100%;
 					padding: 10px 10px;
 				}
 				
@@ -145,7 +146,7 @@
 
 			li {
 				@indent: 15px;
-				padding-left: @indent;
+				//padding-left: @indent;
 			}
 		}
 
