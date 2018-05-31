@@ -1,4 +1,5 @@
-@sidebar-color: lighten(@color-primary, 10%); //#DD488F; //
+//@sidebar-color: lighten(@color-primary, 10%); //#DD488F; //
+@sidebar-color: #d347a7;
 // @sidebar-color: #C16858;
 
 .header-content {
@@ -87,19 +88,15 @@
 }
 
 .charcoal {
-  background-image: linear-gradient(
-    179deg,
-    #2c2f39 2%,
-    #363944 14%,
-    #32353d 100%
-  );
+  // background-image: linear-gradient(179deg, #2c2f39 2%, #363944 14%, #32353d 100%);
+  background: #f7f8fa !important;
   // background: #14134E !important;
   // background-image: linear-gradient(174deg,#1c2945 0,#2d4d5a 54%,#436a75 81%,#448b8e 100%);
   color: @color-lightest;
 
   &.sidebar {
     .heading-toc {
-      color: @color-mediumlight;
+      color: @color-mediumdark;
     }
 
     select {
@@ -107,9 +104,7 @@
     }
 
     .topcap {
-      background-color: darken(#2c2f39, 5%);
-      // background: darken(#14134E, 8%) !important;
-      // background: darken(#2d4f5f, 5%);
+      background: #353c58;
       margin-bottom: 1rem;
 
       .title-sidebar {
@@ -119,7 +114,7 @@
 
     ul.list-toc {
       a {
-        .link(@color-lightest);
+        .link(@color-dark);
 
         &:hover::before {
           color: @sidebar-color;
@@ -168,7 +163,7 @@
       padding: 0;
       margin-top: 0;
       .menu-content {
-        background-color: transparent;
+        background-color: #353c58;
         margin-top: 0;
         .nav-item {
           margin: 0;
@@ -188,6 +183,7 @@
       #512d5a 68%,
       #843b61 100%
     );
+    background: #1d127d;
     color: @color-lightest;
     a {
       .link(@color-lightest);
@@ -197,7 +193,8 @@
     }
 
     .popup {
-      background-image: linear-gradient(0deg, #c16858 4%, #843b61 97%);
+      //background-image: linear-gradient(0deg, #c16858 4%, #843b61 97%);
+      background: @color-ancillary;
       padding: 0;
       margin-top: 0;
       .menu-content {

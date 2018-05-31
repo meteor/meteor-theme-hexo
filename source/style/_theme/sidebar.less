@@ -35,7 +35,7 @@
 	.heading-toc {
 		.subheading-caps;
 		color: @color-darker;
-		padding: 1.5em 0 .25em;
+		padding: 1.5em 1.6em .25em;
 	}
 
 	.toc > li:first-child > .heading-toc {
@@ -48,7 +48,6 @@
 		padding-left: 0;
 		margin: 0;
 
-		.std-xpadding;
 		padding-bottom: 1.5rem;
 
 		ul {
@@ -69,6 +68,8 @@
 			display: block;
 			line-height: 1rem;
 			position: relative;
+			font-weight: 600;
+			padding-left: 1.5rem;
 
 			&.current {
 				&:extend(.link.primary all);
@@ -96,7 +97,7 @@
 				-moz-osx-font-smoothing: grayscale;
 
 				// Show right arrow icon
-				&:extend(.icon-arrow-right-alt:before);
+				//&:extend(.icon-arrow-right-alt:before);
 			}
 
 			&.active,
@@ -121,6 +122,21 @@
 		.sub-menu {
 			margin-top: .375rem;
 
+			a {
+				
+				font-weight: 400;
+
+				&.active {
+					.link(@color-lightest);
+					background: @color-sidebar-wide;
+					color: @color-primary;
+					width: 100%;
+					padding: 10px 40px;
+				}
+				
+			}
+
+
 			&:empty {
 				margin: 0;
 				max-height: 0;
@@ -129,7 +145,7 @@
 
 			li {
 				@indent: 15px;
-				padding-left: @indent;
+				//padding-left: @indent;
 			}
 		}
 
