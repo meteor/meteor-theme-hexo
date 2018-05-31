@@ -2,6 +2,11 @@
 
 ## vNEXT
 
+## v1.0.12
+
+* Fix the tiered structure of the sidebar items to maintain content nesting!
+  [PR #77](https://github.com/meteor/meteor-theme-hexo/pull/77)
+
 ## v1.0.11
 
 * Update theme with new look for Apollo.  The Meteor theme is mostly untouched
