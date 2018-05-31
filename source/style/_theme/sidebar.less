@@ -60,6 +60,29 @@
 	}
 
 	ul.list-toc {
+		@indent: 15px;
+
+		/*
+			This ensures that each tier of the headings is properly offset,
+			but ensures that the background color can still go all the way to
+			the left margin of the viewport.
+		*/
+		li {
+			a { padding-left: @indent; }
+			li {
+				a { padding-left: (@indent * 2); }
+				li {
+					a { padding-left: (@indent * 3); }
+					li {
+						a { padding-left: (@indent * 4); }
+						li {
+							a { padding-left: (@indent * 5); }
+						}
+					}
+				}
+			}
+		}
+
 		a {
 			.link(@color-darkest);
 			.type-normal;
@@ -131,7 +154,8 @@
 					background: @color-sidebar-wide;
 					color: @color-primary;
 					width: 100%;
-					padding: 10px 40px;
+					padding-top: 10px;
+					padding-bottom: 10px;
 				}
 				
 			}
@@ -141,11 +165,6 @@
 				margin: 0;
 				max-height: 0;
 				overflow: hidden;
-			}
-
-			li {
-				@indent: 15px;
-				//padding-left: @indent;
 			}
 		}
 
