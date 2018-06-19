@@ -2,6 +2,9 @@
 
 ## vNEXT
 
+* Allow the "Edit on GitHub" button to work on "versioned" documentation.
+  [PR #TODO](https://github.com/meteor/meteor-theme-hexo/pull/TODO)
+
 ## v1.0.13
 
 * Align headings with tiered structure content.
