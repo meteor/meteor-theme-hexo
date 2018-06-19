@@ -1,6 +1,15 @@
-<% var githubUrl = 'https://github.com/' + config.github_repo +
-    '/tree/master/' + (config.content_root || 'content') + '/' +
-    page.path.replace(/\.html$/, '.md'); %>
+  <%
+    var githubUrl =
+      'https://github.com/' +
+      config.github_repo +
+      '/tree/' +
+      // If on a version, use the `version-X` branch, not `master`.
+      (config.version ? 'version-' + config.version : 'master') +
+      '/' +
+      (config.content_root || 'content') +
+      '/' +
+      page.path.replace(/\.html$/, '.md');
+  %>
 
   <div class="nav <%- config.nav_class %>">
     <div class="nav-group left">
