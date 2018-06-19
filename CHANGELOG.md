@@ -2,8 +2,10 @@
 
 ## vNEXT
 
+## v1.0.14
+
 * Allow the "Edit on GitHub" button to work on "versioned" documentation.
-  [PR #TODO](https://github.com/meteor/meteor-theme-hexo/pull/TODO)
+  [PR #80](https://github.com/meteor/meteor-theme-hexo/pull/80)
 
 ## v1.0.13
 
