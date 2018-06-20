@@ -3,7 +3,10 @@
 ## vNEXT
 
 * Update Prism version to 1.15.0.
-  [PR #TODO](https://github.com/meteor/meteor-theme-hexo/pull/TODO)
+  [PR #82](https://github.com/meteor/meteor-theme-hexo/pull/82)
+
+* Bundle `yaml` syntax highlighting in as a Prism options.
+  [PR #81](https://github.com/meteor/meteor-theme-hexo/pull/81)
 
 ## v1.0.14
 
