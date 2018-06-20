@@ -2,6 +2,8 @@
 
 ## vNEXT
 
+## v1.0.15
+
 * Update Prism version to 1.15.0.
   [PR #82](https://github.com/meteor/meteor-theme-hexo/pull/82)
 
