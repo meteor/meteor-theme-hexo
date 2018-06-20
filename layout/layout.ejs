@@ -37,7 +37,7 @@
 
     <%# We use Prism for syntax highlighting.  Be sure to check out the JS in BODY, below, too! %>
     <%
-      prismVersion = "1.13.0";
+      prismVersion = "1.15.0";
       prismBase = "//cdn.jsdelivr.net/npm/prismjs@" + prismVersion;
       prismFlavors = [
         "bash",
@@ -49,9 +49,9 @@
         "typescript"
       ]
     %>
-    <link href='//cdn.jsdelivr.net/npm/prismjs@1.13.0/themes/prism.min.css' rel='stylesheet' type='text/css'>
-    <link href='//cdn.jsdelivr.net/npm/prismjs@1.13.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet' type='text/css'>
-    <link href='//cdn.jsdelivr.net/npm/prismjs@1.13.0/plugins/line-highlight/prism-line-highlight.css' rel='stylesheet' type='text/css'>
+    <link href='//cdn.jsdelivr.net/npm/prismjs@<%= prismVersion %>/themes/prism.min.css' rel='stylesheet' type='text/css'>
+    <link href='//cdn.jsdelivr.net/npm/prismjs@<%= prismVersion %>/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet' type='text/css'>
+    <link href='//cdn.jsdelivr.net/npm/prismjs@<%= prismVersion %>/plugins/line-highlight/prism-line-highlight.css' rel='stylesheet' type='text/css'>
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
     <% if (config.css_bundle) {  %>
