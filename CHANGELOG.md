@@ -2,6 +2,9 @@
 
 ## vNEXT
 
+* Re-introduce the scrolling ability within search results.
+  [PR #83](https://github.com/meteor/meteor-theme-hexo/pull/83)
+
 ## v1.0.15
 
 * Update Prism version to 1.15.0.
