@@ -17,16 +17,17 @@
 }
 
 // Main autocomplete wrapper
-.wrapper-desktop-search-results .aa-dropdown-menu {
+.wrapper-desktop-search-results .ds-dropdown-menu {
   //reset algolia js styling
   top: 0.75rem !important;
   bottom: auto !important;
   left: 0 !important;
   right: 0 !important;
   background: @color-lighter;
+  margin-right: 2rem;
 }
 
-.wrapper-mobile-search-results .aa-dropdown-menu {
+.wrapper-mobile-search-results .ds-dropdown-menu {
   //reset algolia js styling
   bottom: auto !important;
   left: 0 !important;
@@ -166,11 +167,11 @@
   &.charcoal {
     @color-highlight-header-background: fade(@color-dark, 95%);
 
-    .wrapper-desktop-search-results .aa-dropdown-menu {
+    .wrapper-desktop-search-results .ds-dropdown-menu {
       background: transparent;
     }
 
-    .wrapper-mobile-search-results .aa-dropdown-menu {
+    .wrapper-mobile-search-results .ds-dropdown-menu {
       background: transparent;
     }
 
