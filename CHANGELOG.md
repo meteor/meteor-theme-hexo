@@ -2,6 +2,8 @@
 
 ## vNEXT
 
+## v1.0.16
+
 * Re-introduce the scrolling ability within search results.
   [PR #83](https://github.com/meteor/meteor-theme-hexo/pull/83)
 
