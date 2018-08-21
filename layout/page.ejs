@@ -31,11 +31,7 @@
 
 
     <% if (config.apollo_nav) { %>
-      <div class="nav-group right">
-        <div id="nav-container" class="show-desktop"></div>
-        <script src="https://www.apollographql.com/index.js"></script>
-        <script>ApolloNav.initNav({ theme: 'light' }, 'nav-container')</script>
-      </div>
+      <%- partial('partials/apolloHeader') %>
     <% } else { %>
       <div class="nav-group right">
         <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
