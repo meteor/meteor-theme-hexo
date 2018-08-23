@@ -13,6 +13,7 @@ const remove = promisify(require("fs-extra").remove);
 
 const tmp = require("tmp-promise");
 const yaml = require("js-yaml");
+const shelljs = require("shelljs");
 
 const {
   join: pathJoin,
@@ -42,11 +43,54 @@ function determineConfigsToTest() {
   return toTest;
 }
 
+function shellExecPromise(...args) {
+  return new Promise((resolve, reject) =>
+    shelljs.exec(...args, function (code, stdout, stderr) {
+      if (!stderr && code === 0) {
+        resolve(stdout.trim());
+      } else {
+        reject({code, stderr});
+      }
+    }));
+}
+
+const packedThemeCache = Object.create(null);
+async function packAndCacheTheme(dirTheme) {
+  if (typeof packedThemeCache[dirTheme] === "string") {
+    return packedThemeCache[dirTheme];
+  }
+
+  if (packedThemeCache[dirTheme] === null) {
+    throw new Error(`Unable to pack theme for ${dirTheme}`);
+  }
+
+  console.log("Generating packed module for ", dirTheme);
+
+  const originalDirectory = process.cwd();
+  const tmpHandle = await tmp.dir();
+  shelljs.cd(tmpHandle.path);
+
+  // Pack the theme and cache the full path to its location.
+  try {
+    await shellExecPromise(`npm --silent pack ${dirTheme}`)
+      .then(tgz =>
+        packedThemeCache[dirTheme] = pathJoin(tmpHandle.path, tgz));
+  } catch (err) {
+    console.error("Couldn't pack the theme: " + err);
+    packedThemeCache[dirTheme] = null;
+  } finally {
+    shelljs.cd(originalDirectory);
+  }
+
+  return packAndCacheTheme(dirTheme);
+}
+
 async function generateWithRepo({ dirTheme, repoPath, configPackage, dirOut }) {
   const git = require("simple-git/promise");
-  const shelljs = require("shelljs");
 
   console.log("Processing test config for: " + configPackage);
+
+  shelljs.env.FORCE_COLOR = true;
 
   // Wipe any local changes in our repository clean, aggressively.
   // It's a temporary directory, so nothing that we need to worry about.
@@ -60,10 +104,20 @@ async function generateWithRepo({ dirTheme, repoPath, configPackage, dirOut }) {
     0,
     `An error occurred while installing the '${configPackage}' npm package.`);
 
-  // Make the symlink, rather than using npm install --link.
-  await symlink(
-    dirTheme,
-    pathJoin("node_modules", "meteor-theme-hexo"));
+  // Pack the theme using npm pack, then install the packed theme.  This works
+  // far better than using `npm link`, `npm install --link` or any more forceful
+  // attempt to link a package from somewhere else into the current
+  // `node_modules` directory since that fails to accurately represent the way
+  // that `node_modules` would be represented in an actual `npm install`-ed app.
+  await packAndCacheTheme(dirTheme)
+    .then(tgz => {
+      const code = shelljs.exec(`npm install ${tgz}`).code;
+      assert.strictEqual(code, 0);
+    }).catch(err => {
+      console.error(err);
+      throw new Error(
+        "An error occurred installing the theme via npm pack+install.");
+    });
 
   // This is the expected path to the _config.yml in the config package.
   const configPath = pathJoin("node_modules", configPackage, "_config.yml");
