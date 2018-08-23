@@ -1,4 +1,4 @@
-  <%
+<%
     var githubUrl =
       'https://github.com/' +
       config.github_repo +
@@ -18,35 +18,38 @@
       </div>
       <div class="nav-item">
         <% logo = config.logo || theme.logo %>
-        <a class="logo-wrapper" href="<%- logo.url %>" title="<%- logo.title %> <%- logo.subtitle %>" <%- logo.target && 'target=' + logo.target %> >
-          <img src="<%- relative_url(page.path, logo.nav_mobile) %>" alt="<%- logo.title %>" class="logo"/>
-          <% if (logo && logo.subbrand) { %>
-            <img src="<%- relative_url(page.path, logo.subbrand) %>" class="logo-subbrand" alt="<%- logo.subtitle %>"/>
-          <% } else { %>
-            <span><%- logo && logo.subtitle %></span>
-          <% } %>
-        </a>
+          <a class="logo-wrapper" href="<%- logo.url %>" title="<%- logo.title %> <%- logo.subtitle %>" <%- logo.target &&
+            'target=' + logo.target %> >
+            <img src="<%- relative_url(page.path, logo.nav_mobile) %>" alt="<%- logo.title %>" class="logo" />
+            <% if (logo && logo.subbrand) { %>
+              <img src="<%- relative_url(page.path, logo.subbrand) %>" class="logo-subbrand" alt="<%- logo.subtitle %>" />
+              <% } else { %>
+                <span><%- logo && logo.subtitle %></span>
+                <% } %>
+          </a>
       </div>
     </div>
 
 
     <% if (config.apollo_nav) { %>
       <div class="nav-group right">
-        <div id="nav-container" class="show-desktop"></div>
-        <script src="https://www.apollographql.com/index.js"></script>
-        <script>ApolloNav.initNav({ theme: 'light' }, 'nav-container')</script>
+        <div id="nav-container" class="show-desktop">
+          <%- partial('partials/apollo-nav/desktop-nav') %>
+        </div>
+        <!-- <script src="https://www.apollographql.com/index.js"></script> -->
+        <!-- <script>ApolloNav.initNav({ theme: 'light' }, 'nav-container')</script> -->
       </div>
-    <% } else { %>
-      <div class="nav-group right">
-        <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
-          <div class="nav-item show-desktop <%- link.active && 'active' %> <%- link.separator && 'separator' %>">
-            <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
-              <span><%- title %></span>
-            </a>
-          </div>
-        <% }) %>
-    <% } %>
-    </div>
+      <% } else { %>
+        <div class="nav-group right">
+          <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
+            <div class="nav-item show-desktop <%- link.active && 'active' %> <%- link.separator && 'separator' %>">
+              <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
+                <span><%- title %></span>
+              </a>
+            </div>
+            <% }) %>
+              <% } %>
+        </div>
   </div>
 
   <%- partial('partials/sidebar') %>
@@ -76,13 +79,13 @@
                   <span class="icon-comment"></span>
                   <span>Discuss</span>
                 </a>
-              <% } %>
-              <% if (config.social_links.slackInvitePage) { %>
-                <a class="btn tertiary small round lowercase" href="<%- config.social_links.slackInvitePage %>">
-                  <img src="<%- relative_url(page.path, 'images/slack.png') %>" style="width: 12px; margin: 0 3px -2px -3px;" />
-                  <span>Discuss on Slack</span>
-                </a>
-              <% } %>
+                <% } %>
+                  <% if (config.social_links.slackInvitePage) { %>
+                    <a class="btn tertiary small round lowercase" href="<%- config.social_links.slackInvitePage %>">
+                      <img src="<%- relative_url(page.path, 'images/slack.png') %>" style="width: 12px; margin: 0 3px -2px -3px;" />
+                      <span>Discuss on Slack</span>
+                    </a>
+                    <% } %>
             </div>
           </div>
         </div>
@@ -111,24 +114,24 @@
                 : pages[i - 1]
             }
           %>
-          <% var prev = findAdjacent(-1); if (prev) { %>
-         
+            <% var prev = findAdjacent(-1); if (prev) { %>
+
               <a class="link primary prev" href="<%- relative_url(page.path, prev.path) %>">
                 <span class="icon-arrow-left-alt"></span>
                 <span class="subtitle-pagination">Previous</span>
                 <%- prev.title %>
               </a>
-         
-          <% } %>
-          <% var next = findAdjacent(1); if (next) { %>
-           
-              <a class="link primary next" href="<%- relative_url(page.path, next.path) %>">
-                <span class="subtitle-pagination">Next</span>
-                <%- next.title %>
-                  <span class="icon-arrow-right-alt"></span>
-              </a>
-           
-          <% } %>
+
+              <% } %>
+                <% var next = findAdjacent(1); if (next) { %>
+
+                  <a class="link primary next" href="<%- relative_url(page.path, next.path) %>">
+                    <span class="subtitle-pagination">Next</span>
+                    <%- next.title %>
+                      <span class="icon-arrow-right-alt"></span>
+                  </a>
+
+                  <% } %>
         </div>
       </div>
 
@@ -145,7 +148,7 @@
         <script type="text/javascript">
           DiscourseEmbed = {
             discourseUrl: 'http://forums.meteor.com/',
-            topicId: <%- page.discourseTopicId %> };
+            topicId: <% - page.discourseTopicId %> };
 
           (function () {
             var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
