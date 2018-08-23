@@ -90,6 +90,8 @@ async function generateWithRepo({ dirTheme, repoPath, configPackage, dirOut }) {
 
   console.log("Processing test config for: " + configPackage);
 
+  shelljs.env.FORCE_COLOR = true;
+
   // Wipe any local changes in our repository clean, aggressively.
   // It's a temporary directory, so nothing that we need to worry about.
   await git(repoPath).checkout(".");
