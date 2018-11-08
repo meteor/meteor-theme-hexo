@@ -64,27 +64,6 @@
               </div>
               <% } %>
           </div>
-
-          <div class="page-actions">
-            <div class="actions-group">
-              <a class="btn tertiary small round lowercase" href="<%- githubUrl %>" target="_blank">
-                <span class="icon-github"></span>
-                <span>Edit on GitHub</span>
-              </a>
-              <% if (page.discourseTopicId) { %>
-                <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/<%- page.discourseTopicId %>">
-                  <span class="icon-comment"></span>
-                  <span>Discuss</span>
-                </a>
-              <% } %>
-              <% if (config.social_links.slackInvitePage) { %>
-                <a class="btn tertiary small round lowercase" href="<%- config.social_links.slackInvitePage %>">
-                  <img src="<%- relative_url(page.path, 'images/slack.png') %>" style="width: 12px; margin: 0 3px -2px -3px;" />
-                  <span>Discuss on Slack</span>
-                </a>
-              <% } %>
-            </div>
-          </div>
         </div>
       </div>
 
