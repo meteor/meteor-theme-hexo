@@ -140,7 +140,12 @@
 
 .nav {
   &.dark {
-    /* A reminder that this theme exists, though not configured here. */
+    a {
+      .link(@color-lightest);
+    }
+    .icon-menu {
+      color:@color-lightest;
+    }
   }
 
   &.navy {

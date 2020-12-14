@@ -16,7 +16,7 @@
       <div class="nav-item mobile-button js-sidebar-toggle show-mobile">
         <span class="icon-menu"></span>
       </div>
-      <div class="nav-item">
+      <div class="nav-item nav-item-logo">
         <% logo = config.logo || theme.logo %>
         <a class="logo-wrapper" href="<%- logo.url %>" title="<%- logo.title %> <%- logo.subtitle %>" <%- logo.target && 'target=' + logo.target %> >
           <img src="<%- relative_url(page.path, logo.nav_mobile) %>" alt="<%- logo.title %>" class="logo"/>
@@ -91,22 +91,22 @@
             }
           %>
           <% var prev = findAdjacent(-1); if (prev) { %>
-         
+
               <a class="link primary prev" href="<%- relative_url(page.path, prev.path) %>">
                 <span class="icon-arrow-left-alt"></span>
                 <span class="subtitle-pagination">Previous</span>
                 <%- prev.title %>
               </a>
-         
+
           <% } %>
           <% var next = findAdjacent(1); if (next) { %>
-           
+
               <a class="link primary next" href="<%- relative_url(page.path, next.path) %>">
                 <span class="subtitle-pagination">Next</span>
                 <%- next.title %>
                   <span class="icon-arrow-right-alt"></span>
               </a>
-           
+
           <% } %>
         </div>
       </div>
