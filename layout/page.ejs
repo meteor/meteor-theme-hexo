@@ -4,7 +4,8 @@
       config.github_repo +
       '/tree/' +
       // If on a version, use the `version-X` branch, not `master`.
-      (config.version ? 'version-' + config.version : 'master') +
+      (config.version ? 'version-' + config.version : (config.edit_branch ? config.edit_branch : 'master')) +
+      (config.edit_path ? '/' + config.edit_path : '') +
       '/' +
       (config.content_root || 'content') +
       '/' +
