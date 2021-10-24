@@ -18,7 +18,7 @@
         <span class="icon-menu"></span>
       </div>
       <div class="nav-item nav-item-logo">
-        <% logo = config.logo || theme.logo %>
+        <% logo = config.logo %>
         <a class="logo-wrapper" href="<%- logo.url %>" title="<%- logo.title %> <%- logo.subtitle %>" <%- logo.target && 'target=' + logo.target %> >
           <img src="<%- relative_url(page.path, logo.nav_mobile) %>" alt="<%- logo.title %>" class="logo"/>
           <% if (logo && logo.subbrand) { %>
@@ -30,23 +30,14 @@
       </div>
     </div>
 
-
-    <% if (config.apollo_nav) { %>
-      <div class="nav-group right">
-        <div id="nav-container" class="show-desktop"></div>
-        <script src="https://apollographql-nav.netlify.com/index.js"></script>
-        <script>ApolloNav.initNav({ theme: 'light' }, 'nav-container')</script>
-      </div>
-    <% } else { %>
-      <div class="nav-group right">
-        <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
-          <div class="nav-item show-desktop <%- link.active && 'active' %> <%- link.separator && 'separator' %>">
-            <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
-              <span><%- title %></span>
-            </a>
-          </div>
-        <% }) %>
-    <% } %>
+    <div class="nav-group right">
+      <% Object.entries(config.nav_links).forEach(function ([title, link]) { %>
+        <div class="nav-item show-desktop <%- link.active && 'active' %> <%- link.separator && 'separator' %>">
+          <a class="link" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
+            <span><%- title %></span>
+          </a>
+        </div>
+      <% }) %>
     </div>
   </div>
 
@@ -78,7 +69,7 @@
         <div class="content-wrapper">
           <%
             function findAdjacent (direction) {
-              var pagePaths = _.flatten(_.map(config.sidebar_categories, function(vals) { return vals; }));
+              var pagePaths = Object.entries(config.sidebar_categories).map(function([key, vals]) { return vals; }).reduce( (a, b) => a.concat(b), []);
               var pages = pagePaths.map(function (val) { return site.pages.findOne({path: val + '.html'}); });
               var i = pages.length
               while (i--) {

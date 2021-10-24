@@ -10,9 +10,14 @@
     if (isOutsidePath(path)) {
       return path;
     }
+    // i18n
+    let lang = '';
+    if (page.language !== 'en') {
+      lang = page.language + '/';
+    }
 
     // The path we've been told to find from _config.yaml.
-    const htmlPath = `${path}.html`
+    const htmlPath = `${lang}${path}.html`
 
     const extraClasses = [];
 
@@ -51,11 +56,11 @@
       <script>ApolloNav.initNav({ theme: 'light', id: 'mobile-nav' }, 'sidebar-panel-nav')</script></a>
     <% } else { %>
       <div class="panel-item">
-        <a class="" href="<%- relative_url(page.path, theme.logo.url) %>" title="<%- theme.logo.title %>" <%- theme.logo.target && 'target=' + theme.logo.target %> >
-          <span><%- theme.logo.title %> <%- theme.logo.subtitle %></span>
+        <a class="" href="<%- relative_url(page.path, config.logo.url) %>" title="<%- config.logo.title %>" <%- config.logo.target && 'target=' + config.logo.target %> >
+          <span><%- config.logo.title %> <%- config.logo.subtitle %></span>
         </a>
       </div>
-      <% _.each(config.nav_links || theme.nav_links, function (link, title) { %>
+      <% Object.entries(config.nav_links).forEach(function ([title, link]) { %>
         <div class="panel-item <%- link.active && 'active' %>">
           <a class="" href="<%- link.url || link %>" <%- link.target && 'target=' + link.target %> >
             <span><%- title %></span>
@@ -93,7 +98,7 @@
     <% } %>
 
     <ul class="toc">
-      <% _.each(config.sidebar_categories, function(pages, category) { %>
+      <%  Object.entries(config.sidebar_categories).forEach(function ([category, pages]) { %>
 
         <li>
           <% if (category !== 'null') { %>
