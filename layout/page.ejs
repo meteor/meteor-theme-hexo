@@ -70,6 +70,13 @@
           <%
             function findAdjacent (direction) {
               var pagePaths = Object.entries(config.sidebar_categories).map(function([key, vals]) { return vals; }).reduce( (a, b) => a.concat(b), []);
+              // i18n
+              if (page.lang && page.lang !== 'en') {
+                const lang = page.lang + '/';
+                pagePaths.forEach((path, index) => {
+                  pagePaths[index] = `${lang}${path}`;
+                })
+              }
               var pages = pagePaths.map(function (val) { return site.pages.findOne({path: val + '.html'}); });
               var i = pages.length
               while (i--) {
