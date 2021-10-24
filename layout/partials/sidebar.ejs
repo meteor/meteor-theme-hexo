@@ -12,8 +12,8 @@
     }
     // i18n
     let lang = '';
-    if (page.language !== 'en') {
-      lang = page.language + '/';
+    if (page.lang && page.lang !== 'en') {
+      lang = page.lang + '/';
     }
 
     // The path we've been told to find from _config.yaml.
@@ -99,7 +99,6 @@
 
     <ul class="toc">
       <%  Object.entries(config.sidebar_categories).forEach(function ([category, pages]) { %>
-
         <li>
           <% if (category !== 'null') { %>
             <div class="heading-toc"><%- category %></div>
@@ -108,6 +107,7 @@
           <ul class="list-toc">
             <% pages.forEach(function(path) { %>
               <% const details = pathDetails(path) %>
+
               <% if (details) { %>
               <li class="item-toc <%- details.extraClasses %>">
                 <a

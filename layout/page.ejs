@@ -86,7 +86,7 @@
 
               <a class="link primary prev" href="<%- relative_url(page.path, prev.path) %>">
                 <span class="icon-arrow-left-alt"></span>
-                <span class="subtitle-pagination">Previous</span>
+                <span class="subtitle-pagination"><%= __('pagination.previous') %></span>
                 <%- prev.title %>
               </a>
 
@@ -94,7 +94,7 @@
           <% var next = findAdjacent(1); if (next) { %>
 
               <a class="link primary next" href="<%- relative_url(page.path, next.path) %>">
-                <span class="subtitle-pagination">Next</span>
+                <span class="subtitle-pagination"><%= __('pagination.next') %></span>
                 <%- next.title %>
                   <span class="icon-arrow-right-alt"></span>
               </a>
@@ -105,7 +105,7 @@
 
       <div class="github">
         <a class="link tertiary " href="<%- githubUrl %>" target="_blank">
-          <span class="icon-github"></span>Edit on GitHub</a>
+          <span class="icon-github"></span><%= __('github.edit') %></a>
       </div>
 
       <% if (page.discourseTopicId) { %>

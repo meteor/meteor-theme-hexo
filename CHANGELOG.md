@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## vNEXT
+## v3.0.0
+
+* Remove `underscore`
+* Compatibility fixes for Hexo v5
+* i18n
 
 ## v1.0.16
 
