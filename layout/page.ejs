@@ -79,7 +79,7 @@
           <%
             function findAdjacent (direction) {
               var pagePaths = _.flatten(_.map(config.sidebar_categories, function(vals) { return vals; }));
-              var pages = _.map(pagePaths, function (val) { return site.pages.findOne({path: val + '.html'}); });
+              var pages = pagePaths.map(function (val) { return site.pages.findOne({path: val + '.html'}); });
               var i = pages.length
               while (i--) {
                 if (pages[i] && pages[i].title === page.title) {
