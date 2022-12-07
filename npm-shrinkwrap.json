@@ -4,6 +4,21 @@
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
+    "@kwsites/file-exists": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/@kwsites/file-exists/-/file-exists-1.1.1.tgz",
+      "integrity": "sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==",
+      "dev": true,
+      "requires": {
+        "debug": "^4.1.1"
+      }
+    },
+    "@kwsites/promise-deferred": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz",
+      "integrity": "sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==",
+      "dev": true
+    },
     "argparse": {
       "version": "1.0.9",
       "resolved": "https://registry.npmjs.org/argparse/-/argparse-1.0.9.tgz",
@@ -51,12 +66,12 @@
       "dev": true
     },
     "debug": {
-      "version": "3.1.0",
-      "resolved": "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz",
-      "integrity": "sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==",
+      "version": "4.3.4",
+      "resolved": "https://registry.npmjs.org/debug/-/debug-4.3.4.tgz",
+      "integrity": "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==",
       "dev": true,
       "requires": {
-        "ms": "2.0.0"
+        "ms": "2.1.2"
       }
     },
     "esprima": {
@@ -180,9 +195,9 @@
       }
     },
     "ms": {
-      "version": "2.0.0",
-      "resolved": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",
-      "integrity": "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=",
+      "version": "2.1.2",
+      "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz",
+      "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==",
       "dev": true
     },
     "once": {
@@ -251,12 +266,14 @@
       }
     },
     "simple-git": {
-      "version": "1.89.0",
-      "resolved": "https://registry.npmjs.org/simple-git/-/simple-git-1.89.0.tgz",
-      "integrity": "sha1-71L+c01QYFZs4Yeyu6zjbCMj40w=",
+      "version": "3.15.0",
+      "resolved": "https://registry.npmjs.org/simple-git/-/simple-git-3.15.0.tgz",
+      "integrity": "sha512-FiWoMPlcYHQ+ApRihUsGjC/ZmIlWj62S6MBCwOunczvXcLQt+9ZdrysDrR6QVepkRQfEAaBXrN2QtJKrN6zbtg==",
       "dev": true,
       "requires": {
-        "debug": "^3.1.0"
+        "@kwsites/file-exists": "^1.1.1",
+        "@kwsites/promise-deferred": "^1.1.1",
+        "debug": "^4.3.4"
       }
     },
     "sprintf-js": {
