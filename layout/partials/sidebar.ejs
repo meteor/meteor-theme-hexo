@@ -45,19 +45,6 @@
 %>
 
 <div class="sidebar <% if (config.apollo_nav) { %>charcoal<% } %>">
-  <script>
-      const searchInput = document.getElementById('desktop-search-input');
-      document.addEventListener('keydown', handleKeyDown);
-      function handleKeyDown(event) {
-        const isCmdOrCtrlKeyPressed = event.metaKey || event.ctrlKey;
-        const isKKeyPressed = event.key === 'k' || event.keyCode === 75;
-        if (isCmdOrCtrlKeyPressed && isKKeyPressed) {
-          searchInput.style.display = 'block';
-          searchInput.focus();
-          event.preventDefault();
-        }
-      }
-  </script>
   <div class="panel">
     <% if (config.apollo_nav) { %>
       <div id="sidebar-panel-nav"></div>
