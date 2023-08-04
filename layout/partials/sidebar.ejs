@@ -1,3 +1,20 @@
+<script>
+document.addEventListener('keydown', handleKeyDown);
+function handleKeyDown(event) {
+  const searchInput = document.getElementById('desktop-search-input');
+  // Check if CMD/CTRL key and the letter ‘k’ are pressed simultaneously
+  const isCmdOrCtrlKeyPressed = event.metaKey || event.ctrlKey;
+  const isKKeyPressed = event.key === 'k' || event.keyCode === 75; // keyCode for ‘k’ is 75
+  if (isCmdOrCtrlKeyPressed && isKKeyPressed) {
+    // The CMD/CTRL + K combination is detected
+    // Perform the action you want, for example, displaying the search box
+    searchInput.style.display = 'block'; // Replace ‘block’ with the appropriate display style
+    searchInput.focus(); // Set focus on the search input field
+    event.preventDefault(); // Prevent the default browser behavior for this key combination
+  }
+}
+</script>
+
 <%
   const hasOwn = Object.prototype.hasOwnProperty;
   function isOutsidePath(path) {
@@ -45,19 +62,19 @@
 %>
 
 <div class="sidebar <% if (config.apollo_nav) { %>charcoal<% } %>">
-  <script>
+  <script async>
+    document.addEventListener('keydown', handleKeyDown);
+    function handleKeyDown(event) {
       const searchInput = document.getElementById('desktop-search-input');
-      document.addEventListener('keydown', handleKeyDown);
-      function handleKeyDown(event) {
-        const isCmdOrCtrlKeyPressed = event.metaKey || event.ctrlKey;
-        const isKKeyPressed = event.key === 'k' || event.keyCode === 75;
-        if (isCmdOrCtrlKeyPressed && isKKeyPressed) {
-          searchInput.style.display = 'block';
-          searchInput.focus();
-          event.preventDefault();
-        }
+      const isCmdOrCtrlKeyPressed = event.metaKey || event.ctrlKey;
+      const isKKeyPressed = event.key === 'k' || event.keyCode === 75;
+      if (isCmdOrCtrlKeyPressed && isKKeyPressed) {
+        searchInput.style.display = 'block';
+        searchInput.focus();
+        event.preventDefault();
       }
-  </script>
+    }
+</script>
   <div class="panel">
     <% if (config.apollo_nav) { %>
       <div id="sidebar-panel-nav"></div>
