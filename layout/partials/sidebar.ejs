@@ -46,18 +46,18 @@
 
 <div class="sidebar <% if (config.apollo_nav) { %>charcoal<% } %>">
   <script>
+    document.addEventListener('keydown', handleKeyDown);
+    function handleKeyDown(event) {
       const searchInput = document.getElementById('desktop-search-input');
-      document.addEventListener('keydown', handleKeyDown);
-      function handleKeyDown(event) {
-        const isCmdOrCtrlKeyPressed = event.metaKey || event.ctrlKey;
-        const isKKeyPressed = event.key === 'k' || event.keyCode === 75;
-        if (isCmdOrCtrlKeyPressed && isKKeyPressed) {
-          searchInput.style.display = 'block';
-          searchInput.focus();
-          event.preventDefault();
-        }
+      const isCmdOrCtrlKeyPressed = event.metaKey || event.ctrlKey;
+      const isKKeyPressed = event.key === 'k' || event.keyCode === 75;
+      if (isCmdOrCtrlKeyPressed && isKKeyPressed) {
+        searchInput.style.display = 'block';
+        searchInput.focus();
+        event.preventDefault();
       }
-  </script>
+    }
+</script>
   <div class="panel">
     <% if (config.apollo_nav) { %>
       <div id="sidebar-panel-nav"></div>
@@ -96,7 +96,7 @@
     <div class="wrapper-search">
       <div class="input-area">
         <div class="input-symbol small round">
-          <input type="text" placeholder="Search <%- config.subtitle %>" id="desktop-search-input" />
+          <input type="text" placeholder="Press ⌘ + K to search" id="desktop-search-input" />
           <span class="icon-search"></span>
         </div>
       </div>
