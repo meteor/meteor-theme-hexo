@@ -1,12 +1,12 @@
 {
-  "name": "meteor-theme-hexo",
-  "version": "2.0.4",
+  "name": "@meteorjs/meteor-theme-hexo",
+  "version": "2.0.8",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "meteor-theme-hexo",
-      "version": "2.0.4",
+      "name": "@meteorjs/meteor-theme-hexo",
+      "version": "2.0.8",
       "license": "MIT",
       "devDependencies": {
         "fs-extra": "^5.0.0",

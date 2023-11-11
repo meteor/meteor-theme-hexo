@@ -43,7 +43,6 @@ There are [docs docs](https://docs-docs.netlify.com/docs/docs/) for help with do
 | :relaxed: | [meteor/guide](https://github.com/meteor/guide/) | https://guide.meteor.com/ |
 | :relaxed: | [meteor/docs](https://github.com/meteor/docs/) | https://docs.meteor.com/ |
 | :relaxed: | [meteor/galaxy-docs](https://github.com/meteor/galaxy-docs/) | https://galaxy-guide.meteor.com/ |
-| :relaxed: | [apollographql/docs-docs](https://github.com/apollographql/docs-docs/) | https://docs-docs.netlify.com/docs/docs/ |
 
   <sup>[0]</sup> Equipped with auto-update dependency management, so you don't need to make sure the theme is updated.
 
